@@ -957,13 +957,35 @@ const concepts = {
 
 const treatyHub = {
 
-  "Sample treaty texts": [],
+  "Sample texts": [
+    {
+      title: "Last year's final treaty",
+      url: "#"
+    },
+    {
+      title: "Paris Accords text",
+      url: "#"
+    },
+    {
+      title: "Kunming-Montreal Global Biodiversity Framework text",
+      url: "#"
+    }
+  ],
 
-  "Round 1 drafts": [],
+  "Round 1 texts": [],
 
-  "Round 2 drafts": [],
+  "Round 2 texts": [],
 
-  "Final treaty text": []
+  "National bioeconomy strategies": [
+    {
+      title: "Peru's bioeconomy strategy",
+      url: "#"
+    },
+    {
+      title: "Press release for Finland's bioeconomy strategy",
+      url: "#"
+    }
+  ]
 
 };
 
