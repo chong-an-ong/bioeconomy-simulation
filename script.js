@@ -424,18 +424,18 @@ const countryFlags = {
    ========================================================= */
 
 const countries = [
-  "India",
-  "China",
-  "Brazil",
-  "Germany",
-  "UAE",
-  "Panama",
-  "Gabon",
-  "France",
-  "Indonesia",
   "Australia",
+  "Brazil",
+  "China",
   "Finland",
-  "Peru"
+  "France",
+  "Gabon",
+  "Germany",
+  "India",
+  "Indonesia",
+  "Panama",
+  "Peru",
+  "UAE"
 ];
 
 
@@ -1251,6 +1251,108 @@ document
     `);
 
   });
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+function openTimeline() {
+
+  openModal(`
+    <h2>Timeline</h2>
+
+    <div class="subtitle">
+      Simulation milestones and deadlines
+    </div>
+
+    <div class="treaty-document-list">
+
+      <div class="treaty-item">
+        <strong>10/26</strong>
+        <p>Actor Memo Part 1 Due</p>
+      </div>
+
+      <div class="treaty-item">
+        <strong>10/28</strong>
+        <p>Actor Memo Part 2 Due</p>
+      </div>
+
+      <div class="treaty-item">
+        <strong>10/29</strong>
+        <p>Vote on Negotiation Chair</p>
+      </div>
+
+      <div class="treaty-item">
+        <strong>11/5</strong>
+        <p>First Draft Due</p>
+      </div>
+
+      <div class="treaty-item">
+        <strong>11/17</strong>
+        <p>Rough Draft Due</p>
+      </div>
+
+      <div class="treaty-item">
+        <strong>11/21</strong>
+        <p>Amendments Draft Due</p>
+      </div>
+
+      <div class="treaty-item">
+        <strong>12/3</strong>
+        <p>Final Vote on the Treaty</p>
+      </div>
+
+      <div class="treaty-item">
+        <strong>12/09</strong>
+        <p>Final Paper Due</p>
+      </div>
+
+    </div>
+  `);
+
+}
+
+
+/* =========================================================
+   RULES & NORMS
+   ========================================================= */
+
+function openRules() {
+
+  openModal(`
+    <h2>Rules &amp; Norms</h2>
+
+    <div class="subtitle">
+      Simulation rules and negotiation norms
+    </div>
+
+    <iframe
+      class="rules-pdf"
+      src="assets/Treaty%20Norms%20and%20Rules.pdf"
+      title="Treaty Norms and Rules">
+    </iframe>
+  `);
+
+}
+
+
+/* =========================================================
+   UTILITY BUTTON EVENTS
+   ========================================================= */
+
+document.addEventListener("click", event => {
+
+  if (event.target.closest("#timelineBtn")) {
+    openTimeline();
+    return;
+  }
+
+  if (event.target.closest("#rulesBtn")) {
+    openRules();
+    return;
+  }
+
+});
 
 /* =========================================================
    MODAL EVENTS
