@@ -295,3 +295,83 @@ h1 {
   .map-hint { left: 22px; }
 }
 
+/* =========================
+   LEFT SIMULATION TOOLBAR
+   ========================= */
+
+.simulation-toolbar {
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  z-index: 20;
+}
+
+.toolbar-section {
+  margin-bottom: 24px;
+}
+
+.toolbar-heading {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.coalition-button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 7px 9px;
+
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(237,242,243,.12);
+  border-radius: 3px;
+
+  color: var(--text);
+  font-family: inherit;
+  font-size: 10px;
+  line-height: 1.25;
+  text-align: left;
+
+  cursor: pointer;
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    color .15s ease;
+}
+
+.coalition-button:hover {
+  background: rgba(215,227,229,.08);
+  border-color: rgba(215,227,229,.35);
+  color: var(--text);
+}
+
+.coalition-button:active {
+  background: rgba(215,227,229,.13);
+}
+
+.coalition-country {
+  margin-bottom: 3px;
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.coalition-description {
+  max-width: 650px;
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.coalition-empty {
+  color: var(--muted);
+  font-size: 12px;
+}

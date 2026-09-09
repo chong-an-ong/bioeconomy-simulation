@@ -19,7 +19,45 @@
     <button id="treatyHubBtn" class="utility-button">Treaty Hub</button>
   </header>
 
-  <main class="map-wrap">
+<div class="simulation-toolbar">
+  <div class="toolbar-section">
+    <div class="toolbar-heading">SECTORS</div>
+
+    <button class="coalition-button" data-filter-type="sector" data-filter-value="Fibers / Textiles">
+      Fibers / Textiles
+    </button>
+
+    <button class="coalition-button" data-filter-type="sector" data-filter-value="Marine">
+      Marine
+    </button>
+
+    <button class="coalition-button" data-filter-type="sector" data-filter-value="Forestry / Timber">
+      Forestry / Timber
+    </button>
+
+    <button class="coalition-button" data-filter-type="sector" data-filter-value="Agriculture">
+      Agriculture
+    </button>
+
+    <button class="coalition-button" data-filter-type="sector" data-filter-value="Bio-based Chemicals">
+      Bio-based Chemicals
+    </button>
+  </div>
+
+  <div class="toolbar-section">
+    <div class="toolbar-heading">CONSTITUENCIES</div>
+
+    <button class="coalition-button" data-filter-type="constituency" data-filter-value="Indigenous">
+      Indigenous
+    </button>
+
+    <button class="coalition-button" data-filter-type="constituency" data-filter-value="NGOs">
+      NGOs
+    </button>
+  </div>
+</div>
+
+<main class="map-wrap">
   <div class="map-hint">Select a country</div>
   <div id="worldMap" class="world-map"></div>
 </main>
