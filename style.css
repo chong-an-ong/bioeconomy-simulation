@@ -314,23 +314,30 @@ h1 {
     drop-shadow(0 0 10px rgba(255,255,255,.25));
 }
 
-/* =========================================================
-   MAP HINT
-   ========================================================= */
+.country-selector-area {
+  margin-top: 22px;
+  text-align: center;
+}
 
-.map-hint {
-  position: absolute;
-
-  bottom: 24px;
-  left: 42px;
+.country-selector-hint {
+  margin-bottom: 8px;
 
   color: var(--muted);
 
-  font-size: 11px;
-  letter-spacing: .1em;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
+.country-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  white-space: nowrap;
+}
 
 /* =========================================================
    LEFT SIMULATION TOOLBAR
