@@ -205,13 +205,7 @@ function openDelegation(country) {
   `);
 }
 
-document.querySelectorAll(".country").forEach(country => {
-  country.addEventListener("click", () => {
-    document.querySelectorAll(".country.selected").forEach(c => c.classList.remove("selected"));
-    country.classList.add("selected");
-    openDelegation(country.id);
-  });
-});
+
 
 document.querySelectorAll(".concept-link").forEach(button => {
   button.addEventListener("click", () => {
@@ -236,3 +230,85 @@ document.getElementById("treatyHubBtn").addEventListener("click", () => {
 document.getElementById("closeModal").addEventListener("click", closeModal);
 overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+async function loadWorldMap() {
+  const mapContainer = document.getElementById("worldMap");
+
+  try {
+    const response = await fetch("assets/world.svg");
+
+    if (!response.ok) {
+      throw new Error(`Could not load world.svg: ${response.status}`);
+    }
+
+    const svgText = await response.text();
+    mapContainer.innerHTML = svgText;
+
+    const svg = mapContainer.querySelector("svg");
+
+    if (!svg) {
+      throw new Error("world.svg does not contain an SVG element.");
+    }
+
+    svg.id = "worldMapSvg";
+
+    svg.removeAttribute("width");
+    svg.removeAttribute("height");
+    svg.setAttribute("width", "100%");
+    svg.setAttribute("height", "100%");
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+    attachCountryHandlers();
+
+  } catch (error) {
+    console.error("Error loading world map:", error);
+    mapContainer.innerHTML =
+      '<p style="color: white;">Unable to load world map.</p>';
+  }
+}
+
+
+function attachCountryHandlers() {
+
+  const countryMap = {
+    IN: "India",
+    CN: "China",
+    BR: "Brazil",
+    DE: "Germany",
+    AE: "UAE",
+    PA: "Panama",
+    GA: "Gabon",
+    FR: "France",
+    ID: "Indonesia",
+    AU: "Australia",
+    FI: "Finland",
+    PE: "Peru"
+  };
+
+  Object.entries(countryMap).forEach(([isoCode, countryName]) => {
+
+    const country = document.getElementById(isoCode);
+
+    if (!country) {
+      console.warn(`Could not find ${isoCode} in world.svg`);
+      return;
+    }
+
+    country.classList.add("country");
+
+    country.addEventListener("click", () => {
+
+      document
+        .querySelectorAll("#worldMapSvg .country.selected")
+        .forEach(c => c.classList.remove("selected"));
+
+      country.classList.add("selected");
+
+      openDelegation(countryName);
+    });
+
+    country.style.cursor = "pointer";
+  });
+}
+
+
+loadWorldMap();

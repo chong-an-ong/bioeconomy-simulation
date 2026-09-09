@@ -20,27 +20,9 @@
   </header>
 
   <main class="map-wrap">
-    <div class="map-hint">Select a country</div>
-    <svg id="worldMap" viewBox="0 0 1000 520" aria-label="World map">
-      <!-- Placeholder country shapes. Replace with a real world SVG later.
-           IDs correspond to countries already selected for the simulation. -->
-      <g class="country" id="Canada"><rect x="105" y="75" width="155" height="62" rx="8"/><text x="182" y="111">Canada</text></g>
-      <g class="country" id="United States"><rect x="125" y="145" width="130" height="55" rx="8"/><text x="190" y="178">United States</text></g>
-      <g class="country" id="Mexico"><rect x="160" y="207" width="70" height="35" rx="7"/><text x="195" y="229">Mexico</text></g>
-      <g class="country" id="Brazil"><rect x="405" y="285" width="105" height="105" rx="10"/><text x="457" y="339">Brazil</text></g>
-      <g class="country" id="Peru"><rect x="365" y="300" width="50" height="70" rx="7"/><text x="390" y="337">Peru</text></g>
-      <g class="country" id="Panama"><rect x="315" y="267" width="48" height="25" rx="5"/><text x="339" y="284">Panama</text></g>
-      <g class="country" id="France"><rect x="493" y="178" width="58" height="45" rx="7"/><text x="522" y="205">France</text></g>
-      <g class="country" id="Germany"><rect x="553" y="165" width="60" height="50" rx="7"/><text x="583" y="194">Germany</text></g>
-      <g class="country" id="Finland"><rect x="590" y="92" width="55" height="68" rx="7"/><text x="617" y="130">Finland</text></g>
-      <g class="country" id="UAE"><rect x="642" y="245" width="55" height="35" rx="7"/><text x="669" y="267">UAE</text></g>
-      <g class="country" id="India"><rect x="704" y="225" width="65" height="80" rx="8"/><text x="736" y="268">India</text></g>
-      <g class="country" id="China"><rect x="745" y="165" width="105" height="75" rx="8"/><text x="797" y="205">China</text></g>
-      <g class="country" id="Indonesia"><rect x="760" y="315" width="105" height="35" rx="7"/><text x="812" y="337">Indonesia</text></g>
-      <g class="country" id="Australia"><rect x="790" y="390" width="120" height="70" rx="10"/><text x="850" y="427">Australia</text></g>
-      <g class="country" id="Gabon"><rect x="525" y="285" width="55" height="55" rx="7"/><text x="552" y="316">Gabon</text></g>
-    </svg>
-  </main>
+  <div class="map-hint">Select a country</div>
+  <div id="worldMap" class="world-map"></div>
+</main>
 
   <div id="overlay" class="overlay hidden">
     <section id="modal" class="modal" role="dialog" aria-modal="true">
