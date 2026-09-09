@@ -174,7 +174,11 @@ function openDelegation(country) {
 
   const actors = d.actors.map(a => `
     <article class="actor">
-      <div class="actor-photo">${a.photo ? "Photo" : "Add photo"}</div>
+      <div class="actor-photo">
+  ${a.photo
+    ? `<img src="${a.photo}" alt="${a.name}">`
+    : "Add photo"}
+</div>
       <div>
         <h4>${a.name}</h4>
         <div class="role">${a.role}</div>
