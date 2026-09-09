@@ -52,7 +52,9 @@ h1 {
   font-weight: 600;
   letter-spacing: -.025em;
 }
-
+.goal h1 {
+  white-space: nowrap;
+}
 .concept-link {
   appearance: none;
   border: 0;
@@ -64,6 +66,19 @@ h1 {
   cursor: pointer;
   border-bottom: 1px dashed rgba(237,242,243,.55);
   transition: opacity .15s, border-color .15s;
+  font-style: italic;
+}
+
+.concept-link[data-concept="international"] {
+  color: #8faec4;
+}
+
+.concept-link[data-concept="bioeconomy"] {
+  color: #8eaa8f;
+}
+
+.concept-link[data-concept="framework"] {
+  color: #b5a47a;
 }
 
 .concept-link:hover {
@@ -97,6 +112,12 @@ h1 {
   display: grid;
   place-items: center;
   padding: 110px 38px 28px;
+}
+
+#worldMap {
+  width: min(1150px, 94vw);
+  height: 76vh;
+  overflow: visible;
 }
 
 /* Base styling for every country */
@@ -265,3 +286,4 @@ h1 {
   #worldMap { width: 100%; }
   .map-hint { left: 22px; }
 }
+
