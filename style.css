@@ -1119,7 +1119,7 @@ h1 {
 }
 
 .treaty-document-list .treaty-link {
-  display: block;
+  display: inline;
   margin-right: 0;
   color: var(--muted);
   font-size: 12px;
