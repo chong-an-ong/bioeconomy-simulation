@@ -775,18 +775,18 @@ const countryFlags = {
 };
 
 const countryLabelDirections = {
-  India: ["south", "southeast", "southwest"],
-  China: ["southeast", "east", "south"],
-  Brazil: ["west", "southwest", "northwest"],
-  Germany: ["east", "northeast", "southeast"],
-  UAE: ["east", "southeast", "northeast"],
-  Panama: ["west", "southwest", "northwest"],
-  Gabon: ["west", "southwest", "northwest"],
-  France: ["west", "northwest", "southwest"],
-  Indonesia: ["east", "southeast", "northeast"],
-  Australia: ["east", "southeast", "northeast"],
-  Finland: ["east", "northeast", "southeast"],
-  Peru: ["west", "southwest", "northwest"]
+  India: ["south", "southsoutheast", "southeast", "southwest"],
+  China: ["eastsoutheast", "east", "southeast", "northeast"],
+  Brazil: ["east", "eastnortheast", "southeast", "northeast"],
+  Germany: ["northnorthwest", "northwest", "north", "westnorthwest"],
+  UAE: ["eastnortheast", "east", "northeast", "southeast"],
+  Panama: ["westnorthwest", "west", "southwest", "northwest"],
+  Gabon: ["west", "westsouthwest", "southwest", "northwest"],
+  France: ["westnorthwest", "northwest", "west", "southwest"],
+  Indonesia: ["east", "eastsoutheast", "southeast", "northeast"],
+  Australia: ["east", "eastsoutheast", "southeast", "northeast"],
+  Finland: ["northnortheast", "northeast", "north", "eastnortheast"],
+  Peru: ["westsouthwest", "west", "southwest", "northwest"]
 };
 
 function createCountryLabels() {
@@ -813,16 +813,24 @@ function createCountryLabels() {
     "Peru"
   ];
 
-  const directionVectors = {
-    north: [0, -1],
-    northeast: [0.707, -0.707],
-    east: [1, 0],
-    southeast: [0.707, 0.707],
-    south: [0, 1],
-    southwest: [-0.707, 0.707],
-    west: [-1, 0],
-    northwest: [-0.707, -0.707]
-  };
+const directionVectors = {
+  north: [0, -1],
+  northnortheast: [0.25, -1],
+  northeast: [0.707, -0.707],
+  eastnortheast: [1, -0.25],
+  east: [1, 0],
+  eastsoutheast: [1, 0.25],
+  southeast: [0.707, 0.707],
+  southsoutheast: [0.25, 1],
+  south: [0, 1],
+  southsouthwest: [-0.25, 1],
+  southwest: [-0.707, 0.707],
+  westsouthwest: [-1, 0.25],
+  west: [-1, 0],
+  westnorthwest: [-1, -0.25],
+  northwest: [-0.707, -0.707],
+  northnorthwest: [-0.25, -1]
+};
 
   const placedLabels = [];
 
@@ -907,6 +915,160 @@ function createCountryLabels() {
       height: maxY - minY
     };
   }
+function getCountryBorderPoint(countryName, direction) {
+  const paths = Array.from(
+    svg.querySelectorAll(
+      `path.country[data-country-name="${countryName}"]`
+    )
+  );
+
+  if (!paths.length) return null;
+
+  const [dx, dy] = directionVectors[direction];
+
+  let anchor = null;
+
+  // Find a point that is definitely inside the country
+  for (const path of paths) {
+    const box = path.getBBox();
+
+    const candidates = [
+      [box.x + box.width / 2, box.y + box.height / 2],
+      [box.x + box.width * 0.4, box.y + box.height * 0.4],
+      [box.x + box.width * 0.6, box.y + box.height * 0.6]
+    ];
+
+    for (const [x, y] of candidates) {
+      const point = svg.createSVGPoint();
+      point.x = x;
+      point.y = y;
+
+      if (path.isPointInFill(point)) {
+        anchor = point;
+        break;
+      }
+    }
+
+    if (anchor) break;
+  }
+
+  // Fallback: grid search for an interior point
+  if (!anchor) {
+    outer:
+    for (const path of paths) {
+      const box = path.getBBox();
+
+      for (let ix = 1; ix <= 5; ix++) {
+        for (let iy = 1; iy <= 5; iy++) {
+          const point = svg.createSVGPoint();
+
+          point.x = box.x + box.width * (ix / 6);
+          point.y = box.y + box.height * (iy / 6);
+
+          if (path.isPointInFill(point)) {
+            anchor = point;
+            break outer;
+          }
+        }
+      }
+    }
+  }
+
+  if (!anchor) return null;
+
+  // Walk outward from the interior point until we leave the country
+  const step = 2;
+
+  let insidePoint = {
+    x: anchor.x,
+    y: anchor.y
+  };
+
+  let outsidePoint = {
+    x: anchor.x,
+    y: anchor.y
+  };
+
+  for (let distance = 0; distance <= 500; distance += step) {
+    const point = svg.createSVGPoint();
+
+    point.x = anchor.x + dx * distance;
+    point.y = anchor.y + dy * distance;
+
+    let inside = false;
+
+    for (const path of paths) {
+      if (path.isPointInFill(point)) {
+        inside = true;
+        break;
+      }
+    }
+
+    if (inside) {
+      insidePoint = {
+        x: point.x,
+        y: point.y
+      };
+    } else {
+      outsidePoint = {
+        x: point.x,
+        y: point.y
+      };
+      break;
+    }
+  }
+
+  // Binary-search the transition between inside and outside
+  for (let i = 0; i < 8; i++) {
+    const midX = (insidePoint.x + outsidePoint.x) / 2;
+    const midY = (insidePoint.y + outsidePoint.y) / 2;
+
+    const point = svg.createSVGPoint();
+    point.x = midX;
+    point.y = midY;
+
+    let inside = false;
+
+    for (const path of paths) {
+      if (path.isPointInFill(point)) {
+        inside = true;
+        break;
+      }
+    }
+
+    if (inside) {
+      insidePoint = {
+        x: midX,
+        y: midY
+      };
+    } else {
+      outsidePoint = {
+        x: midX,
+        y: midY
+      };
+    }
+  }
+
+  const borderPoint = svg.createSVGPoint();
+
+  borderPoint.x =
+    (insidePoint.x + outsidePoint.x) / 2;
+
+  borderPoint.y =
+    (insidePoint.y + outsidePoint.y) / 2;
+
+  // Convert SVG coordinates to screen/map coordinates
+  const screenPoint = borderPoint.matrixTransform(
+    svg.getScreenCTM()
+  );
+
+  const mapRect = mapWrap.getBoundingClientRect();
+
+  return {
+    x: screenPoint.x - mapRect.left,
+    y: screenPoint.y - mapRect.top
+  };
+}
 
   countries.forEach(countryName => {
     const geometry = getCountryGeometry(countryName);
@@ -1068,32 +1230,44 @@ function createCountryLabels() {
       Draw a small leader line from the country
       toward the label.
     */
-    const line = document.createElement("div");
+    const borderPoint = getCountryBorderPoint(
+  countryName,
+  chosenDirection
+);
 
-    line.className = "country-label-line";
+if (borderPoint) {
+  const line = document.createElement("div");
 
-    const startX = geometry.x;
-    const startY = geometry.y;
+  line.className = "country-label-line";
 
-    const endX = chosenPosition.x;
-    const endY = chosenPosition.y;
+  const startX = borderPoint.x;
+  const startY = borderPoint.y;
 
-    const lineLength = Math.sqrt(
-      Math.pow(endX - startX, 2) +
-      Math.pow(endY - startY, 2)
-    );
+  const endX =
+    chosenPosition.x -
+    Math.sign(chosenPosition.x - startX) * 8;
 
-    const angle =
-      Math.atan2(endY - startY, endX - startX) *
-      180 /
-      Math.PI;
+  const endY =
+    chosenPosition.y -
+    Math.sign(chosenPosition.y - startY) * 3;
 
-    line.style.width = `${lineLength}px`;
-    line.style.left = `${startX}px`;
-    line.style.top = `${startY}px`;
-    line.style.transform = `rotate(${angle}deg)`;
+  const lineLength = Math.sqrt(
+    Math.pow(endX - startX, 2) +
+    Math.pow(endY - startY, 2)
+  );
 
-    labelContainer.insertBefore(line, label);
+  const angle =
+    Math.atan2(endY - startY, endX - startX) *
+    180 /
+    Math.PI;
+
+  line.style.width = `${lineLength}px`;
+  line.style.left = `${startX}px`;
+  line.style.top = `${startY}px`;
+  line.style.transform = `rotate(${angle}deg)`;
+
+  labelContainer.insertBefore(line, label);
+}
   });
 }
 
