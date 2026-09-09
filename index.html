@@ -6,70 +6,142 @@
   <title>Global Bioeconomy Simulation</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
   <header class="topbar">
+
     <div class="goal">
       <div class="eyebrow">SIMULATION GOAL</div>
-      <h1>To negotiate an
+
+      <h1>
+        To negotiate an
         <button class="concept-link" data-concept="international">international</button>
         <button class="concept-link" data-concept="bioeconomy">bioeconomy</button>
         <button class="concept-link" data-concept="framework">framework</button>
       </h1>
+
+      <nav id="countrySelector" class="country-selector" aria-label="Simulation countries"></nav>
     </div>
-    <button id="treatyHubBtn" class="utility-button">Treaty Hub</button>
+
+    <button id="treatyHubBtn" class="utility-button">
+      Treaty Hub
+    </button>
+
   </header>
 
-<div class="simulation-toolbar">
-  <div class="toolbar-section">
-    <div class="toolbar-heading">SECTORS</div>
 
-    <button class="coalition-button" data-filter-type="sector" data-filter-value="Fibers / Textiles">
-      Fibers / Textiles
-    </button>
+  <!-- LEFT SIMULATION TOOLBAR -->
 
-    <button class="coalition-button" data-filter-type="sector" data-filter-value="Marine">
-      Marine
-    </button>
+  <div class="simulation-toolbar">
 
-    <button class="coalition-button" data-filter-type="sector" data-filter-value="Forestry / Timber">
-      Forestry / Timber
-    </button>
+    <div class="toolbar-section">
 
-    <button class="coalition-button" data-filter-type="sector" data-filter-value="Agriculture">
-      Agriculture
-    </button>
+      <div class="toolbar-heading">
+        SECTORS
+      </div>
 
-    <button class="coalition-button" data-filter-type="sector" data-filter-value="Bio-based Chemicals">
-      Bio-based Chemicals
-    </button>
+      <button
+        class="coalition-button"
+        data-filter-type="sector"
+        data-filter-value="Fibers / Textiles">
+        Fibers / Textiles
+      </button>
+
+      <button
+        class="coalition-button"
+        data-filter-type="sector"
+        data-filter-value="Marine">
+        Marine
+      </button>
+
+      <button
+        class="coalition-button"
+        data-filter-type="sector"
+        data-filter-value="Forestry / Timber">
+        Forestry / Timber
+      </button>
+
+      <button
+        class="coalition-button"
+        data-filter-type="sector"
+        data-filter-value="Agriculture">
+        Agriculture
+      </button>
+
+      <button
+        class="coalition-button"
+        data-filter-type="sector"
+        data-filter-value="Bio-based Chemicals">
+        Bio-based Chemicals
+      </button>
+
+    </div>
+
+
+    <div class="toolbar-section">
+
+      <div class="toolbar-heading">
+        CONSTITUENCIES
+      </div>
+
+      <button
+        class="coalition-button"
+        data-filter-type="constituency"
+        data-filter-value="Indigenous">
+        Indigenous
+      </button>
+
+      <button
+        class="coalition-button"
+        data-filter-type="constituency"
+        data-filter-value="NGOs">
+        NGOs
+      </button>
+
+    </div>
+
   </div>
 
-  <div class="toolbar-section">
-    <div class="toolbar-heading">CONSTITUENCIES</div>
 
-    <button class="coalition-button" data-filter-type="constituency" data-filter-value="Indigenous">
-      Indigenous
-    </button>
+  <!-- WORLD MAP -->
 
-    <button class="coalition-button" data-filter-type="constituency" data-filter-value="NGOs">
-      NGOs
-    </button>
-  </div>
-</div>
+  <main class="map-wrap">
 
-<main class="map-wrap">
-  <div class="map-hint">Select a country</div>
-  <div id="worldMap" class="world-map"></div>
-  <div id="countryLabels" class="country-labels"></div>
-</main>
+    <div id="worldMap" class="world-map"></div>
+
+    <div class="map-hint">
+      Select a country
+    </div>
+
+  </main>
+
+
+  <!-- MODAL / OVERLAY -->
 
   <div id="overlay" class="overlay hidden">
-    <section id="modal" class="modal" role="dialog" aria-modal="true">
-      <button id="closeModal" class="close" aria-label="Close">×</button>
+
+    <section
+      id="modal"
+      class="modal"
+      role="dialog"
+      aria-modal="true">
+
+      <button
+        id="closeModal"
+        class="close"
+        aria-label="Close">
+        ×
+      </button>
+
       <div id="modalContent"></div>
+
     </section>
+
   </div>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>

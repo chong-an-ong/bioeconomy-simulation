@@ -10,9 +10,12 @@
   --accent: #d7e3e5;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   min-height: 100%;
   background: var(--bg);
@@ -20,20 +23,32 @@ html, body {
   font-family: "DM Sans", sans-serif;
 }
 
-body { overflow: hidden; }
+body {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
 .topbar {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: 10;
-  padding: 30px 42px 18px;
+  z-index: 20;
+
+  padding: 30px 42px 0;
+
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
   pointer-events: none;
 }
 
-.goal { pointer-events: auto; }
+.goal {
+  pointer-events: auto;
+}
 
 .eyebrow {
   font-size: 11px;
@@ -46,27 +61,42 @@ body { overflow: hidden; }
 h1 {
   margin: 0;
   max-width: 760px;
+
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(24px, 2.4vw, 38px);
   line-height: 1.15;
   font-weight: 600;
   letter-spacing: -.025em;
 }
+
 .goal h1 {
   white-space: nowrap;
 }
+
+
+/* =========================================================
+   CONCEPT LINKS
+   ========================================================= */
+
 .concept-link {
   appearance: none;
   border: 0;
   padding: 0;
   margin: 0 .08em;
+
   color: inherit;
   background: transparent;
+
   font: inherit;
-  cursor: pointer;
-  border-bottom: 1px dashed rgba(237,242,243,.55);
-  transition: opacity .15s, border-color .15s;
   font-style: italic;
+
+  cursor: pointer;
+
+  border-bottom: 1px dashed rgba(237,242,243,.55);
+
+  transition:
+    opacity .15s,
+    border-color .15s;
 }
 
 .concept-link[data-concept="international"] {
@@ -86,19 +116,32 @@ h1 {
   opacity: .72;
 }
 
+
+/* =========================================================
+   TREATY HUB BUTTON
+   ========================================================= */
+
 .utility-button {
   pointer-events: auto;
+
   margin-top: 2px;
   padding: 10px 16px;
+
   border: 1px solid rgba(237,242,243,.38);
   border-radius: 5px;
+
   color: var(--text);
   background: rgba(29,42,52,.5);
+
   font: 600 12px "DM Sans", sans-serif;
   letter-spacing: .1em;
   text-transform: uppercase;
+
   cursor: pointer;
-  transition: background .15s, border-color .15s;
+
+  transition:
+    background .15s,
+    border-color .15s;
 }
 
 .utility-button:hover {
@@ -106,253 +149,183 @@ h1 {
   border-color: rgba(237,242,243,.7);
 }
 
+
+/* =========================================================
+   COUNTRY SELECTOR
+   ========================================================= */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 22px;
+
+  white-space: nowrap;
+}
+
+.country-selector-button {
+  appearance: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 7px 9px;
+
+  border: 1px solid rgba(237,242,243,.12);
+  border-radius: 4px;
+
+  color: var(--muted);
+  background: rgba(255,255,255,.025);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    color .15s ease;
+}
+
+.country-selector-button:hover {
+  color: var(--text);
+  background: rgba(215,227,229,.08);
+  border-color: rgba(215,227,229,.35);
+}
+
+.country-selector-button.hovered {
+  color: var(--text);
+  background: rgba(215,227,229,.08);
+  border-color: rgba(215,227,229,.35);
+}
+
+.country-selector-button.selected {
+  color: var(--text);
+  background: rgba(215,227,229,.13);
+  border-color: rgba(215,227,229,.55);
+}
+
+.country-selector-flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.country-selector-name {
+  line-height: 1;
+}
+
+
+/* =========================================================
+   WORLD MAP
+   ========================================================= */
+
 .map-wrap {
   position: fixed;
   inset: 0;
+
   display: grid;
   place-items: center;
-  padding: 110px 38px 28px;
+
+  padding: 135px 38px 35px;
 }
 
 #worldMap {
-  width: min(1150px, 94vw);
-  height: 76vh;
+  width: min(1250px, 94vw);
+  height: 80vh;
+
   overflow: visible;
 }
 
+
 /* Base styling for every country */
+
 #worldMapSvg path {
   fill: none !important;
+
   stroke: var(--line) !important;
   stroke-width: 1.2 !important;
+
   vector-effect: non-scaling-stroke;
+
   transition: none;
 }
 
+
 /* Simulation countries */
+
 #worldMapSvg path.country {
   fill: transparent !important;
+
   pointer-events: all !important;
+
   stroke: var(--accent) !important;
   stroke-width: 2 !important;
+
   cursor: pointer;
 }
 
-/* Multi-part country: highlight entire group */
+
+/* Hovered country */
+
 #worldMapSvg path.country.country-hover {
   fill: rgba(215,227,229,.08) !important;
+
   stroke: var(--text) !important;
   stroke-width: 2.5 !important;
 }
 
+
 /* Selected country */
+
 #worldMapSvg path.country.selected {
-  fill: rgba(215,227,229,.14) !important;
+  fill: rgba(215,227,229,.16) !important;
+
   stroke: var(--text) !important;
   stroke-width: 3 !important;
 }
 
-.country-labels {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-}
 
-.country-label {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
-  transform: translate(-50%, -50%);
-  padding: 3px 5px;
-  background: rgba(38,54,66,.88);
-  border-radius: 3px;
-}
-
-.country-label-name {
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .02em;
-  padding-bottom: 3px;
-  border-bottom: 1px solid rgba(237,242,243,.75);
-}
-
-.country-label-flag {
-  font-size: 12px;
-  line-height: 1;
-}
-
-.country-label-line {
-  position: absolute;
-  height: 2px;
-  background: repeating-linear-gradient(
-    to right,
-    rgba(237,242,243,.55) 0,
-    rgba(237,242,243,.55) 6px,
-    transparent 6px,
-    transparent 11px
-  );
-  transform-origin: 0 50%;
-  pointer-events: none;
-  z-index: -1;
-}
+/* =========================================================
+   MAP HINT
+   ========================================================= */
 
 .map-hint {
   position: absolute;
+
   bottom: 24px;
   left: 42px;
+
   color: var(--muted);
+
   font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  display: grid;
-  place-items: center;
-  padding: 70px 40px;
-  background: rgba(12,19,24,.55);
-  backdrop-filter: blur(2px);
-}
 
-.hidden { display: none; }
-
-.modal {
-  position: relative;
-  width: min(850px, 88vw);
-  max-height: 82vh;
-  overflow: auto;
-  padding: 38px 44px 44px;
-  background: rgba(38,54,66,.97);
-  border: 1px solid rgba(237,242,243,.22);
-  border-radius: 8px;
-  box-shadow: 0 25px 80px rgba(0,0,0,.32);
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 18px;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  font-size: 28px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.close:hover { color: var(--text); }
-
-.modal h2 {
-  margin: 0 0 8px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 28px;
-  letter-spacing: -.02em;
-}
-
-.modal .subtitle {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 28px;
-}
-
-.modal h3 {
-  margin: 28px 0 14px;
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.modal p {
-  margin: 0 0 12px;
-  line-height: 1.55;
-  color: #dbe3e5;
-}
-
-.actor {
-  display: grid;
-  grid-template-columns: 105px 1fr;
-  gap: 18px;
-  padding: 18px 0;
-  border-top: 1px solid rgba(237,242,243,.12);
-}
-
-.actor-photo {
-  width: 105px;
-  height: 125px;
-  border-radius: 4px;
-  background: var(--bg-deep);
-  border: 1px dashed rgba(237,242,243,.2);
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-}
-
-.actor-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.actor h4 {
-  margin: 0 0 4px;
-  font-size: 17px;
-}
-
-.actor .role {
-  color: var(--muted);
-  font-size: 12px;
-  margin-bottom: 12px;
-}
-
-.links a, .treaty-link {
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px dashed rgba(237,242,243,.4);
-  margin-right: 14px;
-  font-size: 12px;
-}
-
-.links a:hover, .treaty-link:hover { border-bottom-color: var(--text); }
-
-.treaty-section {
-  padding: 18px 0;
-  border-top: 1px solid rgba(237,242,243,.12);
-}
-
-.treaty-section h3 { margin-top: 0; }
-
-.treaty-item { margin: 10px 0; }
-
-@media (max-width: 800px) {
-  body { overflow: auto; }
-  .topbar { padding: 22px; }
-  .map-wrap { padding: 125px 15px 50px; }
-  #worldMap { width: 100%; }
-  .map-hint { left: 22px; }
-}
-
-/* =========================
+/* =========================================================
    LEFT SIMULATION TOOLBAR
-   ========================= */
+   ========================================================= */
 
 .simulation-toolbar {
   position: absolute;
+
   left: 28px;
   top: 50%;
+
   transform: translateY(-50%);
+
   width: 150px;
+
   z-index: 20;
 }
 
@@ -362,7 +335,9 @@ h1 {
 
 .toolbar-heading {
   margin-bottom: 8px;
+
   color: var(--muted);
+
   font-size: 9px;
   font-weight: 600;
   letter-spacing: .14em;
@@ -371,21 +346,26 @@ h1 {
 
 .coalition-button {
   display: block;
+
   width: 100%;
   margin-bottom: 5px;
   padding: 7px 9px;
 
   background: rgba(255,255,255,.025);
+
   border: 1px solid rgba(237,242,243,.12);
   border-radius: 3px;
 
   color: var(--text);
+
   font-family: inherit;
   font-size: 10px;
   line-height: 1.25;
+
   text-align: left;
 
   cursor: pointer;
+
   transition:
     background .15s ease,
     border-color .15s ease,
@@ -394,7 +374,9 @@ h1 {
 
 .coalition-button:hover {
   background: rgba(215,227,229,.08);
+
   border-color: rgba(215,227,229,.35);
+
   color: var(--text);
 }
 
@@ -404,7 +386,9 @@ h1 {
 
 .coalition-country {
   margin-bottom: 3px;
+
   color: var(--accent);
+
   font-size: 9px;
   font-weight: 600;
   letter-spacing: .1em;
@@ -413,13 +397,294 @@ h1 {
 
 .coalition-description {
   max-width: 650px;
+
   margin-bottom: 20px;
+
   color: var(--muted);
+
   font-size: 12px;
   line-height: 1.5;
 }
 
 .coalition-empty {
   color: var(--muted);
+
   font-size: 12px;
+}
+
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 30;
+
+  display: grid;
+  place-items: center;
+
+  padding: 70px 40px;
+
+  background: rgba(12,19,24,.55);
+
+  backdrop-filter: blur(2px);
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+  position: relative;
+
+  width: min(850px, 88vw);
+  max-height: 82vh;
+
+  overflow: auto;
+
+  padding: 38px 44px 44px;
+
+  background: rgba(38,54,66,.97);
+
+  border: 1px solid rgba(237,242,243,.22);
+  border-radius: 8px;
+
+  box-shadow: 0 25px 80px rgba(0,0,0,.32);
+}
+
+.close {
+  position: absolute;
+
+  top: 15px;
+  right: 18px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--text);
+}
+
+.modal h2 {
+  margin: 0 0 8px;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 28px;
+
+  letter-spacing: -.02em;
+}
+
+.modal .subtitle {
+  color: var(--muted);
+
+  font-size: 13px;
+
+  margin-bottom: 28px;
+}
+
+.modal h3 {
+  margin: 28px 0 14px;
+
+  font-size: 11px;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.modal p {
+  margin: 0 0 12px;
+
+  line-height: 1.55;
+
+  color: #dbe3e5;
+}
+
+
+/* =========================================================
+   ACTOR CARDS
+   ========================================================= */
+
+.actor {
+  display: grid;
+
+  grid-template-columns: 105px 1fr;
+
+  gap: 18px;
+
+  padding: 18px 0;
+
+  border-top: 1px solid rgba(237,242,243,.12);
+}
+
+.actor-photo {
+  width: 105px;
+  height: 125px;
+
+  border-radius: 4px;
+
+  background: var(--bg-deep);
+
+  border: 1px dashed rgba(237,242,243,.2);
+
+  display: grid;
+  place-items: center;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+}
+
+.actor-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.actor h4 {
+  margin: 0 0 4px;
+
+  font-size: 17px;
+}
+
+.actor .role {
+  color: var(--muted);
+
+  font-size: 12px;
+
+  margin-bottom: 12px;
+}
+
+.links a,
+.treaty-link {
+  color: var(--text);
+
+  text-decoration: none;
+
+  border-bottom: 1px dashed rgba(237,242,243,.4);
+
+  margin-right: 14px;
+
+  font-size: 12px;
+}
+
+.links a:hover,
+.treaty-link:hover {
+  border-bottom-color: var(--text);
+}
+
+
+/* =========================================================
+   TREATY HUB
+   ========================================================= */
+
+.treaty-section {
+  padding: 18px 0;
+
+  border-top: 1px solid rgba(237,242,243,.12);
+}
+
+.treaty-section h3 {
+  margin-top: 0;
+}
+
+.treaty-item {
+  margin: 10px 0;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .country-selector {
+    justify-content: flex-start;
+
+    max-width: calc(100vw - 84px);
+
+    overflow-x: auto;
+
+    padding-bottom: 4px;
+  }
+
+  .country-selector-button {
+    flex-shrink: 0;
+  }
+
+  .simulation-toolbar {
+    width: 125px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  body {
+    overflow: auto;
+  }
+
+  .topbar {
+    padding: 22px;
+  }
+
+  .goal h1 {
+    white-space: normal;
+  }
+
+  .country-selector {
+    margin-top: 18px;
+  }
+
+  .map-wrap {
+    padding: 165px 15px 50px;
+  }
+
+  #worldMap {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .simulation-toolbar {
+    display: none;
+  }
+
+  .map-hint {
+    left: 22px;
+  }
+
+  .utility-button {
+    font-size: 10px;
+    padding: 8px 11px;
+  }
+
 }

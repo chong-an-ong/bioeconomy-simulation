@@ -398,366 +398,10 @@ const delegations = {
   }
 };
 
-function openCoalition(filterType, filterValue) {
-  const matchingActors = [];
 
-  Object.entries(delegations).forEach(([country, delegation]) => {
-    delegation.actors.forEach(actor => {
-      const tags = actor[
-        filterType === "sector"
-          ? "sectors"
-          : "constituencies"
-      ] || [];
-
-      if (tags.includes(filterValue)) {
-        matchingActors.push({
-          country,
-          actor
-        });
-      }
-    });
-  });
-
-  const actorCards = matchingActors.map(({ country, actor }) => `
-    <article class="actor">
-      <div class="actor-photo">
-        ${actor.photo
-          ? `<img src="${actor.photo}" alt="${actor.name}">`
-          : "Add photo"}
-      </div>
-
-      <div>
-        <div class="coalition-country">${country}</div>
-        <h4>${actor.name}</h4>
-        <div class="role">${actor.role}</div>
-
-        ${actor.constituency
-          ? `<p><strong>${actor.constituency}</strong></p>`
-          : ""}
-
-        <p><strong>Position:</strong> ${actor.position}</p>
-        <p><strong>Background:</strong> ${actor.background}</p>
-
-        ${linksHTML(actor.links)}
-      </div>
-    </article>
-  `).join("");
-
-  openModal(`
-    <h2>${filterValue}</h2>
-    <div class="subtitle">
-      ${filterType === "sector" ? "Sector coalition" : "Constituency coalition"}
-    </div>
-
-    <p class="coalition-description">
-      Actors across national delegations connected to this
-      ${filterType === "sector" ? "sector" : "constituency"}.
-    </p>
-
-    ${actorCards || `
-      <p class="coalition-empty">
-        No actors are currently associated with this category.
-      </p>
-    `}
-  `);
-}
-
-const concepts = {
-  international: {
-    title: "International",
-    subtitle: "Why does this problem require international coordination?",
-    body: `<p>What happens if countries pursue bioeconomy development independently? Where do cross-border spillovers arise? Why might trade rules, common standards, or technology-sharing arrangements matter?</p><p>Add readings, discussion prompts, and resources here.</p>`
-  },
-  bioeconomy: {
-    title: "Bioeconomy",
-    subtitle: "What exactly are we negotiating?",
-    body: `<p>What counts as a bioeconomy? Is it replacing the fossil economy, or becoming another layer of a broader low-carbon resource economy?</p><p>What happens when biomass demand competes with food, conservation, existing industries, or community land rights?</p>`
-  },
-  framework: {
-    title: "Framework",
-    subtitle: "What should an international framework actually do?",
-    body: `<p>Should it establish targets, sustainability standards, financing mechanisms, trade rules, technology-sharing arrangements, or something else?</p><p>What should be coordinated internationally, and what should remain under national control?</p>`
-  }
-};
-
-const treatyHub = {
-  "Sample treaty texts": [],
-  "Round 1 drafts": [],
-  "Round 2 drafts": [],
-  "Final treaty text": []
-};
-
-const overlay = document.getElementById("overlay");
-const modalContent = document.getElementById("modalContent");
-
-function openModal(html) {
-  modalContent.innerHTML = html;
-  overlay.classList.remove("hidden");
-}
-
-function closeModal() {
-  overlay.classList.add("hidden");
-  document.querySelectorAll(".country.selected").forEach(c => c.classList.remove("selected"));
-}
-
-function linksHTML(links = []) {
-  if (!links.length) return "";
-  return `<div class="links">${links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join("")}</div>`;
-}
-
-function openDelegation(country) {
-  const d = delegations[country];
-  if (!d) return;
-
-  const actors = d.actors.map(a => `
-    <article class="actor">
-      <div class="actor-photo">
-  ${a.photo
-    ? `<img src="${a.photo}" alt="${a.name}">`
-    : "Add photo"}
-</div>
-      <div>
-        <h4>${a.name}</h4>
-        <div class="role">${a.role}</div>
-        ${a.constituency ? `<p><strong>${a.constituency}</strong></p>` : ""}
-        <p><strong>Position:</strong> ${a.position}</p>
-        <p><strong>Background:</strong> ${a.background}</p>
-        ${linksHTML(a.links)}
-      </div>
-    </article>
-  `).join("");
-
-  openModal(`
-    <h2>${country}</h2>
-    <div class="subtitle">Delegation</div>
-    <h3>Lead negotiator</h3>
-    <article class="actor">
-      <div class="actor-photo">
-  ${d.lead.photo
-    ? `<img src="${d.lead.photo}" alt="${d.lead.name}">`
-    : "Add photo"}
-</div>
-      <div>
-        <h4>${d.lead.name}</h4>
-        <div class="role">${d.lead.role}</div>
-        <p>${d.lead.background}</p>
-        <p><strong>Position:</strong> ${d.lead.position}</p>
-        ${linksHTML(d.lead.links)}
-      </div>
-    </article>
-    <h3>Domestic actors</h3>
-    ${actors}
-  `);
-}
-
-
-
-document.querySelectorAll(".concept-link").forEach(button => {
-  button.addEventListener("click", () => {
-    const c = concepts[button.dataset.concept];
-    openModal(`<h2>${c.title}</h2><div class="subtitle">${c.subtitle}</div>${c.body}`);
-  });
-});
-
-document.getElementById("treatyHubBtn").addEventListener("click", () => {
-  const sections = Object.entries(treatyHub).map(([section, items]) => `
-    <div class="treaty-section">
-      <h3>${section}</h3>
-      ${items.length
-        ? items.map(item => `<div class="treaty-item"><a class="treaty-link" href="${item.url}" target="_blank" rel="noopener">${item.title}</a></div>`).join("")
-        : `<p>${section === "Final treaty text" ? "Add the final negotiated treaty here." : "Add links here as the simulation progresses."}</p>`}
-    </div>
-  `).join("");
-
-  openModal(`<h2>Treaty Hub</h2><div class="subtitle">Working documents and negotiated texts</div>${sections}`);
-});
-
-document.getElementById("closeModal").addEventListener("click", closeModal);
-overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-async function loadWorldMap() {
-  const mapContainer = document.getElementById("worldMap");
-
-  try {
-    const response = await fetch("assets/world.svg");
-
-    if (!response.ok) {
-      throw new Error(`Could not load world.svg: ${response.status}`);
-    }
-
-    const svgText = await response.text();
-    mapContainer.innerHTML = svgText;
-
-    const svg = mapContainer.querySelector("svg");
-
-    if (!svg) {
-      throw new Error("world.svg does not contain an SVG element.");
-    }
-
-    svg.id = "worldMapSvg";
-
-    svg.removeAttribute("width");
-    svg.removeAttribute("height");
-    svg.setAttribute("width", "100%");
-    svg.setAttribute("height", "100%");
-    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-
-    attachCountryHandlers();
-    createCountryLabels();
-
-  } catch (error) {
-    console.error("Error loading world map:", error);
-    mapContainer.innerHTML =
-      '<p style="color: white;">Unable to load world map.</p>';
-  }
-}
-
-
-function attachCountryHandlers() {
-  const countryMap = {
-    IN: "India",
-    BR: "Brazil",
-    DE: "Germany",
-    AE: "UAE",
-    PA: "Panama",
-    GA: "Gabon",
-    FI: "Finland",
-    PE: "Peru"
-  };
-
-  const classCountryMap = {
-    China: "China",
-    France: "France",
-    Indonesia: "Indonesia",
-    Australia: "Australia"
-  };
-
-  function clearSelection() {
-    document
-      .querySelectorAll("#worldMapSvg .country.selected")
-      .forEach(c => c.classList.remove("selected"));
-  }
-
-  function bringToFront(countries) {
-    countries.forEach(country => {
-      country.parentNode.appendChild(country);
-    });
-  }
-
-  // --------------------------------------------------
-// Single-path countries
-// --------------------------------------------------
-
-Object.entries(countryMap).forEach(([isoCode, countryName]) => {
-  const country = document.getElementById(isoCode);
-
-  if (!country) {
-    console.warn(`Could not find ${isoCode} in world.svg`);
-    return;
-  }
-
-  country.classList.add("country");
-  country.dataset.countryName = countryName;
-
-  // Hover
-  country.addEventListener("mouseenter", () => {
-    country.classList.add("country-hover");
-  });
-
-  country.addEventListener("mouseleave", () => {
-    country.classList.remove("country-hover");
-  });
-
-  // Click
-  country.addEventListener("click", () => {
-    clearSelection();
-
-    country.classList.add("selected");
-
-    bringToFront([country]);
-
-    openDelegation(countryName);
-  });
-});
-  // --------------------------------------------------
-  // Multi-path countries
-  // --------------------------------------------------
-
-  Object.entries(classCountryMap).forEach(([svgClass, countryName]) => {
-    const countries = Array.from(
-      document.querySelectorAll(`#worldMapSvg path.${svgClass}`)
-    );
-
-    if (!countries.length) {
-      console.warn(`Could not find ${svgClass} in world.svg`);
-      return;
-    }
-
-    countries.forEach(country => {
-      country.classList.add("country");
-      country.dataset.countryName = countryName;
-      country.dataset.countryGroup = svgClass;
-
-      // Click any piece → select entire country
-      country.addEventListener("click", () => {
-        clearSelection();
-
-        countries.forEach(c => {
-          c.classList.add("selected");
-        });
-
-        bringToFront(countries);
-
-        openDelegation(countryName);
-      });
-    });
-  });
-
-  // --------------------------------------------------
-  // Group hover
-  // --------------------------------------------------
-
-  let currentHoverGroup = null;
-
-  document.addEventListener("mousemove", event => {
-    const element = document.elementFromPoint(
-      event.clientX,
-      event.clientY
-    );
-
-    const path = element?.closest?.("#worldMapSvg path.country");
-
-    let newHoverGroup = null;
-
-    if (path && path.dataset.countryGroup) {
-      newHoverGroup = path.dataset.countryGroup;
-    }
-
-    if (newHoverGroup === currentHoverGroup) {
-      return;
-    }
-
-    // Remove previous group hover
-    if (currentHoverGroup) {
-      document
-        .querySelectorAll(
-          `#worldMapSvg path.country[data-country-group="${currentHoverGroup}"]`
-        )
-        .forEach(c => c.classList.remove("country-hover"));
-    }
-
-    // Add new group hover
-    if (newHoverGroup) {
-      document
-        .querySelectorAll(
-          `#worldMapSvg path.country[data-country-group="${newHoverGroup}"]`
-        )
-        .forEach(c => c.classList.add("country-hover"));
-    }
-
-    currentHoverGroup = newHoverGroup;
-  });
-}
+/* =========================================================
+   COUNTRY FLAGS
+   ========================================================= */
 
 const countryFlags = {
   India: "🇮🇳",
@@ -774,520 +418,1085 @@ const countryFlags = {
   Peru: "🇵🇪"
 };
 
-const countryLabelDirections = {
-  India: ["south", "southsoutheast", "southeast", "southwest"],
-  China: ["eastsoutheast", "east", "southeast", "northeast"],
-  Brazil: ["east", "eastnortheast", "southeast", "northeast"],
-  Germany: ["northnorthwest", "northwest", "north", "westnorthwest"],
-  UAE: ["eastnortheast", "east", "northeast", "southeast"],
-  Panama: ["westnorthwest", "west", "southwest", "northwest"],
-  Gabon: ["west", "westsouthwest", "southwest", "northwest"],
-  France: ["westnorthwest", "northwest", "west", "southwest"],
-  Indonesia: ["east", "eastsoutheast", "southeast", "northeast"],
-  Australia: ["east", "eastsoutheast", "southeast", "northeast"],
-  Finland: ["northnortheast", "northeast", "north", "eastnortheast"],
-  Peru: ["westsouthwest", "west", "southwest", "northwest"]
-};
 
-function createCountryLabels() {
-  const labelContainer = document.getElementById("countryLabels");
+/* =========================================================
+   COUNTRY ORDER
+   ========================================================= */
+
+const countries = [
+  "India",
+  "China",
+  "Brazil",
+  "Germany",
+  "UAE",
+  "Panama",
+  "Gabon",
+  "France",
+  "Indonesia",
+  "Australia",
+  "Finland",
+  "Peru"
+];
+
+
+/* =========================================================
+   MODAL / GENERAL FUNCTIONS
+   ========================================================= */
+
+const overlay = document.getElementById("overlay");
+const modalContent = document.getElementById("modalContent");
+
+
+function openModal(html) {
+  modalContent.innerHTML = html;
+  overlay.classList.remove("hidden");
+}
+
+
+function closeModal() {
+  overlay.classList.add("hidden");
+
+  clearCountrySelection();
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+function linksHTML(links = []) {
+
+  if (!links.length) {
+    return "";
+  }
+
+  return `
+    <div class="links">
+      ${links.map(l => `
+        <a
+          href="${l.url}"
+          target="_blank"
+          rel="noopener">
+          ${l.label}
+        </a>
+      `).join("")}
+    </div>
+  `;
+}
+
+
+/* =========================================================
+   COUNTRY SELECTION
+   ========================================================= */
+
+function clearCountrySelection() {
+
+  document
+    .querySelectorAll("#worldMapSvg .country.selected")
+    .forEach(country => {
+      country.classList.remove("selected");
+    });
+
+  document
+    .querySelectorAll(".country-selector-button.selected")
+    .forEach(button => {
+      button.classList.remove("selected");
+    });
+}
+
+
+function getCountryPaths(countryName) {
+
   const svg = document.getElementById("worldMapSvg");
-  const mapWrap = document.querySelector(".map-wrap");
 
-  if (!labelContainer || !svg || !mapWrap) return;
-
-  labelContainer.innerHTML = "";
-
-  const countries = [
-    "India",
-    "China",
-    "Brazil",
-    "Germany",
-    "UAE",
-    "Panama",
-    "Gabon",
-    "France",
-    "Indonesia",
-    "Australia",
-    "Finland",
-    "Peru"
-  ];
-
-const directionVectors = {
-  north: [0, -1],
-  northnortheast: [0.25, -1],
-  northeast: [0.707, -0.707],
-  eastnortheast: [1, -0.25],
-  east: [1, 0],
-  eastsoutheast: [1, 0.25],
-  southeast: [0.707, 0.707],
-  southsoutheast: [0.25, 1],
-  south: [0, 1],
-  southsouthwest: [-0.25, 1],
-  southwest: [-0.707, 0.707],
-  westsouthwest: [-1, 0.25],
-  west: [-1, 0],
-  westnorthwest: [-1, -0.25],
-  northwest: [-0.707, -0.707],
-  northnorthwest: [-0.25, -1]
-};
-
-  const placedLabels = [];
-
-  // Areas of the interface that labels should avoid
-  const obstacles = [
-    document.querySelector(".topbar"),
-    document.querySelector(".simulation-toolbar"),
-    document.querySelector(".map-hint")
-  ]
-    .filter(Boolean)
-    .map(element => element.getBoundingClientRect());
-
-  function rectanglesOverlap(a, b, padding = 8) {
-    return !(
-      a.right + padding < b.left ||
-      a.left - padding > b.right ||
-      a.bottom + padding < b.top ||
-      a.top - padding > b.bottom
-    );
+  if (!svg) {
+    return [];
   }
 
-  function overlapsCountry(rect) {
-    const samplePoints = [
-      [rect.left + rect.width / 2, rect.top + rect.height / 2],
-      [rect.left + 3, rect.top + 3],
-      [rect.right - 3, rect.top + 3],
-      [rect.left + 3, rect.bottom - 3],
-      [rect.right - 3, rect.bottom - 3]
-    ];
-
-    return samplePoints.some(([x, y]) => {
-      const element = document.elementFromPoint(x, y);
-
-      return (
-        element &&
-        element.closest &&
-        element.closest("#worldMapSvg path")
-      );
-    });
-  }
-
-  function getCountryGeometry(countryName) {
-    const paths = Array.from(
-      svg.querySelectorAll(
-        `path.country[data-country-name="${countryName}"]`
-      )
-    );
-
-    if (!paths.length) return null;
-
-    let minX = Infinity;
-    let minY = Infinity;
-    let maxX = -Infinity;
-    let maxY = -Infinity;
-
-    paths.forEach(path => {
-      const box = path.getBBox();
-
-      minX = Math.min(minX, box.x);
-      minY = Math.min(minY, box.y);
-      maxX = Math.max(maxX, box.x + box.width);
-      maxY = Math.max(maxY, box.y + box.height);
-    });
-
-    const centerX = (minX + maxX) / 2;
-    const centerY = (minY + maxY) / 2;
-
-    const point = svg.createSVGPoint();
-    point.x = centerX;
-    point.y = centerY;
-
-    const screenPoint = point.matrixTransform(
-      svg.getScreenCTM()
-    );
-
-    const mapRect = mapWrap.getBoundingClientRect();
-
-    return {
-      x: screenPoint.x - mapRect.left,
-      y: screenPoint.y - mapRect.top,
-      width: maxX - minX,
-      height: maxY - minY
-    };
-  }
-function getCountryBorderPoint(countryName, direction) {
-  const paths = Array.from(
+  return Array.from(
     svg.querySelectorAll(
       `path.country[data-country-name="${countryName}"]`
     )
   );
-
-  if (!paths.length) return null;
-
-  const [dx, dy] = directionVectors[direction];
-
-  let anchor = null;
-
-  // Find a point that is definitely inside the country
-  for (const path of paths) {
-    const box = path.getBBox();
-
-    const candidates = [
-      [box.x + box.width / 2, box.y + box.height / 2],
-      [box.x + box.width * 0.4, box.y + box.height * 0.4],
-      [box.x + box.width * 0.6, box.y + box.height * 0.6]
-    ];
-
-    for (const [x, y] of candidates) {
-      const point = svg.createSVGPoint();
-      point.x = x;
-      point.y = y;
-
-      if (path.isPointInFill(point)) {
-        anchor = point;
-        break;
-      }
-    }
-
-    if (anchor) break;
-  }
-
-  // Fallback: grid search for an interior point
-  if (!anchor) {
-    outer:
-    for (const path of paths) {
-      const box = path.getBBox();
-
-      for (let ix = 1; ix <= 5; ix++) {
-        for (let iy = 1; iy <= 5; iy++) {
-          const point = svg.createSVGPoint();
-
-          point.x = box.x + box.width * (ix / 6);
-          point.y = box.y + box.height * (iy / 6);
-
-          if (path.isPointInFill(point)) {
-            anchor = point;
-            break outer;
-          }
-        }
-      }
-    }
-  }
-
-  if (!anchor) return null;
-
-  // Walk outward from the interior point until we leave the country
-  const step = 2;
-
-  let insidePoint = {
-    x: anchor.x,
-    y: anchor.y
-  };
-
-  let outsidePoint = {
-    x: anchor.x,
-    y: anchor.y
-  };
-
-  for (let distance = 0; distance <= 500; distance += step) {
-    const point = svg.createSVGPoint();
-
-    point.x = anchor.x + dx * distance;
-    point.y = anchor.y + dy * distance;
-
-    let inside = false;
-
-    for (const path of paths) {
-      if (path.isPointInFill(point)) {
-        inside = true;
-        break;
-      }
-    }
-
-    if (inside) {
-      insidePoint = {
-        x: point.x,
-        y: point.y
-      };
-    } else {
-      outsidePoint = {
-        x: point.x,
-        y: point.y
-      };
-      break;
-    }
-  }
-
-  // Binary-search the transition between inside and outside
-  for (let i = 0; i < 8; i++) {
-    const midX = (insidePoint.x + outsidePoint.x) / 2;
-    const midY = (insidePoint.y + outsidePoint.y) / 2;
-
-    const point = svg.createSVGPoint();
-    point.x = midX;
-    point.y = midY;
-
-    let inside = false;
-
-    for (const path of paths) {
-      if (path.isPointInFill(point)) {
-        inside = true;
-        break;
-      }
-    }
-
-    if (inside) {
-      insidePoint = {
-        x: midX,
-        y: midY
-      };
-    } else {
-      outsidePoint = {
-        x: midX,
-        y: midY
-      };
-    }
-  }
-
-  const borderPoint = svg.createSVGPoint();
-
-  borderPoint.x =
-    (insidePoint.x + outsidePoint.x) / 2;
-
-  borderPoint.y =
-    (insidePoint.y + outsidePoint.y) / 2;
-
-  // Convert SVG coordinates to screen/map coordinates
-  const screenPoint = borderPoint.matrixTransform(
-    svg.getScreenCTM()
-  );
-
-  const mapRect = mapWrap.getBoundingClientRect();
-
-  return {
-    x: screenPoint.x - mapRect.left,
-    y: screenPoint.y - mapRect.top
-  };
 }
 
+
+function selectCountry(countryName) {
+
+  clearCountrySelection();
+
+  const paths = getCountryPaths(countryName);
+
+  paths.forEach(path => {
+    path.classList.add("selected");
+  });
+
+  const selectorButton = document.querySelector(
+    `.country-selector-button[data-country="${countryName}"]`
+  );
+
+  if (selectorButton) {
+    selectorButton.classList.add("selected");
+  }
+
+  /*
+    Bring the selected country to the front
+    so its outline remains visible.
+  */
+  paths.forEach(path => {
+    if (path.parentNode) {
+      path.parentNode.appendChild(path);
+    }
+  });
+}
+
+
+function highlightCountry(countryName) {
+
+  const paths = getCountryPaths(countryName);
+
+  paths.forEach(path => {
+    path.classList.add("country-hover");
+  });
+}
+
+
+function unhighlightCountry(countryName) {
+
+  const paths = getCountryPaths(countryName);
+
+  paths.forEach(path => {
+    path.classList.remove("country-hover");
+  });
+}
+
+
+/* =========================================================
+   COUNTRY SELECTOR
+   ========================================================= */
+
+function createCountrySelector() {
+
+  const selector = document.getElementById("countrySelector");
+
+  if (!selector) {
+    return;
+  }
+
+  selector.innerHTML = "";
+
   countries.forEach(countryName => {
-    const geometry = getCountryGeometry(countryName);
 
-    if (!geometry) return;
+    const button = document.createElement("button");
 
-    const label = document.createElement("div");
+    button.type = "button";
+    button.className = "country-selector-button";
+    button.dataset.country = countryName;
 
-    label.className = "country-label";
-    label.dataset.country = countryName;
-
-    label.innerHTML = `
-      <span class="country-label-flag">
+    button.innerHTML = `
+      <span class="country-selector-flag">
         ${countryFlags[countryName]}
       </span>
-      <span class="country-label-name">
+
+      <span class="country-selector-name">
         ${countryName}
       </span>
     `;
 
-    // Hide while we calculate its size and position
-    label.style.visibility = "hidden";
 
-    labelContainer.appendChild(label);
+    /* Hover selector → highlight map */
 
-    const directions =
-      countryLabelDirections[countryName] || [
-        "east",
-        "west",
-        "north",
-        "south"
-      ];
+    button.addEventListener("mouseenter", () => {
 
-    const allDirections = [
-      ...directions,
-      "north",
-      "northeast",
-      "east",
-      "southeast",
-      "south",
-      "southwest",
-      "west",
-      "northwest"
-    ].filter(
-      (direction, index, array) =>
-        array.indexOf(direction) === index
-    );
+      button.classList.add("hovered");
 
-    let chosenPosition = null;
-    let chosenDirection = null;
+      highlightCountry(countryName);
 
-    /*
-      Try positions progressively farther away
-      from the country.
-    */
-    for (let distance = 20; distance <= 100; distance += 10) {
-      if (chosenPosition) break;
+    });
 
-      for (const direction of allDirections) {
-        const [dx, dy] = directionVectors[direction];
 
-        const labelX =
-          geometry.x +
-          dx * (
-            Math.max(geometry.width, geometry.height) * 0.5 +
-            distance
-          );
+    button.addEventListener("mouseleave", () => {
 
-        const labelY =
-          geometry.y +
-          dy * (
-            Math.max(geometry.width, geometry.height) * 0.5 +
-            distance
-          );
+      button.classList.remove("hovered");
 
-        label.style.left = `${labelX}px`;
-        label.style.top = `${labelY}px`;
+      unhighlightCountry(countryName);
 
-        const rect = label.getBoundingClientRect();
+    });
 
-        const overlapsExisting = placedLabels.some(existing =>
-          rectanglesOverlap(rect, existing)
-        );
 
-        const overlapsObstacle = obstacles.some(obstacle =>
-          rectanglesOverlap(rect, obstacle, 12)
-        );
+    /* Click selector → select + delegation */
 
-        const overlapsMapCountry = overlapsCountry(rect);
+    button.addEventListener("click", () => {
 
-        const mapRect = mapWrap.getBoundingClientRect();
+      selectCountry(countryName);
 
-        const insideBounds =
-          rect.left >= mapRect.left + 10 &&
-          rect.right <= mapRect.right - 10 &&
-          rect.top >= mapRect.top + 10 &&
-          rect.bottom <= mapRect.bottom - 10;
+      openDelegation(countryName);
 
-        if (
-          !overlapsExisting &&
-          !overlapsObstacle &&
-          !overlapsMapCountry &&
-          insideBounds
-        ) {
-          chosenPosition = {
-            x: labelX,
-            y: labelY,
-            rect
-          };
+    });
 
-          chosenDirection = direction;
 
-          break;
+    selector.appendChild(button);
+
+  });
+
+}
+
+
+/* =========================================================
+   DELEGATION MODAL
+   ========================================================= */
+
+function openDelegation(country) {
+
+  const d = delegations[country];
+
+  if (!d) {
+    return;
+  }
+
+  /*
+    Make sure the map and selector both reflect
+    the country whose delegation is being opened.
+  */
+  selectCountry(country);
+
+
+  const actors = d.actors.map(a => `
+    <article class="actor">
+
+      <div class="actor-photo">
+        ${a.photo
+          ? `<img src="${a.photo}" alt="${a.name}">`
+          : "Add photo"}
+      </div>
+
+      <div>
+
+        <h4>${a.name}</h4>
+
+        <div class="role">
+          ${a.role}
+        </div>
+
+        ${a.constituency
+          ? `<p><strong>${a.constituency}</strong></p>`
+          : ""}
+
+        <p>
+          <strong>Position:</strong>
+          ${a.position}
+        </p>
+
+        <p>
+          <strong>Background:</strong>
+          ${a.background}
+        </p>
+
+        ${linksHTML(a.links)}
+
+      </div>
+
+    </article>
+  `).join("");
+
+
+  openModal(`
+
+    <h2>${country}</h2>
+
+    <div class="subtitle">
+      Delegation
+    </div>
+
+
+    <h3>
+      Lead negotiator
+    </h3>
+
+
+    <article class="actor">
+
+      <div class="actor-photo">
+        ${d.lead.photo
+          ? `<img src="${d.lead.photo}" alt="${d.lead.name}">`
+          : "Add photo"}
+      </div>
+
+      <div>
+
+        <h4>
+          ${d.lead.name}
+        </h4>
+
+        <div class="role">
+          ${d.lead.role}
+        </div>
+
+        <p>
+          ${d.lead.background}
+        </p>
+
+        <p>
+          <strong>Position:</strong>
+          ${d.lead.position}
+        </p>
+
+        ${linksHTML(d.lead.links)}
+
+      </div>
+
+    </article>
+
+
+    <h3>
+      Domestic actors
+    </h3>
+
+    ${actors}
+
+  `);
+}
+
+
+/* =========================================================
+   COALITION MODAL
+   ========================================================= */
+
+function openCoalition(filterType, filterValue) {
+
+  const matchingActors = [];
+
+
+  Object.entries(delegations).forEach(
+    ([country, delegation]) => {
+
+      delegation.actors.forEach(actor => {
+
+        const tags =
+          actor[
+            filterType === "sector"
+              ? "sectors"
+              : "constituencies"
+          ] || [];
+
+
+        if (tags.includes(filterValue)) {
+
+          matchingActors.push({
+            country,
+            actor
+          });
+
         }
-      }
+
+      });
+
     }
-
-    /*
-      If no completely clear position exists,
-      fall back to the preferred direction.
-    */
-    if (!chosenPosition) {
-      const direction = directions[0] || "east";
-      const [dx, dy] = directionVectors[direction];
-
-      const distance = 45;
-
-      const labelX =
-        geometry.x +
-        dx * (
-          Math.max(geometry.width, geometry.height) * 0.5 +
-          distance
-        );
-
-      const labelY =
-        geometry.y +
-        dy * (
-          Math.max(geometry.width, geometry.height) * 0.5 +
-          distance
-        );
-
-      label.style.left = `${labelX}px`;
-      label.style.top = `${labelY}px`;
-
-      chosenPosition = {
-        x: labelX,
-        y: labelY,
-        rect: label.getBoundingClientRect()
-      };
-
-      chosenDirection = direction;
-    }
-
-    label.style.visibility = "visible";
-
-    placedLabels.push(chosenPosition.rect);
-
-    /*
-      Draw a small leader line from the country
-      toward the label.
-    */
-    const borderPoint = getCountryBorderPoint(
-  countryName,
-  chosenDirection
-);
-
-if (borderPoint) {
-  const line = document.createElement("div");
-
-  line.className = "country-label-line";
-
-  const startX = borderPoint.x;
-  const startY = borderPoint.y;
-
-  const endX =
-    chosenPosition.x -
-    Math.sign(chosenPosition.x - startX) * 8;
-
-  const endY =
-    chosenPosition.y -
-    Math.sign(chosenPosition.y - startY) * 3;
-
-  const lineLength = Math.sqrt(
-    Math.pow(endX - startX, 2) +
-    Math.pow(endY - startY, 2)
   );
 
-  const angle =
-    Math.atan2(endY - startY, endX - startX) *
-    180 /
-    Math.PI;
 
-  line.style.width = `${lineLength}px`;
-  line.style.left = `${startX}px`;
-  line.style.top = `${startY}px`;
-  line.style.transform = `rotate(${angle}deg)`;
+  const actorCards = matchingActors.map(
+    ({ country, actor }) => `
 
-  labelContainer.insertBefore(line, label);
+      <article class="actor">
+
+        <div class="actor-photo">
+          ${actor.photo
+            ? `<img src="${actor.photo}" alt="${actor.name}">`
+            : "Add photo"}
+        </div>
+
+        <div>
+
+          <div class="coalition-country">
+            ${country}
+          </div>
+
+          <h4>
+            ${actor.name}
+          </h4>
+
+          <div class="role">
+            ${actor.role}
+          </div>
+
+          ${actor.constituency
+            ? `<p><strong>${actor.constituency}</strong></p>`
+            : ""}
+
+          <p>
+            <strong>Position:</strong>
+            ${actor.position}
+          </p>
+
+          <p>
+            <strong>Background:</strong>
+            ${actor.background}
+          </p>
+
+          ${linksHTML(actor.links)}
+
+        </div>
+
+      </article>
+
+    `
+  ).join("");
+
+
+  openModal(`
+
+    <h2>
+      ${filterValue}
+    </h2>
+
+    <div class="subtitle">
+      ${
+        filterType === "sector"
+          ? "Sector coalition"
+          : "Constituency coalition"
+      }
+    </div>
+
+
+    <p class="coalition-description">
+
+      Actors across national delegations connected to this
+      ${
+        filterType === "sector"
+          ? "sector"
+          : "constituency"
+      }.
+
+    </p>
+
+
+    ${
+      actorCards
+        ? actorCards
+        : `
+          <p class="coalition-empty">
+            No actors are currently associated with this category.
+          </p>
+        `
+    }
+
+  `);
 }
+
+
+/* =========================================================
+   CONCEPT MODALS
+   ========================================================= */
+
+const concepts = {
+
+  international: {
+    title: "International",
+    subtitle: "Why does this problem require international coordination?",
+    body: `
+      <p>
+        What happens if countries pursue bioeconomy development independently?
+        Where do cross-border spillovers arise? Why might trade rules,
+        common standards, or technology-sharing arrangements matter?
+      </p>
+
+      <p>
+        Add readings, discussion prompts, and resources here.
+      </p>
+    `
+  },
+
+  bioeconomy: {
+    title: "Bioeconomy",
+    subtitle: "What exactly are we negotiating?",
+    body: `
+      <p>
+        What counts as a bioeconomy? Is it replacing the fossil economy,
+        or becoming another layer of a broader low-carbon resource economy?
+      </p>
+
+      <p>
+        What happens when biomass demand competes with food, conservation,
+        existing industries, or community land rights?
+      </p>
+    `
+  },
+
+  framework: {
+    title: "Framework",
+    subtitle: "What should an international framework actually do?",
+    body: `
+      <p>
+        Should it establish targets, sustainability standards,
+        financing mechanisms, trade rules, technology-sharing arrangements,
+        or something else?
+      </p>
+
+      <p>
+        What should be coordinated internationally, and what should remain
+        under national control?
+      </p>
+    `
+  }
+
+};
+
+
+/* =========================================================
+   TREATY HUB
+   ========================================================= */
+
+const treatyHub = {
+
+  "Sample treaty texts": [],
+
+  "Round 1 drafts": [],
+
+  "Round 2 drafts": [],
+
+  "Final treaty text": []
+
+};
+
+
+/* =========================================================
+   CONCEPT BUTTON EVENTS
+   ========================================================= */
+
+document
+  .querySelectorAll(".concept-link")
+  .forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const c =
+        concepts[
+          button.dataset.concept
+        ];
+
+      openModal(`
+        <h2>${c.title}</h2>
+
+        <div class="subtitle">
+          ${c.subtitle}
+        </div>
+
+        ${c.body}
+      `);
+
+    });
+
   });
+
+
+/* =========================================================
+   TREATY HUB EVENT
+   ========================================================= */
+
+document
+  .getElementById("treatyHubBtn")
+  .addEventListener("click", () => {
+
+    const sections =
+      Object.entries(treatyHub)
+        .map(([section, items]) => `
+
+          <div class="treaty-section">
+
+            <h3>
+              ${section}
+            </h3>
+
+            ${
+              items.length
+                ? items.map(item => `
+                    <div class="treaty-item">
+
+                      <a
+                        class="treaty-link"
+                        href="${item.url}"
+                        target="_blank"
+                        rel="noopener">
+
+                        ${item.title}
+
+                      </a>
+
+                    </div>
+                  `).join("")
+
+                : `
+                  <p>
+                    ${
+                      section === "Final treaty text"
+                        ? "Add the final negotiated treaty here."
+                        : "Add links here as the simulation progresses."
+                    }
+                  </p>
+                `
+            }
+
+          </div>
+
+        `)
+        .join("");
+
+
+    openModal(`
+
+      <h2>
+        Treaty Hub
+      </h2>
+
+      <div class="subtitle">
+        Working documents and negotiated texts
+      </div>
+
+      ${sections}
+
+    `);
+
+  });
+
+
+/* =========================================================
+   MODAL EVENTS
+   ========================================================= */
+
+document
+  .getElementById("closeModal")
+  .addEventListener("click", closeModal);
+
+
+overlay.addEventListener("click", event => {
+
+  if (event.target === overlay) {
+    closeModal();
+  }
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+  if (event.key === "Escape") {
+    closeModal();
+  }
+
+});
+
+
+/* =========================================================
+   WORLD MAP
+   ========================================================= */
+
+async function loadWorldMap() {
+
+  const mapContainer =
+    document.getElementById("worldMap");
+
+
+  try {
+
+    const response =
+      await fetch("assets/world.svg");
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `Could not load world.svg: ${response.status}`
+      );
+
+    }
+
+
+    const svgText =
+      await response.text();
+
+
+    mapContainer.innerHTML =
+      svgText;
+
+
+    const svg =
+      mapContainer.querySelector("svg");
+
+
+    if (!svg) {
+
+      throw new Error(
+        "world.svg does not contain an SVG element."
+      );
+
+    }
+
+
+    svg.id =
+      "worldMapSvg";
+
+
+    svg.removeAttribute("width");
+    svg.removeAttribute("height");
+
+
+    svg.setAttribute(
+      "width",
+      "100%"
+    );
+
+    svg.setAttribute(
+      "height",
+      "100%"
+    );
+
+    svg.setAttribute(
+      "preserveAspectRatio",
+      "xMidYMid meet"
+    );
+
+
+    attachCountryHandlers();
+
+    /*
+      The selector is independent of the SVG,
+      so it can be created immediately after
+      the map has loaded.
+    */
+
+    createCountrySelector();
+
+
+  } catch (error) {
+
+    console.error(
+      "Error loading world map:",
+      error
+    );
+
+
+    mapContainer.innerHTML =
+      '<p style="color: white;">Unable to load world map.</p>';
+
+  }
+
 }
 
-// --------------------------------------------------
-// Coalition button clicks
-// --------------------------------------------------
 
-document.addEventListener("click", event => {
-  const button = event.target.closest(".coalition-button");
+/* =========================================================
+   MAP COUNTRY HANDLERS
+   ========================================================= */
 
-  if (!button) return;
+function attachCountryHandlers() {
 
-  const filterType = button.dataset.filterType;
-  const filterValue = button.dataset.filterValue;
+  const countryMap = {
 
-  openCoalition(filterType, filterValue);
-});
+    IN: "India",
+    BR: "Brazil",
+    DE: "Germany",
+    AE: "UAE",
+    PA: "Panama",
+    GA: "Gabon",
+    FI: "Finland",
+    PE: "Peru"
+
+  };
+
+
+  const classCountryMap = {
+
+    China: "China",
+    France: "France",
+    Indonesia: "Indonesia",
+    Australia: "Australia"
+
+  };
+
+
+  /* -------------------------------------------------------
+     Clear map hover
+     ------------------------------------------------------- */
+
+  function clearHover() {
+
+    document
+      .querySelectorAll(
+        "#worldMapSvg .country.country-hover"
+      )
+      .forEach(country => {
+
+        country.classList.remove(
+          "country-hover"
+        );
+
+      });
+
+  }
+
+
+  /* -------------------------------------------------------
+     Single-path countries
+     ------------------------------------------------------- */
+
+  Object.entries(countryMap)
+    .forEach(([isoCode, countryName]) => {
+
+      const country =
+        document.getElementById(isoCode);
+
+
+      if (!country) {
+
+        console.warn(
+          `Could not find ${isoCode} in world.svg`
+        );
+
+        return;
+
+      }
+
+
+      country.classList.add(
+        "country"
+      );
+
+      country.dataset.countryName =
+        countryName;
+
+
+      /* Hover */
+
+      country.addEventListener(
+        "mouseenter",
+        () => {
+
+          country.classList.add(
+            "country-hover"
+          );
+
+        }
+      );
+
+
+      country.addEventListener(
+        "mouseleave",
+        () => {
+
+          country.classList.remove(
+            "country-hover"
+          );
+
+        }
+      );
+
+
+      /* Click */
+
+      country.addEventListener(
+        "click",
+        () => {
+
+          selectCountry(
+            countryName
+          );
+
+          openDelegation(
+            countryName
+          );
+
+        }
+      );
+
+    });
+
+
+  /* -------------------------------------------------------
+     Multi-path countries
+     ------------------------------------------------------- */
+
+  Object.entries(classCountryMap)
+    .forEach(([svgClass, countryName]) => {
+
+      const countryPaths =
+        Array.from(
+          document.querySelectorAll(
+            `#worldMapSvg path.${svgClass}`
+          )
+        );
+
+
+      if (!countryPaths.length) {
+
+        console.warn(
+          `Could not find ${svgClass} in world.svg`
+        );
+
+        return;
+
+      }
+
+
+      countryPaths.forEach(country => {
+
+        country.classList.add(
+          "country"
+        );
+
+        country.dataset.countryName =
+          countryName;
+
+        country.dataset.countryGroup =
+          svgClass;
+
+
+        /* Hover entire country */
+
+        country.addEventListener(
+          "mouseenter",
+          () => {
+
+            countryPaths.forEach(c => {
+
+              c.classList.add(
+                "country-hover"
+              );
+
+            });
+
+          }
+        );
+
+
+        country.addEventListener(
+          "mouseleave",
+          () => {
+
+            countryPaths.forEach(c => {
+
+              c.classList.remove(
+                "country-hover"
+              );
+
+            });
+
+          }
+        );
+
+
+        /* Click any piece */
+
+        country.addEventListener(
+          "click",
+          () => {
+
+            selectCountry(
+              countryName
+            );
+
+            openDelegation(
+              countryName
+            );
+
+          }
+        );
+
+      });
+
+    });
+
+
+  /* -------------------------------------------------------
+     Selector ↔ map hover synchronization
+     ------------------------------------------------------- */
+
+  document.addEventListener(
+    "mouseenter",
+    event => {
+
+      const button =
+        event.target.closest(
+          ".country-selector-button"
+        );
+
+
+      if (!button) {
+        return;
+      }
+
+
+      clearHover();
+
+      highlightCountry(
+        button.dataset.country
+      );
+
+    },
+    true
+  );
+
+
+  document.addEventListener(
+    "mouseleave",
+    event => {
+
+      const button =
+        event.target.closest(
+          ".country-selector-button"
+        );
+
+
+      if (!button) {
+        return;
+      }
+
+
+      clearHover();
+
+    },
+    true
+  );
+
+}
+
+
+/* =========================================================
+   COALITION BUTTON EVENTS
+   ========================================================= */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const button =
+      event.target.closest(
+        ".coalition-button"
+      );
+
+
+    if (!button) {
+      return;
+    }
+
+
+    const filterType =
+      button.dataset.filterType;
+
+    const filterValue =
+      button.dataset.filterValue;
+
+
+    openCoalition(
+      filterType,
+      filterValue
+    );
+
+  }
+);
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
 
 loadWorldMap();
-
-window.addEventListener("resize", () => {
-  createCountryLabels();
-});
