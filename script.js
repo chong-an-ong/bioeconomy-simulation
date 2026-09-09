@@ -287,6 +287,29 @@ function attachCountryHandlers() {
     Australia: "Australia"
   };
 
+  // Islands we don't want displayed
+  const hiddenIslands = [
+    "Hawaii",
+    "Micronesia",
+    "Marshall Islands",
+    "Palau"
+  ];
+
+  hiddenIslands.forEach(name => {
+    document
+      .querySelectorAll(`#worldMapSvg path.${name.replace(/ /g, "\\ ")}`)
+      .forEach(path => {
+        path.style.display = "none";
+      });
+  });
+
+  // Helper: bring all paths belonging to a country to the front
+  function bringToFront(countries) {
+    countries.forEach(country => {
+      country.parentNode.appendChild(country);
+    });
+  }
+
   // Handle countries with IDs
   Object.entries(countryMap).forEach(([isoCode, countryName]) => {
     const country = document.getElementById(isoCode);
@@ -304,6 +327,9 @@ function attachCountryHandlers() {
         .forEach(c => c.classList.remove("selected"));
 
       country.classList.add("selected");
+
+      // Put selected country above neighboring borders
+      bringToFront([country]);
 
       openDelegation(countryName);
     });
@@ -332,6 +358,9 @@ function attachCountryHandlers() {
 
         countries.forEach(c => c.classList.add("selected"));
 
+        // Put all pieces of the selected country above neighboring borders
+        bringToFront(countries);
+
         openDelegation(countryName);
       });
 
@@ -339,5 +368,4 @@ function attachCountryHandlers() {
     });
   });
 }
-
 loadWorldMap();
