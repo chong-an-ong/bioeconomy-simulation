@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --bg: #263642;
+  --bg-deep: #1d2a34;
+  --panel: #2d404d;
+  --text: #edf2f3;
+  --muted: #aab8be;
+  --line: #70828b;
+  --accent: #d7e3e5;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+body { overflow: hidden; }
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  padding: 30px 42px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.goal { pointer-events: auto; }
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+
+h1 {
+  margin: 0;
+  max-width: 760px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(24px, 2.4vw, 38px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+.concept-link {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0 .08em;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  border-bottom: 1px dashed rgba(237,242,243,.55);
+  transition: opacity .15s, border-color .15s;
+}
+
+.concept-link:hover {
+  border-bottom-color: var(--accent);
+  opacity: .72;
+}
+
+.utility-button {
+  pointer-events: auto;
+  margin-top: 2px;
+  padding: 10px 16px;
+  border: 1px solid rgba(237,242,243,.38);
+  border-radius: 5px;
+  color: var(--text);
+  background: rgba(29,42,52,.5);
+  font: 600 12px "DM Sans", sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+
+.utility-button:hover {
+  background: rgba(237,242,243,.09);
+  border-color: rgba(237,242,243,.7);
+}
+
+.map-wrap {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 110px 38px 28px;
+}
+
+#worldMap {
+  width: min(1150px, 94vw);
+  height: auto;
+  max-height: 76vh;
+  overflow: visible;
+}
+
+.country {
+  cursor: pointer;
+}
+
+.country rect {
+  fill: rgba(0,0,0,0);
+  stroke: var(--line);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+  vector-effect: non-scaling-stroke;
+  transition: fill .15s, stroke .15s, stroke-width .15s;
+}
+
+.country text {
+  fill: rgba(237,242,243,.45);
+  font-size: 10px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+  transition: fill .15s;
+}
+
+.country:hover rect,
+.country.selected rect {
+  fill: rgba(215,227,229,.08);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.country:hover text,
+.country.selected text {
+  fill: var(--text);
+}
+
+.map-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 42px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 70px 40px;
+  background: rgba(12,19,24,.55);
+  backdrop-filter: blur(2px);
+}
+
+.hidden { display: none; }
+
+.modal {
+  position: relative;
+  width: min(850px, 88vw);
+  max-height: 82vh;
+  overflow: auto;
+  padding: 38px 44px 44px;
+  background: rgba(38,54,66,.97);
+  border: 1px solid rgba(237,242,243,.22);
+  border-radius: 8px;
+  box-shadow: 0 25px 80px rgba(0,0,0,.32);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover { color: var(--text); }
+
+.modal h2 {
+  margin: 0 0 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 28px;
+  letter-spacing: -.02em;
+}
+
+.modal .subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+
+.modal h3 {
+  margin: 28px 0 14px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.modal p {
+  margin: 0 0 12px;
+  line-height: 1.55;
+  color: #dbe3e5;
+}
+
+.actor {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(237,242,243,.12);
+}
+
+.actor-photo {
+  width: 105px;
+  height: 125px;
+  border-radius: 4px;
+  background: var(--bg-deep);
+  border: 1px dashed rgba(237,242,243,.2);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.actor h4 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.actor .role {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.links a, .treaty-link {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(237,242,243,.4);
+  margin-right: 14px;
+  font-size: 12px;
+}
+
+.links a:hover, .treaty-link:hover { border-bottom-color: var(--text); }
+
+.treaty-section {
+  padding: 18px 0;
+  border-top: 1px solid rgba(237,242,243,.12);
+}
+
+.treaty-section h3 { margin-top: 0; }
+
+.treaty-item { margin: 10px 0; }
+
+@media (max-width: 800px) {
+  body { overflow: auto; }
+  .topbar { padding: 22px; }
+  .map-wrap { padding: 125px 15px 50px; }
+  #worldMap { width: 100%; }
+  .map-hint { left: 22px; }
+}
