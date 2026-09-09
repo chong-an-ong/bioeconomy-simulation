@@ -398,8 +398,6 @@ const delegations = {
   }
 };
 
-const coalitionButtons = document.querySelectorAll(".coalition-button");
-
 function openCoalition(filterType, filterValue) {
   const matchingActors = [];
 
@@ -761,11 +759,42 @@ Object.entries(countryMap).forEach(([isoCode, countryName]) => {
   });
 }
 
+const countryFlags = {
+  India: "🇮🇳",
+  China: "🇨🇳",
+  Brazil: "🇧🇷",
+  Germany: "🇩🇪",
+  UAE: "🇦🇪",
+  Panama: "🇵🇦",
+  Gabon: "🇬🇦",
+  France: "🇫🇷",
+  Indonesia: "🇮🇩",
+  Australia: "🇦🇺",
+  Finland: "🇫🇮",
+  Peru: "🇵🇪"
+};
+
+const countryLabelDirections = {
+  India: ["south", "southeast", "southwest"],
+  China: ["southeast", "east", "south"],
+  Brazil: ["west", "southwest", "northwest"],
+  Germany: ["east", "northeast", "southeast"],
+  UAE: ["east", "southeast", "northeast"],
+  Panama: ["west", "southwest", "northwest"],
+  Gabon: ["west", "southwest", "northwest"],
+  France: ["west", "northwest", "southwest"],
+  Indonesia: ["east", "southeast", "northeast"],
+  Australia: ["east", "southeast", "northeast"],
+  Finland: ["east", "northeast", "southeast"],
+  Peru: ["west", "southwest", "northwest"]
+};
+
 function createCountryLabels() {
   const labelContainer = document.getElementById("countryLabels");
   const svg = document.getElementById("worldMapSvg");
+  const mapWrap = document.querySelector(".map-wrap");
 
-  if (!labelContainer || !svg) return;
+  if (!labelContainer || !svg || !mapWrap) return;
 
   labelContainer.innerHTML = "";
 
@@ -784,14 +813,65 @@ function createCountryLabels() {
     "Peru"
   ];
 
-  countries.forEach(countryName => {
+  const directionVectors = {
+    north: [0, -1],
+    northeast: [0.707, -0.707],
+    east: [1, 0],
+    southeast: [0.707, 0.707],
+    south: [0, 1],
+    southwest: [-0.707, 0.707],
+    west: [-1, 0],
+    northwest: [-0.707, -0.707]
+  };
+
+  const placedLabels = [];
+
+  // Areas of the interface that labels should avoid
+  const obstacles = [
+    document.querySelector(".topbar"),
+    document.querySelector(".simulation-toolbar"),
+    document.querySelector(".map-hint")
+  ]
+    .filter(Boolean)
+    .map(element => element.getBoundingClientRect());
+
+  function rectanglesOverlap(a, b, padding = 8) {
+    return !(
+      a.right + padding < b.left ||
+      a.left - padding > b.right ||
+      a.bottom + padding < b.top ||
+      a.top - padding > b.bottom
+    );
+  }
+
+  function overlapsCountry(rect) {
+    const samplePoints = [
+      [rect.left + rect.width / 2, rect.top + rect.height / 2],
+      [rect.left + 3, rect.top + 3],
+      [rect.right - 3, rect.top + 3],
+      [rect.left + 3, rect.bottom - 3],
+      [rect.right - 3, rect.bottom - 3]
+    ];
+
+    return samplePoints.some(([x, y]) => {
+      const element = document.elementFromPoint(x, y);
+
+      return (
+        element &&
+        element.closest &&
+        element.closest("#worldMapSvg path")
+      );
+    });
+  }
+
+  function getCountryGeometry(countryName) {
     const paths = Array.from(
       svg.querySelectorAll(
         `path.country[data-country-name="${countryName}"]`
       )
     );
 
-    if (!paths.length) return;
+    if (!paths.length) return null;
 
     let minX = Infinity;
     let minY = Infinity;
@@ -818,12 +898,20 @@ function createCountryLabels() {
       svg.getScreenCTM()
     );
 
-    const mapRect = document
-      .querySelector(".map-wrap")
-      .getBoundingClientRect();
+    const mapRect = mapWrap.getBoundingClientRect();
 
-    const x = screenPoint.x - mapRect.left;
-    const y = screenPoint.y - mapRect.top;
+    return {
+      x: screenPoint.x - mapRect.left,
+      y: screenPoint.y - mapRect.top,
+      width: maxX - minX,
+      height: maxY - minY
+    };
+  }
+
+  countries.forEach(countryName => {
+    const geometry = getCountryGeometry(countryName);
+
+    if (!geometry) return;
 
     const label = document.createElement("div");
 
@@ -831,13 +919,181 @@ function createCountryLabels() {
     label.dataset.country = countryName;
 
     label.innerHTML = `
-      <span class="country-label-name">${countryName}</span>
+      <span class="country-label-flag">
+        ${countryFlags[countryName]}
+      </span>
+      <span class="country-label-name">
+        ${countryName}
+      </span>
     `;
 
-    label.style.left = `${x}px`;
-    label.style.top = `${y}px`;
+    // Hide while we calculate its size and position
+    label.style.visibility = "hidden";
 
     labelContainer.appendChild(label);
+
+    const directions =
+      countryLabelDirections[countryName] || [
+        "east",
+        "west",
+        "north",
+        "south"
+      ];
+
+    const allDirections = [
+      ...directions,
+      "north",
+      "northeast",
+      "east",
+      "southeast",
+      "south",
+      "southwest",
+      "west",
+      "northwest"
+    ].filter(
+      (direction, index, array) =>
+        array.indexOf(direction) === index
+    );
+
+    let chosenPosition = null;
+    let chosenDirection = null;
+
+    /*
+      Try positions progressively farther away
+      from the country.
+    */
+    for (let distance = 20; distance <= 100; distance += 10) {
+      if (chosenPosition) break;
+
+      for (const direction of allDirections) {
+        const [dx, dy] = directionVectors[direction];
+
+        const labelX =
+          geometry.x +
+          dx * (
+            Math.max(geometry.width, geometry.height) * 0.5 +
+            distance
+          );
+
+        const labelY =
+          geometry.y +
+          dy * (
+            Math.max(geometry.width, geometry.height) * 0.5 +
+            distance
+          );
+
+        label.style.left = `${labelX}px`;
+        label.style.top = `${labelY}px`;
+
+        const rect = label.getBoundingClientRect();
+
+        const overlapsExisting = placedLabels.some(existing =>
+          rectanglesOverlap(rect, existing)
+        );
+
+        const overlapsObstacle = obstacles.some(obstacle =>
+          rectanglesOverlap(rect, obstacle, 12)
+        );
+
+        const overlapsMapCountry = overlapsCountry(rect);
+
+        const mapRect = mapWrap.getBoundingClientRect();
+
+        const insideBounds =
+          rect.left >= mapRect.left + 10 &&
+          rect.right <= mapRect.right - 10 &&
+          rect.top >= mapRect.top + 10 &&
+          rect.bottom <= mapRect.bottom - 10;
+
+        if (
+          !overlapsExisting &&
+          !overlapsObstacle &&
+          !overlapsMapCountry &&
+          insideBounds
+        ) {
+          chosenPosition = {
+            x: labelX,
+            y: labelY,
+            rect
+          };
+
+          chosenDirection = direction;
+
+          break;
+        }
+      }
+    }
+
+    /*
+      If no completely clear position exists,
+      fall back to the preferred direction.
+    */
+    if (!chosenPosition) {
+      const direction = directions[0] || "east";
+      const [dx, dy] = directionVectors[direction];
+
+      const distance = 45;
+
+      const labelX =
+        geometry.x +
+        dx * (
+          Math.max(geometry.width, geometry.height) * 0.5 +
+          distance
+        );
+
+      const labelY =
+        geometry.y +
+        dy * (
+          Math.max(geometry.width, geometry.height) * 0.5 +
+          distance
+        );
+
+      label.style.left = `${labelX}px`;
+      label.style.top = `${labelY}px`;
+
+      chosenPosition = {
+        x: labelX,
+        y: labelY,
+        rect: label.getBoundingClientRect()
+      };
+
+      chosenDirection = direction;
+    }
+
+    label.style.visibility = "visible";
+
+    placedLabels.push(chosenPosition.rect);
+
+    /*
+      Draw a small leader line from the country
+      toward the label.
+    */
+    const line = document.createElement("div");
+
+    line.className = "country-label-line";
+
+    const startX = geometry.x;
+    const startY = geometry.y;
+
+    const endX = chosenPosition.x;
+    const endY = chosenPosition.y;
+
+    const lineLength = Math.sqrt(
+      Math.pow(endX - startX, 2) +
+      Math.pow(endY - startY, 2)
+    );
+
+    const angle =
+      Math.atan2(endY - startY, endX - startX) *
+      180 /
+      Math.PI;
+
+    line.style.width = `${lineLength}px`;
+    line.style.left = `${startX}px`;
+    line.style.top = `${startY}px`;
+    line.style.transform = `rotate(${angle}deg)`;
+
+    labelContainer.insertBefore(line, label);
   });
 }
 
