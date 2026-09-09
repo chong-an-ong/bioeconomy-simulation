@@ -1021,74 +1021,178 @@ document
 
 
 /* =========================================================
-   TREATY HUB EVENT
+   TREATY HUB NAVIGATION
    ========================================================= */
 
-document
-  .getElementById("treatyHubBtn")
-  .addEventListener("click", () => {
+function openTreatyHub() {
 
-    const sections =
-      Object.entries(treatyHub)
-        .map(([section, items]) => `
+  const categories =
+    Object.keys(treatyHub);
 
-          <div class="treaty-section">
 
-            <h3>
-              ${section}
-            </h3>
+  const categoryHTML =
+    categories.map(category => `
 
-            ${
-              items.length
-                ? items.map(item => `
-                    <div class="treaty-item">
+      <button
+        type="button"
+        class="treaty-category-button"
+        data-treaty-category="${category}">
 
-                      <a
-                        class="treaty-link"
-                        href="${item.url}"
-                        target="_blank"
-                        rel="noopener">
+        <span class="treaty-category-name">
+          ${category}
+        </span>
 
-                        ${item.title}
+        <span class="treaty-category-arrow">
+          →
+        </span>
 
-                      </a>
+      </button>
 
-                    </div>
-                  `).join("")
+    `).join("");
 
-                : `
-                  <p>
-                    ${
-                      section === "Final treaty text"
-                        ? "Add the final negotiated treaty here."
-                        : "Add links here as the simulation progresses."
-                    }
-                  </p>
-                `
-            }
+
+  openModal(`
+
+    <h2>
+      Treaty Hub
+    </h2>
+
+    <div class="subtitle">
+      Working documents and reference texts
+    </div>
+
+    <div class="treaty-category-list">
+
+      ${categoryHTML}
+
+    </div>
+
+  `);
+
+}
+
+
+function openTreatyCategory(category) {
+
+  const items =
+    treatyHub[category] || [];
+
+
+  const itemsHTML =
+    items.length
+
+      ? items.map(item => `
+
+          <div class="treaty-item">
+
+            <a
+              class="treaty-link"
+              href="${item.url}"
+              target="_blank"
+              rel="noopener">
+
+              ${item.title}
+
+            </a>
 
           </div>
 
-        `)
-        .join("");
+        `).join("")
+
+      : `
+
+          <p>
+            No documents have been added yet.
+          </p>
+
+        `;
 
 
-    openModal(`
+  openModal(`
 
-      <h2>
-        Treaty Hub
-      </h2>
+    <button
+      type="button"
+      class="treaty-back-button"
+      id="treatyBackButton">
 
-      <div class="subtitle">
-        Working documents and negotiated texts
-      </div>
+      ← Treaty Hub
 
-      ${sections}
+    </button>
 
-    `);
+    <h2>
+      ${category}
+    </h2>
 
-  });
+    <div class="subtitle">
+      Documents and reference materials
+    </div>
 
+    <div class="treaty-document-list">
+
+      ${itemsHTML}
+
+    </div>
+
+  `);
+
+}
+
+
+/* ---------------------------------------------------------
+   Treaty Hub button
+   --------------------------------------------------------- */
+
+document
+  .getElementById("treatyHubBtn")
+  .addEventListener(
+    "click",
+    openTreatyHub
+  );
+
+
+/* ---------------------------------------------------------
+   Treaty Hub category / back navigation
+   --------------------------------------------------------- */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const categoryButton =
+      event.target.closest(
+        ".treaty-category-button"
+      );
+
+
+    if (categoryButton) {
+
+      const category =
+        categoryButton.dataset.treatyCategory;
+
+
+      openTreatyCategory(
+        category
+      );
+
+      return;
+
+    }
+
+
+    const backButton =
+      event.target.closest(
+        "#treatyBackButton"
+      );
+
+
+    if (backButton) {
+
+      openTreatyHub();
+
+    }
+
+  }
+);
 
 /* =========================================================
    MODAL EVENTS
