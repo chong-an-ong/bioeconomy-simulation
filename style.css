@@ -315,19 +315,19 @@ h1 {
 }
 
 .country-selector-area {
-  margin-top: 22px;
-  text-align: center;
+  margin-top: 10px;
 }
 
 .country-selector-hint {
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   color: var(--muted);
 
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .12em;
+  font-size: 11px;
+  letter-spacing: .1em;
   text-transform: uppercase;
+
+  text-align: left;
 }
 
 .country-selector {
