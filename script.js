@@ -1355,43 +1355,43 @@ function openTimeline() {
     <div class="treaty-document-list">
 
       <div class="treaty-item">
-        <strong>10/26</strong>
-        <p>Actor Memo Part 1 Due</p>
+        <strong>Oct 26</strong>
+        <p>Submit Actor Memo Part 1.</p>
       </div>
 
       <div class="treaty-item">
-        <strong>10/28</strong>
-        <p>Actor Memo Part 2 Due</p>
+        <strong>Oct 28</strong>
+        <p>Submit Actor Memo Part 2.</p>
       </div>
 
       <div class="treaty-item">
-        <strong>10/29</strong>
-        <p>Vote on Negotiation Chair</p>
+        <strong>Oct 29</strong>
+        <p>Vote on Negotiation Chair.</p>
       </div>
 
       <div class="treaty-item">
-        <strong>11/5</strong>
-        <p>First Draft Due</p>
+        <strong>Nov 5</strong>
+        <p>Submit First Draft of Treaty Text.</p>
       </div>
 
       <div class="treaty-item">
-        <strong>11/17</strong>
-        <p>Rough Draft Due</p>
+        <strong>Nov 17</strong>
+        <p>Submit Rough Draft of Treaty Text.</p>
       </div>
 
       <div class="treaty-item">
-        <strong>11/21</strong>
-        <p>Amendments Draft Due</p>
+        <strong>Nov 21</strong>
+        <p>Submit Draft for Amendments to Treaty Text.</p>
       </div>
 
       <div class="treaty-item">
-        <strong>12/3</strong>
-        <p>Final Vote on the Treaty</p>
+        <strong>Dec 3</strong>
+        <p>Final Vote on the Treaty.</p>
       </div>
 
       <div class="treaty-item">
-        <strong>12/09</strong>
-        <p>Final Paper Due</p>
+        <strong>Dec 9</strong>
+        <p>Final Paper Due.</p>
       </div>
 
     </div>
