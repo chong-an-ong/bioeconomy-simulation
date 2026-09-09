@@ -398,6 +398,72 @@ const delegations = {
   }
 };
 
+const coalitionButtons = document.querySelectorAll(".coalition-button");
+
+function openCoalition(filterType, filterValue) {
+  const matchingActors = [];
+
+  Object.entries(delegations).forEach(([country, delegation]) => {
+    delegation.actors.forEach(actor => {
+      const tags = actor[
+        filterType === "sector"
+          ? "sectors"
+          : "constituencies"
+      ] || [];
+
+      if (tags.includes(filterValue)) {
+        matchingActors.push({
+          country,
+          actor
+        });
+      }
+    });
+  });
+
+  const actorCards = matchingActors.map(({ country, actor }) => `
+    <article class="actor">
+      <div class="actor-photo">
+        ${actor.photo
+          ? `<img src="${actor.photo}" alt="${actor.name}">`
+          : "Add photo"}
+      </div>
+
+      <div>
+        <div class="coalition-country">${country}</div>
+        <h4>${actor.name}</h4>
+        <div class="role">${actor.role}</div>
+
+        ${actor.constituency
+          ? `<p><strong>${actor.constituency}</strong></p>`
+          : ""}
+
+        <p><strong>Position:</strong> ${actor.position}</p>
+        <p><strong>Background:</strong> ${actor.background}</p>
+
+        ${linksHTML(actor.links)}
+      </div>
+    </article>
+  `).join("");
+
+  openModal(`
+    <h2>${filterValue}</h2>
+    <div class="subtitle">
+      ${filterType === "sector" ? "Sector coalition" : "Constituency coalition"}
+    </div>
+
+    <p class="coalition-description">
+      Actors across national delegations connected to this
+      ${filterType === "sector" ? "sector" : "constituency"}.
+    </p>
+
+    ${actorCards || `
+      <p class="coalition-empty">
+        No actors are currently associated with this category.
+      </p>
+    `}
+  `);
+}
+
 const concepts = {
   international: {
     title: "International",
@@ -693,5 +759,20 @@ Object.entries(countryMap).forEach(([isoCode, countryName]) => {
     currentHoverGroup = newHoverGroup;
   });
 }
+
+// --------------------------------------------------
+// Coalition button clicks
+// --------------------------------------------------
+
+document.addEventListener("click", event => {
+  const button = event.target.closest(".coalition-button");
+
+  if (!button) return;
+
+  const filterType = button.dataset.filterType;
+  const filterValue = button.dataset.filterValue;
+
+  openCoalition(filterType, filterValue);
+});
 
 loadWorldMap();
