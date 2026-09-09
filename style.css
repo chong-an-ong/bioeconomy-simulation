@@ -99,19 +99,11 @@ h1 {
   padding: 110px 38px 28px;
 }
 
-#worldMap {
-  width: min(1150px, 94vw);
-  height: auto;
-  max-height: 76vh;
-  overflow: visible;
-}
-
-/* Base styling for every country in the world map */
+/* Base styling for every country */
 #worldMapSvg path {
   fill: none !important;
   stroke: var(--line) !important;
   stroke-width: 1.2 !important;
-  stroke-dasharray: 5 5 !important;
   vector-effect: non-scaling-stroke;
   transition: fill .15s, stroke .15s, stroke-width .15s;
 }
@@ -121,7 +113,6 @@ h1 {
   fill: none !important;
   stroke: var(--accent) !important;
   stroke-width: 2 !important;
-  stroke-dasharray: 6 4 !important;
   cursor: pointer;
 }
 
@@ -137,8 +128,8 @@ h1 {
   fill: rgba(215,227,229,.14) !important;
   stroke: var(--text) !important;
   stroke-width: 3 !important;
-  stroke-dasharray: none !important;
 }
+
 .map-hint {
   position: absolute;
   bottom: 24px;

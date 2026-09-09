@@ -268,24 +268,27 @@ async function loadWorldMap() {
 
 
 function attachCountryHandlers() {
-
   const countryMap = {
     IN: "India",
-    CN: "China",
     BR: "Brazil",
     DE: "Germany",
     AE: "UAE",
     PA: "Panama",
     GA: "Gabon",
-    FR: "France",
-    ID: "Indonesia",
-    AU: "Australia",
     FI: "Finland",
     PE: "Peru"
   };
 
-  Object.entries(countryMap).forEach(([isoCode, countryName]) => {
+  // Countries that SimpleMaps identifies by class rather than ID
+  const classCountryMap = {
+    China: "China",
+    France: "France",
+    Indonesia: "Indonesia",
+    Australia: "Australia"
+  };
 
+  // Handle countries with IDs
+  Object.entries(countryMap).forEach(([isoCode, countryName]) => {
     const country = document.getElementById(isoCode);
 
     if (!country) {
@@ -296,7 +299,6 @@ function attachCountryHandlers() {
     country.classList.add("country");
 
     country.addEventListener("click", () => {
-
       document
         .querySelectorAll("#worldMapSvg .country.selected")
         .forEach(c => c.classList.remove("selected"));
@@ -308,7 +310,34 @@ function attachCountryHandlers() {
 
     country.style.cursor = "pointer";
   });
-}
 
+  // Handle countries identified by class
+  Object.entries(classCountryMap).forEach(([svgClass, countryName]) => {
+    const countries = document.querySelectorAll(
+      `#worldMapSvg path.${svgClass}`
+    );
+
+    if (!countries.length) {
+      console.warn(`Could not find ${svgClass} in world.svg`);
+      return;
+    }
+
+    countries.forEach(country => {
+      country.classList.add("country");
+
+      country.addEventListener("click", () => {
+        document
+          .querySelectorAll("#worldMapSvg .country.selected")
+          .forEach(c => c.classList.remove("selected"));
+
+        countries.forEach(c => c.classList.add("selected"));
+
+        openDelegation(countryName);
+      });
+
+      country.style.cursor = "pointer";
+    });
+  });
+}
 
 loadWorldMap();
