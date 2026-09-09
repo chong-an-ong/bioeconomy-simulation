@@ -1014,3 +1014,70 @@ h1 {
 
   transform: translateX(-2px);
 }
+
+.actor-assignment-table-wrap {
+  width: 100%;
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+.actor-assignment-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+}
+
+.actor-assignment-table th {
+  padding: 11px 12px;
+  border-bottom: 1px solid rgba(237,242,243,.30);
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.actor-assignment-table td {
+  padding: 13px 12px;
+  border-bottom: 1px solid rgba(237,242,243,.12);
+  color: var(--text);
+  line-height: 1.35;
+  vertical-align: middle;
+}
+
+.actor-assignment-table tbody tr:hover {
+  background: rgba(255,255,255,.035);
+}
+
+.actor-assignment-table th:nth-child(1),
+.actor-assignment-table td:nth-child(1) {
+  width: 27%;
+}
+
+.actor-assignment-table th:nth-child(2),
+.actor-assignment-table td:nth-child(2) {
+  width: 31%;
+}
+
+.actor-assignment-table th:nth-child(3),
+.actor-assignment-table td:nth-child(3) {
+  width: 17%;
+}
+
+.actor-assignment-table th:nth-child(4),
+.actor-assignment-table td:nth-child(4) {
+  width: 25%;
+}
+
+.rules-pdf {
+  display: block;
+  width: 100%;
+  height: 60vh;
+  margin-top: 22px;
+  border: 1px solid rgba(237,242,243,.18);
+  border-radius: 5px;
+  background: #ffffff;
+}

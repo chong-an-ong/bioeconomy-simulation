@@ -990,6 +990,7 @@ const treatyHub = {
 };
 
 
+
 /* =========================================================
    CONCEPT BUTTON EVENTS
    ========================================================= */
@@ -1193,6 +1194,63 @@ document.addEventListener(
 
   }
 );
+
+/* =========================================================
+   ACTOR ASSIGNMENTS
+   ========================================================= */
+
+document
+  .getElementById("actorAssignmentsBtn")
+  .addEventListener("click", () => {
+
+    openModal(`
+
+      <h2>
+        Actor Assignments
+      </h2>
+
+      <div class="subtitle">
+        Simulation participants and assigned roles
+      </div>
+
+      <div class="actor-assignment-table-wrap">
+
+        <table class="actor-assignment-table">
+
+          <thead>
+            <tr>
+              <th>Student Full Name</th>
+              <th>Actor Full Name</th>
+              <th>Country</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>[Student Name]</td>
+              <td>[Actor Full Name]</td>
+              <td>[Country]</td>
+              <td>Lead Negotiator</td>
+            </tr>
+
+            <tr>
+              <td>[Student Name]</td>
+              <td>[Actor Full Name]</td>
+              <td>[Country]</td>
+              <td>Subnational Actor</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    `);
+
+  });
 
 /* =========================================================
    MODAL EVENTS
