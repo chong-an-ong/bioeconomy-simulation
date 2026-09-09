@@ -279,7 +279,6 @@ function attachCountryHandlers() {
     PE: "Peru"
   };
 
-  // Countries represented by multiple SVG paths
   const classCountryMap = {
     China: "China",
     France: "France",
@@ -287,14 +286,12 @@ function attachCountryHandlers() {
     Australia: "Australia"
   };
 
-  // Helper: clear any currently selected country
   function clearSelection() {
     document
       .querySelectorAll("#worldMapSvg .country.selected")
       .forEach(c => c.classList.remove("selected"));
   }
 
-  // Helper: bring selected country paths above neighboring borders
   function bringToFront(countries) {
     countries.forEach(country => {
       country.parentNode.appendChild(country);
@@ -302,7 +299,7 @@ function attachCountryHandlers() {
   }
 
   // --------------------------------------------------
-  // Countries represented by a single SVG path
+  // Single-path countries
   // --------------------------------------------------
 
   Object.entries(countryMap).forEach(([isoCode, countryName]) => {
@@ -328,7 +325,7 @@ function attachCountryHandlers() {
   });
 
   // --------------------------------------------------
-  // Countries represented by multiple SVG paths
+  // Multi-path countries
   // --------------------------------------------------
 
   Object.entries(classCountryMap).forEach(([svgClass, countryName]) => {
@@ -341,28 +338,12 @@ function attachCountryHandlers() {
       return;
     }
 
-    // Give every piece of the country the same identifying data
     countries.forEach(country => {
       country.classList.add("country");
       country.dataset.countryName = countryName;
       country.dataset.countryGroup = svgClass;
-    });
 
-    // Hover over ANY piece → highlight the ENTIRE country
-    countries.forEach(country => {
-      country.addEventListener("mouseenter", () => {
-        countries.forEach(c => {
-          c.classList.add("country-hover");
-        });
-      });
-
-      country.addEventListener("mouseleave", () => {
-        countries.forEach(c => {
-          c.classList.remove("country-hover");
-        });
-      });
-
-      // Click ANY piece → select the ENTIRE country
+      // Click any piece → select entire country
       country.addEventListener("click", () => {
         clearSelection();
 
@@ -376,5 +357,51 @@ function attachCountryHandlers() {
       });
     });
   });
+
+  // --------------------------------------------------
+  // Group hover
+  // --------------------------------------------------
+
+  let currentHoverGroup = null;
+
+  document.addEventListener("mousemove", event => {
+    const element = document.elementFromPoint(
+      event.clientX,
+      event.clientY
+    );
+
+    const path = element?.closest?.("#worldMapSvg path.country");
+
+    let newHoverGroup = null;
+
+    if (path && path.dataset.countryGroup) {
+      newHoverGroup = path.dataset.countryGroup;
+    }
+
+    if (newHoverGroup === currentHoverGroup) {
+      return;
+    }
+
+    // Remove previous group hover
+    if (currentHoverGroup) {
+      document
+        .querySelectorAll(
+          `#worldMapSvg path.country[data-country-group="${currentHoverGroup}"]`
+        )
+        .forEach(c => c.classList.remove("country-hover"));
+    }
+
+    // Add new group hover
+    if (newHoverGroup) {
+      document
+        .querySelectorAll(
+          `#worldMapSvg path.country[data-country-group="${newHoverGroup}"]`
+        )
+        .forEach(c => c.classList.add("country-hover"));
+    }
+
+    currentHoverGroup = newHoverGroup;
+  });
 }
+
 loadWorldMap();
