@@ -108,38 +108,27 @@ h1 {
 
 .country {
   cursor: pointer;
-}
-
-.country rect {
-  fill: rgba(0,0,0,0);
-  stroke: var(--line);
-  stroke-width: 1.5;
-  stroke-dasharray: 5 5;
+  fill: none !important;
+  stroke: var(--line) !important;
+  stroke-width: 1.5 !important;
+  stroke-dasharray: 5 5 !important;
   vector-effect: non-scaling-stroke;
   transition: fill .15s, stroke .15s, stroke-width .15s;
 }
 
-.country text {
-  fill: rgba(237,242,243,.45);
-  font-size: 10px;
-  text-anchor: middle;
-  dominant-baseline: middle;
-  pointer-events: none;
-  transition: fill .15s;
+.country:hover {
+  fill: rgba(215,227,229,.08) !important;
+  stroke: var(--accent) !important;
+  stroke-width: 2.5 !important;
+  stroke-dasharray: 5 5 !important;
 }
 
-.country:hover rect,
-.country.selected rect {
-  fill: rgba(215,227,229,.08);
-  stroke: var(--accent);
-  stroke-width: 2;
+.country.selected {
+  fill: rgba(215,227,229,.12) !important;
+  stroke: var(--accent) !important;
+  stroke-width: 3 !important;
+  stroke-dasharray: none !important;
 }
-
-.country:hover text,
-.country.selected text {
-  fill: var(--text);
-}
-
 .map-hint {
   position: absolute;
   bottom: 24px;
