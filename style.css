@@ -1083,13 +1083,46 @@ h1 {
 }
 
 
-.treaty-document-list .treaty-item.treaty-section {
-  margin-top: 18px;
-  padding: 12px 4px 8px;
-  border-bottom: 0;
-  color: var(--muted);
-  font-size: 9px;
+.treaty-document-list {
+  margin-top: 22px;
+  border-top: 0;
+}
+
+.treaty-document-list .treaty-item {
+  margin: 0;
+  padding: 15px 4px 18px;
+  border-bottom: 1px solid rgba(237,242,243,.12);
+}
+
+.treaty-section {
+  margin-top: 28px;
+  margin-bottom: 6px;
+  padding: 12px 4px 10px;
+  border-bottom: 1px solid rgba(237,242,243,.22);
+  color: var(--text);
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: .14em;
+  letter-spacing: .10em;
   text-transform: uppercase;
+}
+
+.treaty-document-list .treaty-item + .treaty-section {
+  margin-top: 30px;
+}
+
+.treaty-country {
+  margin-bottom: 6px;
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.treaty-document-list .treaty-link {
+  display: block;
+  margin-right: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
 }

@@ -976,70 +976,82 @@ const treatyHub = {
 
   "Round 2 texts": [],
 
-  "National bioeconomy strategies": [
-  {
-    title: "OFFICIAL NATIONAL STRATEGIES & PLANS",
-    type: "section"
-  },
-  {
-    title: "Brazil — National Bioeconomy Strategy",
-    url: "https://www.gov.br/mma/pt-br/composicao/sbc/dpeb/estrategia-nacional-de-bioeconomia"
-  },
-  {
-    title: "China — 14th Five-Year Plan for Bioeconomy Development",
-    url: "https://www.ndrc.gov.cn/xxgk/zcfb/ghwb/202205/t20220510_1324595.html"
-  },
-  {
-    title: "Finland — Bioeconomy Strategy 2022–2035",
-    url: "https://www.bioeconomy.fi/facts-and-contacts/the-finnish-bioeconomy-strategy/"
-  },
-  {
-    title: "France — National Bioeconomy Strategy / 2018–2020 Action Plan",
-    url: "https://agriculture.gouv.fr/bioeconomy-strategy-france-2018-2020-action-plan"
-  },
-  {
-    title: "Germany — National Bioeconomy Strategy",
-    url: "https://www.bundesregierung.de/breg-en/service/archive/biooekonomie-1712668"
-  },
-  {
-    title: "India — Roadmap to a Leading Bioeconomy Powerhouse by 2035",
-    url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2285858&lang=2&reg=48"
-  },
+    "National bioeconomy strategies": [
+    {
+      title: "STRATEGY PUBLISHED",
+      type: "section"
+    },
+    {
+      country: "Brazil",
+      title: "National Bioeconomy Strategy",
+      url: "https://www.gov.br/mma/pt-br/composicao/sbc/dpeb/estrategia-nacional-de-bioeconomia"
+    },
+    {
+      country: "China",
+      title: "14th Five-Year Plan for Bioeconomy Development",
+      url: "https://www.ndrc.gov.cn/xxgk/zcfb/ghwb/202205/t20220510_1324595.html"
+    },
+    {
+      country: "Finland",
+      title: "Bioeconomy Strategy 2022–2035",
+      url: "https://www.bioeconomy.fi/facts-and-contacts/the-finnish-bioeconomy-strategy/"
+    },
+    {
+      country: "France",
+      title: "National Bioeconomy Strategy / 2018–2020 Action Plan",
+      url: "https://agriculture.gouv.fr/bioeconomy-strategy-france-2018-2020-action-plan"
+    },
+    {
+      country: "Germany",
+      title: "National Bioeconomy Strategy",
+      url: "https://www.bundesregierung.de/breg-en/service/archive/biooekonomie-1712668"
+    },
+    {
+      country: "India",
+      title: "Roadmap to a Leading Bioeconomy Powerhouse by 2035",
+      url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2285858&lang=2&reg=48"
+    },
 
-  {
-    title: "STRATEGIES IN DEVELOPMENT",
-    type: "section"
-  },
-  {
-    title: "Panama — National Bioeconomy Strategy (in development)",
-    url: "https://www.senacyt.gob.pa/en/la-senacyt-avanza-en-el-desarrollo-de-la-estrategia-nacional-de-bioeconomia-con-el-lanzamiento-de-la-cuenta-tematica-de-bioeconomia-del-pais/"
-  },
-  {
-    title: "Peru — Bioeconomy Roadmap (draft)",
-    url: "https://www.gob.pe/institucion/minam/normas-legales/8259661-d000192-2026-minam"
-  },
+    {
+      title: "STRATEGY IN DEVELOPMENT",
+      type: "section"
+    },
+    {
+      country: "Panama",
+      title: "National Bioeconomy Strategy (in development)",
+      url: "https://www.senacyt.gob.pa/en/la-senacyt-avanza-en-el-desarrollo-de-la-estrategia-nacional-de-bioeconomia-con-el-lanzamiento-de-la-cuenta-tematica-de-bioeconomia-del-pais/"
+    },
+    {
+      country: "Peru",
+      title: "Bioeconomy Roadmap (draft)",
+      url: "https://www.gob.pe/institucion/minam/normas-legales/8259661-d000192-2026-minam"
+    },
 
-  {
-    title: "NO NATIONAL STRATEGY IDENTIFIED",
-    type: "section"
-  },
-  {
-    title: "Australia — No national bioeconomy strategy identified",
-    url: "https://biooekonomie.de/en/topics/in-depth-reports-worldwide"
-  },
-  {
-    title: "Gabon — Developing a national bioeconomy framework",
-    url: "https://www.circulareconomyalliance.com/gabon"
-  },
-  {
-    title: "Indonesia — Policy gaps and the case for a national bioeconomy roadmap",
-    url: "https://komens.bappenas.go.id/public/storage/files/Dt.01.04_Master_Plan_Produktivitas_Nasional_2025.pdf"
-  },
-  {
-    title: "UAE — Bioeconomy within broader green-growth policy",
-    url: "https://gggi.org/report/gggi-uae-country-planning-framework-2023-2027/"
-  }
-],
+    {
+      title: "NO STRATEGY IDENTIFIED",
+      type: "section"
+    },
+    {
+      country: "Australia",
+      title: "Research on Australia's bioeconomy",
+      url: "https://biooekonomie.de/en/topics/in-depth-reports-worldwide"
+    },
+    {
+      country: "Gabon",
+      title: "Research on developing a national bioeconomy framework",
+      url: "https://www.circulareconomyalliance.com/gabon"
+    },
+    {
+      country: "Indonesia",
+      title: "Policy gaps and the case for a national bioeconomy roadmap",
+      url: "https://komens.bappenas.go.id/public/storage/files/Dt.01.04_Master_Plan_Produktivitas_Nasional_2025.pdf"
+    },
+    {
+      country: "UAE",
+      title: "Bioeconomy within broader green-growth policy",
+      url: "https://gggi.org/report/gggi-uae-country-planning-framework-2023-2027/"
+    }
+  ],
 
 };
 
@@ -1138,18 +1150,27 @@ function openTreatyCategory(category) {
 
     ? items.map(item => {
 
+        /* Subsection heading */
+
         if (item.type === "section") {
 
           return `
-            <div class="treaty-item treaty-section">
+            <div class="treaty-section">
               ${item.title}
             </div>
           `;
 
         }
 
+
+        /* Country + document */
+
         return `
           <div class="treaty-item">
+
+            <div class="treaty-country">
+              ${countryFlags[item.country] || ""} ${item.country}
+            </div>
 
             <a
               class="treaty-link"
