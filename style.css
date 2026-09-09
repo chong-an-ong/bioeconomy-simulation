@@ -398,9 +398,10 @@ h1 {
   justify-content: center;
   gap: 7px;
 
+  margin-top: 0;
+
   white-space: nowrap;
 }
-
 /* =========================================================
    LEFT SIMULATION TOOLBAR
    ========================================================= */
