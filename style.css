@@ -129,22 +129,23 @@ h1 {
   transition: none;
 }
 
-/* Countries participating in the simulation */
+/* Simulation countries */
 #worldMapSvg path.country {
   fill: transparent !important;
+  pointer-events: all !important;
   stroke: var(--accent) !important;
   stroke-width: 2 !important;
   cursor: pointer;
 }
 
-/* Hovered simulation country */
-#worldMapSvg path.country:hover {
+/* Multi-part country: highlight entire group */
+#worldMapSvg path.country.country-hover {
   fill: rgba(215,227,229,.08) !important;
   stroke: var(--text) !important;
   stroke-width: 2.5 !important;
 }
 
-/* Selected simulation country */
+/* Selected country */
 #worldMapSvg path.country.selected {
   fill: rgba(215,227,229,.14) !important;
   stroke: var(--text) !important;
