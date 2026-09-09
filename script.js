@@ -766,7 +766,6 @@ function openCoalition(filterType, filterValue) {
 
   const matchingActors = [];
 
-
   Object.entries(delegations).forEach(
     ([country, delegation]) => {
 
@@ -778,7 +777,6 @@ function openCoalition(filterType, filterValue) {
               ? "sectors"
               : "constituencies"
           ] || [];
-
 
         if (tags.includes(filterValue)) {
 
@@ -795,53 +793,40 @@ function openCoalition(filterType, filterValue) {
   );
 
 
-  const actorCards = matchingActors.map(
-    ({ country, actor }) => `
+  const actorCards =
+    matchingActors.map(
+      ({ country, actor }) => `
 
-      <article class="actor">
+        <button
+          type="button"
+          class="coalition-actor-card"
+          data-country="${country}">
 
-        <div class="actor-photo">
-          ${actor.photo
-            ? `<img src="${actor.photo}" alt="${actor.name}">`
-            : "Add photo"}
-        </div>
+          <div class="coalition-actor-photo">
 
-        <div>
+            ${
+              actor.photo
+                ? `<img
+                     src="${actor.photo}"
+                     alt="${actor.name}">
+                   `
+                : "Add photo"
+            }
 
-          <div class="coalition-country">
+          </div>
+
+          <div class="coalition-actor-name">
+            ${actor.name}
+          </div>
+
+          <div class="coalition-actor-country">
             ${country}
           </div>
 
-          <h4>
-            ${actor.name}
-          </h4>
+        </button>
 
-          <div class="role">
-            ${actor.role}
-          </div>
-
-          ${actor.constituency
-            ? `<p><strong>${actor.constituency}</strong></p>`
-            : ""}
-
-          <p>
-            <strong>Position:</strong>
-            ${actor.position}
-          </p>
-
-          <p>
-            <strong>Background:</strong>
-            ${actor.background}
-          </p>
-
-          ${linksHTML(actor.links)}
-
-        </div>
-
-      </article>
-
-    `
-  ).join("");
+      `
+    ).join("");
 
 
   openModal(`
@@ -858,31 +843,54 @@ function openCoalition(filterType, filterValue) {
       }
     </div>
 
+    <div class="coalition-actor-grid">
 
-    <p class="coalition-description">
-
-      Actors across national delegations connected to this
       ${
-        filterType === "sector"
-          ? "sector"
-          : "constituency"
-      }.
+        actorCards
+          ? actorCards
+          : `
+              <p class="coalition-empty">
+                No actors are currently associated
+                with this category.
+              </p>
+            `
+      }
 
-    </p>
-
-
-    ${
-      actorCards
-        ? actorCards
-        : `
-          <p class="coalition-empty">
-            No actors are currently associated with this category.
-          </p>
-        `
-    }
+    </div>
 
   `);
+
 }
+
+/* =========================================================
+   COALITION ACTOR CARDS
+   ========================================================= */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const card =
+      event.target.closest(
+        ".coalition-actor-card"
+      );
+
+    if (!card) {
+      return;
+    }
+
+    const country =
+      card.dataset.country;
+
+    closeModal();
+
+    selectCountry(country);
+
+    openDelegation(country);
+
+  }
+);
+
 
 
 /* =========================================================
