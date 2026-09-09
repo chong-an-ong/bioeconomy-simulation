@@ -106,26 +106,36 @@ h1 {
   overflow: visible;
 }
 
-.country {
-  cursor: pointer;
+/* Base styling for every country in the world map */
+#worldMapSvg path {
   fill: none !important;
   stroke: var(--line) !important;
-  stroke-width: 1.5 !important;
+  stroke-width: 1.2 !important;
   stroke-dasharray: 5 5 !important;
   vector-effect: non-scaling-stroke;
   transition: fill .15s, stroke .15s, stroke-width .15s;
 }
 
-.country:hover {
-  fill: rgba(215,227,229,.08) !important;
+/* Countries participating in the simulation */
+#worldMapSvg path.country {
+  fill: none !important;
   stroke: var(--accent) !important;
-  stroke-width: 2.5 !important;
-  stroke-dasharray: 5 5 !important;
+  stroke-width: 2 !important;
+  stroke-dasharray: 6 4 !important;
+  cursor: pointer;
 }
 
-.country.selected {
-  fill: rgba(215,227,229,.12) !important;
-  stroke: var(--accent) !important;
+/* Hovered simulation country */
+#worldMapSvg path.country:hover {
+  fill: rgba(215,227,229,.08) !important;
+  stroke: var(--text) !important;
+  stroke-width: 2.5 !important;
+}
+
+/* Selected simulation country */
+#worldMapSvg path.country.selected {
+  fill: rgba(215,227,229,.14) !important;
+  stroke: var(--text) !important;
   stroke-width: 3 !important;
   stroke-dasharray: none !important;
 }
