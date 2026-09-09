@@ -131,7 +131,7 @@ h1 {
 
 /* Countries participating in the simulation */
 #worldMapSvg path.country {
-  fill: none !important;
+  fill: transparent !important;
   stroke: var(--accent) !important;
   stroke-width: 2 !important;
   cursor: pointer;

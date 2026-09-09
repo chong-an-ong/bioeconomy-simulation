@@ -279,7 +279,7 @@ function attachCountryHandlers() {
     PE: "Peru"
   };
 
-  // Countries that SimpleMaps identifies by class rather than ID
+  // Countries represented by multiple SVG paths
   const classCountryMap = {
     China: "China",
     France: "France",
@@ -287,30 +287,24 @@ function attachCountryHandlers() {
     Australia: "Australia"
   };
 
-  // Islands we don't want displayed
-  const hiddenIslands = [
-    "Hawaii",
-    "Micronesia",
-    "Marshall Islands",
-    "Palau"
-  ];
-
-  hiddenIslands.forEach(name => {
+  // Helper: clear any currently selected country
+  function clearSelection() {
     document
-      .querySelectorAll(`#worldMapSvg path.${name.replace(/ /g, "\\ ")}`)
-      .forEach(path => {
-        path.style.display = "none";
-      });
-  });
+      .querySelectorAll("#worldMapSvg .country.selected")
+      .forEach(c => c.classList.remove("selected"));
+  }
 
-  // Helper: bring all paths belonging to a country to the front
+  // Helper: bring selected country paths above neighboring borders
   function bringToFront(countries) {
     countries.forEach(country => {
       country.parentNode.appendChild(country);
     });
   }
 
-  // Handle countries with IDs
+  // --------------------------------------------------
+  // Countries represented by a single SVG path
+  // --------------------------------------------------
+
   Object.entries(countryMap).forEach(([isoCode, countryName]) => {
     const country = document.getElementById(isoCode);
 
@@ -320,27 +314,26 @@ function attachCountryHandlers() {
     }
 
     country.classList.add("country");
+    country.dataset.countryName = countryName;
 
     country.addEventListener("click", () => {
-      document
-        .querySelectorAll("#worldMapSvg .country.selected")
-        .forEach(c => c.classList.remove("selected"));
+      clearSelection();
 
       country.classList.add("selected");
 
-      // Put selected country above neighboring borders
       bringToFront([country]);
 
       openDelegation(countryName);
     });
-
-    country.style.cursor = "pointer";
   });
 
-  // Handle countries identified by class
+  // --------------------------------------------------
+  // Countries represented by multiple SVG paths
+  // --------------------------------------------------
+
   Object.entries(classCountryMap).forEach(([svgClass, countryName]) => {
-    const countries = document.querySelectorAll(
-      `#worldMapSvg path.${svgClass}`
+    const countries = Array.from(
+      document.querySelectorAll(`#worldMapSvg path.${svgClass}`)
     );
 
     if (!countries.length) {
@@ -348,23 +341,39 @@ function attachCountryHandlers() {
       return;
     }
 
+    // Give every piece of the country the same identifying data
     countries.forEach(country => {
       country.classList.add("country");
+      country.dataset.countryName = countryName;
+      country.dataset.countryGroup = svgClass;
+    });
 
+    // Hover over ANY piece → highlight the ENTIRE country
+    countries.forEach(country => {
+      country.addEventListener("mouseenter", () => {
+        countries.forEach(c => {
+          c.classList.add("country-hover");
+        });
+      });
+
+      country.addEventListener("mouseleave", () => {
+        countries.forEach(c => {
+          c.classList.remove("country-hover");
+        });
+      });
+
+      // Click ANY piece → select the ENTIRE country
       country.addEventListener("click", () => {
-        document
-          .querySelectorAll("#worldMapSvg .country.selected")
-          .forEach(c => c.classList.remove("selected"));
+        clearSelection();
 
-        countries.forEach(c => c.classList.add("selected"));
+        countries.forEach(c => {
+          c.classList.add("selected");
+        });
 
-        // Put all pieces of the selected country above neighboring borders
         bringToFront(countries);
 
         openDelegation(countryName);
       });
-
-      country.style.cursor = "pointer";
     });
   });
 }
