@@ -299,31 +299,40 @@ function attachCountryHandlers() {
   }
 
   // --------------------------------------------------
-  // Single-path countries
-  // --------------------------------------------------
+// Single-path countries
+// --------------------------------------------------
 
-  Object.entries(countryMap).forEach(([isoCode, countryName]) => {
-    const country = document.getElementById(isoCode);
+Object.entries(countryMap).forEach(([isoCode, countryName]) => {
+  const country = document.getElementById(isoCode);
 
-    if (!country) {
-      console.warn(`Could not find ${isoCode} in world.svg`);
-      return;
-    }
+  if (!country) {
+    console.warn(`Could not find ${isoCode} in world.svg`);
+    return;
+  }
 
-    country.classList.add("country");
-    country.dataset.countryName = countryName;
+  country.classList.add("country");
+  country.dataset.countryName = countryName;
 
-    country.addEventListener("click", () => {
-      clearSelection();
-
-      country.classList.add("selected");
-
-      bringToFront([country]);
-
-      openDelegation(countryName);
-    });
+  // Hover
+  country.addEventListener("mouseenter", () => {
+    country.classList.add("country-hover");
   });
 
+  country.addEventListener("mouseleave", () => {
+    country.classList.remove("country-hover");
+  });
+
+  // Click
+  country.addEventListener("click", () => {
+    clearSelection();
+
+    country.classList.add("selected");
+
+    bringToFront([country]);
+
+    openDelegation(countryName);
+  });
+});
   // --------------------------------------------------
   // Multi-path countries
   // --------------------------------------------------
