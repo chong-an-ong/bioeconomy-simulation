@@ -149,6 +149,69 @@ h1 {
   border-color: rgba(237,242,243,.7);
 }
 
+/* =========================================================
+   TOP-RIGHT UTILITY PANEL
+   ========================================================= */
+
+.utility-panel {
+  pointer-events: auto;
+
+  position: absolute;
+
+  top: 30px;
+  right: 42px;
+
+  width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  gap: 6px;
+}
+
+.utility-panel .utility-button {
+  display: block;
+
+  width: 100%;
+  margin: 0;
+
+  flex: none;
+}
+
+/* =========================================================
+   CHAIR DISPLAY
+   ========================================================= */
+
+.chair-display {
+  margin-top: 14px;
+  padding-top: 12px;
+
+  border-top: 1px solid rgba(237,242,243,.20);
+}
+
+.chair-label {
+  margin-bottom: 5px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.chair-name {
+  color: #ffffff;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  line-height: 1.25;
+}
 
 /* =========================================================
    COUNTRY SELECTOR
@@ -703,10 +766,6 @@ h1 {
 
   .simulation-toolbar {
     display: none;
-  }
-
-  .map-hint {
-    left: 22px;
   }
 
   .utility-button {
