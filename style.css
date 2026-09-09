@@ -126,7 +126,7 @@ h1 {
   stroke: var(--line) !important;
   stroke-width: 1.2 !important;
   vector-effect: non-scaling-stroke;
-  transition: fill .15s, stroke .15s, stroke-width .15s;
+  transition: none;
 }
 
 /* Countries participating in the simulation */
