@@ -152,6 +152,30 @@ h1 {
   stroke-width: 3 !important;
 }
 
+.country-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.country-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.country-label-name {
+  color: var(--text);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
+
 .map-hint {
   position: absolute;
   bottom: 24px;

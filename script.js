@@ -605,6 +605,7 @@ async function loadWorldMap() {
     svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
     attachCountryHandlers();
+    createCountryLabels();
 
   } catch (error) {
     console.error("Error loading world map:", error);
@@ -760,6 +761,86 @@ Object.entries(countryMap).forEach(([isoCode, countryName]) => {
   });
 }
 
+function createCountryLabels() {
+  const labelContainer = document.getElementById("countryLabels");
+  const svg = document.getElementById("worldMapSvg");
+
+  if (!labelContainer || !svg) return;
+
+  labelContainer.innerHTML = "";
+
+  const countries = [
+    "India",
+    "China",
+    "Brazil",
+    "Germany",
+    "UAE",
+    "Panama",
+    "Gabon",
+    "France",
+    "Indonesia",
+    "Australia",
+    "Finland",
+    "Peru"
+  ];
+
+  countries.forEach(countryName => {
+    const paths = Array.from(
+      svg.querySelectorAll(
+        `path.country[data-country-name="${countryName}"]`
+      )
+    );
+
+    if (!paths.length) return;
+
+    let minX = Infinity;
+    let minY = Infinity;
+    let maxX = -Infinity;
+    let maxY = -Infinity;
+
+    paths.forEach(path => {
+      const box = path.getBBox();
+
+      minX = Math.min(minX, box.x);
+      minY = Math.min(minY, box.y);
+      maxX = Math.max(maxX, box.x + box.width);
+      maxY = Math.max(maxY, box.y + box.height);
+    });
+
+    const centerX = (minX + maxX) / 2;
+    const centerY = (minY + maxY) / 2;
+
+    const point = svg.createSVGPoint();
+    point.x = centerX;
+    point.y = centerY;
+
+    const screenPoint = point.matrixTransform(
+      svg.getScreenCTM()
+    );
+
+    const mapRect = document
+      .querySelector(".map-wrap")
+      .getBoundingClientRect();
+
+    const x = screenPoint.x - mapRect.left;
+    const y = screenPoint.y - mapRect.top;
+
+    const label = document.createElement("div");
+
+    label.className = "country-label";
+    label.dataset.country = countryName;
+
+    label.innerHTML = `
+      <span class="country-label-name">${countryName}</span>
+    `;
+
+    label.style.left = `${x}px`;
+    label.style.top = `${y}px`;
+
+    labelContainer.appendChild(label);
+  });
+}
+
 // --------------------------------------------------
 // Coalition button clicks
 // --------------------------------------------------
@@ -776,3 +857,7 @@ document.addEventListener("click", event => {
 });
 
 loadWorldMap();
+
+window.addEventListener("resize", () => {
+  createCountryLabels();
+});
