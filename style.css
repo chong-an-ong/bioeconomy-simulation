@@ -382,7 +382,7 @@ h1 {
 }
 
 .country-selector-hint {
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 
   color: var(--muted);
 
@@ -448,7 +448,7 @@ h1 {
   color: var(--text);
 
   font-family: inherit;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
 
