@@ -195,7 +195,11 @@ function openDelegation(country) {
     <div class="subtitle">Delegation</div>
     <h3>Lead negotiator</h3>
     <article class="actor">
-      <div class="actor-photo">Photo</div>
+      <div class="actor-photo">
+  ${d.lead.photo
+    ? `<img src="${d.lead.photo}" alt="${d.lead.name}">`
+    : "Add photo"}
+</div>
       <div>
         <h4>${d.lead.name}</h4>
         <div class="role">${d.lead.role}</div>
