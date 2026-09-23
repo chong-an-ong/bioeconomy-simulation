@@ -901,49 +901,231 @@ const concepts = {
 
   international: {
     title: "International",
-    subtitle: "Why does this problem require international coordination?",
     body: `
       <p>
-        What happens if countries pursue bioeconomy development independently?
-        Where do cross-border spillovers arise? Why might trade rules,
-        common standards, or technology-sharing arrangements matter?
+        Why not just have countries agree to each write their own national
+        bioeconomy strategy, call it a day, and go home?
       </p>
 
+      <ul>
+        <li>
+          Because the <strong>wealth, technology, and research capacity</strong>
+          needed to facilitate the bioeconomy transition are unequally distributed.
+        </li>
+        <li>
+          Because countries' <strong>resource endowments</strong> – like land,
+          forests, biodiversity, agricultural capacity, and other biological
+          resources – are also unequally distributed.
+        </li>
+        <li>
+          Because <strong>biological resources often cross national boundaries</strong>,
+          and one country's decisions about use of its biological resources can
+          create consequences for its neighbors.
+        </li>
+        <li>
+          Because <strong>supply chains cross borders</strong>, and different rules
+          for sustainability, certification, subsidies, and market access of the
+          produced goods shape where production occurs and who can participate.
+        </li>
+        <li>
+          Because the bioeconomy transition will have
+          <strong>global environmental effects</strong> – like on deforestation,
+          carbon emissions, biodiversity, food security, and land use – that
+          affect all countries regardless of how they participate.
+        </li>
+      </ul>
+
       <p>
-        Add readings, discussion prompts, and resources here.
+        <strong>International coordination</strong> is therefore necessary to
+        map out the areas of interdependence, and negotiate the distribution of
+        shared responsibilities and gains.
       </p>
     `
   },
 
-  bioeconomy: {
+    bioeconomy: {
     title: "Bioeconomy",
-    subtitle: "What exactly are we negotiating?",
     body: `
-      <p>
-        What counts as a bioeconomy? Is it replacing the fossil economy,
-        or becoming another layer of a broader low-carbon resource economy?
-      </p>
+      <h3>What is it?</h3>
 
-      <p>
-        What happens when biomass demand competes with food, conservation,
-        existing industries, or community land rights?
-      </p>
+      <ul>
+        <li>
+          An economy that uses <strong>renewable biological resources</strong> –
+          like crops, forests, algae, microorganisms, and agricultural or forestry
+          residues – to produce materials, chemicals, fuels, food, and other goods.
+        </li>
+        <li>
+          Think of it as opposed to our current <strong>fossil-based model</strong>,
+          where petroleum, natural gas, and coal provide the feedstocks and energy
+          for most of our modern industries.
+        </li>
+      </ul>
+
+      <h3>What are the main sectors in a bioeconomy?</h3>
+
+      <ul>
+        <li>
+          <strong>Materials &amp; manufacturing:</strong> bioplastics, bio-based
+          chemicals, textiles, engineered wood
+        </li>
+        <li>
+          <strong>Energy &amp; fuels:</strong> biofuels, sustainable aviation fuels,
+          biogas
+        </li>
+        <li>
+          <strong>Agriculture &amp; forestry:</strong> regenerative agriculture,
+          agroforestry, sustainable forest management, and use of agricultural
+          and forestry residues
+        </li>
+        <li>
+          <strong>Food &amp; biotechnology:</strong> alternative proteins,
+          fermentation, industrial biotechnology, and new biological production
+          systems
+        </li>
+      </ul>
+
+      <h3>What strategies are used to facilitate a bioeconomy transition?</h3>
+
+      <ul>
+        <li>
+          Writing new <strong>regulations and sustainability standards</strong>;
+        </li>
+        <li>
+          Restructuring <strong>subsidies, procurement, and public investment</strong>;
+        </li>
+        <li>
+          Establishing rules for
+          <strong>carbon accounting, land use, and biomass sourcing</strong>;
+        </li>
+        <li>
+          Negotiating new <strong>trade rules and product standards</strong>;
+        </li>
+        <li>
+          Building infrastructure and <strong>supply chains</strong> for
+          <strong>bio-based production</strong>;
+        </li>
+        <li>
+          Ensuring safeguards for
+          <strong>food security, biodiversity, labor, and community land rights</strong>;
+        </li>
+        <li>
+          Deciding how the <strong>costs and benefits</strong> of the transition
+          are <strong>distributed</strong> across countries and industries.
+        </li>
+      </ul>
+
+      <h3>Who are the stakeholders?</h3>
+
+      <ul>
+        <li>
+          <strong>Biomass-producing countries &amp; landholders</strong> —
+          farmers, forest owners, Indigenous and local communities.
+        </li>
+        <li>
+          <strong>Bio-based industries</strong> — agriculture, forestry,
+          chemicals, materials, fuels, biotechnology, and manufacturing.
+        </li>
+        <li>
+          <strong>Fossil-based incumbents</strong> — oil, gas, petrochemicals,
+          and industries built around fossil feedstocks.
+        </li>
+        <li>
+          <strong>Governments &amp; regulators</strong> — setting industrial,
+          environmental, agricultural, energy, and trade policy.
+        </li>
+        <li>
+          <strong>Workers &amp; consumers</strong> — affected by employment,
+          prices, product standards, and changes in consumption.
+        </li>
+        <li>
+          <strong>Environmental &amp; civil-society groups</strong> — focused
+          on biodiversity, climate, land rights, and the sustainability of
+          biomass supply.
+        </li>
+      </ul>
     `
   },
 
   framework: {
     title: "Framework",
-    subtitle: "What should an international framework actually do?",
     body: `
       <p>
-        Should it establish targets, sustainability standards,
-        financing mechanisms, trade rules, technology-sharing arrangements,
-        or something else?
+        A full international bioeconomy framework would involve a dizzying
+        number of policy areas and necessarily fall outside the scope of any
+        in-class simulation. Instead, delegations can develop specific
+        agreements or commitments around one or several areas that you will choose:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Innovation &amp; lead markets:</strong>
+          How can governments scale up R&amp;D, demonstration projects,
+          procurement, and demand for emerging bio-based technologies and materials?
+        </li>
+
+        <li>
+          <strong>Supply chains &amp; sustainable biomass:</strong>
+          What feedstocks should be developed, where should they come from,
+          and what would a bioeconomy-compatible supply chain look like?
+        </li>
+
+        <li>
+          <strong>Targets &amp; timelines:</strong>
+          What percentage of materials, fuels, chemicals, or other products
+          should come from biological resources – and by when?
+        </li>
+
+        <li>
+          <strong>Standards &amp; traceability:</strong>
+          How should countries coordinate certification, sustainability
+          standards, verification, and tracking of biomass and bio-based
+          products across borders?
+        </li>
+
+        <li>
+          <strong>Trade:</strong>
+          What changes to tariffs, subsidies, procurement rules, and trade
+          agreements could support a global transition toward bio-based production?
+        </li>
+
+        <li>
+          <strong>Finance &amp; markets:</strong>
+          How can governments mobilize private capital, reshape commodity
+          markets, and redirect investment toward bio-based industries while
+          managing exposure to fossil-dependent assets?
+        </li>
+
+        <li>
+          <strong>Valuation:</strong>
+          Should governments recognize alternative measures of economic value –
+          including ecosystem services, natural capital, and other forms of
+          non-market value – when making bioeconomy decisions?
+        </li>
+
+        <li>
+          <strong>Bioprospecting &amp; biodiversity:</strong>
+          What role should genetic resources and biological discovery play in
+          the bioeconomy? How should benefits from biological resources be shared?
+        </li>
+
+        <li>
+          <strong>Extraction vs. sustainability:</strong>
+          How do we expand the use of biological resources without simply
+          creating a new system of resource extraction that undermines
+          ecosystems, food security, or community rights?
+        </li>
+      </ul>
+
+      <p>
+        Regardless of which questions or areas you choose, ask yourself:
+        <strong>where will investments and activities in your bioeconomy happen?</strong>
+        And <strong>to where will the benefits flow?</strong>
       </p>
 
       <p>
-        What should be coordinated internationally, and what should remain
-        under national control?
+        And remember, where you can, to establish
+        <strong>SMART goals, timelines, responsibilities, and mechanisms for
+        monitoring progress.</strong>
       </p>
     `
   }
