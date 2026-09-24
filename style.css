@@ -1127,3 +1127,64 @@ h1 {
   font-weight: 400;
   line-height: 1.4;
 }
+
+.utility-panel .utility-button {
+  display: block;
+
+  width: 100%;
+  margin: 0;
+
+  flex: none;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline-phase {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.timeline-graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-graphic img {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+}
+
+.timeline-events ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.timeline-events li {
+  margin-bottom: 0.55rem;
+}
+
+.timeline-events li:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   CONCEPT MODALS
+   ========================================================= */
+
+.concept-modal ul li {
+  margin-bottom: 0.55rem;
+}

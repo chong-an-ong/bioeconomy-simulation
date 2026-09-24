@@ -909,34 +909,34 @@ const concepts = {
 
       <ul>
         <li>
-          Because the <strong>wealth, technology, and research capacity</strong>
+          Because the <em>wealth, technology, and research capacity</em>
           needed to facilitate the bioeconomy transition are unequally distributed.
         </li>
         <li>
-          Because countries' <strong>resource endowments</strong> – like land,
+          Because countries' <em>resource endowments</em> – like land,
           forests, biodiversity, agricultural capacity, and other biological
           resources – are also unequally distributed.
         </li>
         <li>
-          Because <strong>biological resources often cross national boundaries</strong>,
+          Because <em>biological resources often cross national boundaries</em>,
           and one country's decisions about use of its biological resources can
           create consequences for its neighbors.
         </li>
         <li>
-          Because <strong>supply chains cross borders</strong>, and different rules
+          Because <em>supply chains cross borders</em>, and different rules
           for sustainability, certification, subsidies, and market access of the
           produced goods shape where production occurs and who can participate.
         </li>
         <li>
           Because the bioeconomy transition will have
-          <strong>global environmental effects</strong> – like on deforestation,
+          <em>global environmental effects</em> – like on deforestation,
           carbon emissions, biodiversity, food security, and land use – that
           affect all countries regardless of how they participate.
         </li>
       </ul>
 
       <p>
-        <strong>International coordination</strong> is therefore necessary to
+        <em>International coordination</em> is therefore necessary to
         map out the areas of interdependence, and negotiate the distribution of
         shared responsibilities and gains.
       </p>
@@ -950,12 +950,12 @@ const concepts = {
 
       <ul>
         <li>
-          An economy that uses <strong>renewable biological resources</strong> –
+          An economy that uses <em>renewable biological resources</em> –
           like crops, forests, algae, microorganisms, and agricultural or forestry
           residues – to produce materials, chemicals, fuels, food, and other goods.
         </li>
         <li>
-          Think of it as opposed to our current <strong>fossil-based model</strong>,
+          Think of it as opposed to our current <em>fossil-based model</em>,
           where petroleum, natural gas, and coal provide the feedstocks and energy
           for most of our modern industries.
         </li>
@@ -965,20 +965,20 @@ const concepts = {
 
       <ul>
         <li>
-          <strong>Materials &amp; manufacturing:</strong> bioplastics, bio-based
+          <em>Materials &amp; manufacturing:</em> bioplastics, bio-based
           chemicals, textiles, engineered wood
         </li>
         <li>
-          <strong>Energy &amp; fuels:</strong> biofuels, sustainable aviation fuels,
+          <em>Energy &amp; fuels:</em> biofuels, sustainable aviation fuels,
           biogas
         </li>
         <li>
-          <strong>Agriculture &amp; forestry:</strong> regenerative agriculture,
+          <em>Agriculture &amp; forestry:</em> regenerative agriculture,
           agroforestry, sustainable forest management, and use of agricultural
           and forestry residues
         </li>
         <li>
-          <strong>Food &amp; biotechnology:</strong> alternative proteins,
+          <em>Food &amp; biotechnology:</em> alternative proteins,
           fermentation, industrial biotechnology, and new biological production
           systems
         </li>
@@ -988,29 +988,29 @@ const concepts = {
 
       <ul>
         <li>
-          Writing new <strong>regulations and sustainability standards</strong>;
+          Writing new <em>regulations and sustainability standards</em>;
         </li>
         <li>
-          Restructuring <strong>subsidies, procurement, and public investment</strong>;
+          Restructuring <em>subsidies, procurement, and public investment</em>;
         </li>
         <li>
           Establishing rules for
-          <strong>carbon accounting, land use, and biomass sourcing</strong>;
+          <em>carbon accounting, land use, and biomass sourcing</em>;
         </li>
         <li>
-          Negotiating new <strong>trade rules and product standards</strong>;
+          Negotiating new <em>trade rules and product standards</em>;
         </li>
         <li>
-          Building infrastructure and <strong>supply chains</strong> for
-          <strong>bio-based production</strong>;
+          Building infrastructure and <em>supply chains</em> for
+          <em>bio-based production</em>;
         </li>
         <li>
           Ensuring safeguards for
-          <strong>food security, biodiversity, labor, and community land rights</strong>;
+          <em>food security, biodiversity, labor, and community land rights</em>;
         </li>
         <li>
-          Deciding how the <strong>costs and benefits</strong> of the transition
-          are <strong>distributed</strong> across countries and industries.
+          Deciding how the <em>costs and benefits</em> of the transition
+          are <em>distributed</em> across countries and industries.
         </li>
       </ul>
 
@@ -1018,27 +1018,27 @@ const concepts = {
 
       <ul>
         <li>
-          <strong>Biomass-producing countries &amp; landholders</strong> —
+          <em>Biomass-producing countries &amp; landholders</em> —
           farmers, forest owners, Indigenous and local communities.
         </li>
         <li>
-          <strong>Bio-based industries</strong> — agriculture, forestry,
+          <em>Bio-based industries</em> — agriculture, forestry,
           chemicals, materials, fuels, biotechnology, and manufacturing.
         </li>
         <li>
-          <strong>Fossil-based incumbents</strong> — oil, gas, petrochemicals,
+          <em>Fossil-based incumbents</em> — oil, gas, petrochemicals,
           and industries built around fossil feedstocks.
         </li>
         <li>
-          <strong>Governments &amp; regulators</strong> — setting industrial,
+          <em>Governments &amp; regulators</em> — setting industrial,
           environmental, agricultural, energy, and trade policy.
         </li>
         <li>
-          <strong>Workers &amp; consumers</strong> — affected by employment,
+          <em>Workers &amp; consumers</em> — affected by employment,
           prices, product standards, and changes in consumption.
         </li>
         <li>
-          <strong>Environmental &amp; civil-society groups</strong> — focused
+          <em>Environmental &amp; civil-society groups</em> — focused
           on biodiversity, climate, land rights, and the sustainability of
           biomass supply.
         </li>
@@ -1058,75 +1058,95 @@ const concepts = {
 
       <ul>
         <li>
-          <strong>Innovation &amp; lead markets:</strong>
+          <em>Innovation &amp; lead markets:</em>
           How can governments scale up R&amp;D, demonstration projects,
           procurement, and demand for emerging bio-based technologies and materials?
         </li>
 
         <li>
-          <strong>Supply chains &amp; sustainable biomass:</strong>
+          <em>Supply chains &amp; sustainable biomass:</em>
           What feedstocks should be developed, where should they come from,
           and what would a bioeconomy-compatible supply chain look like?
         </li>
 
         <li>
-          <strong>Targets &amp; timelines:</strong>
+          <em>Targets &amp; timelines:</em>
           What percentage of materials, fuels, chemicals, or other products
           should come from biological resources – and by when?
         </li>
 
         <li>
-          <strong>Standards &amp; traceability:</strong>
+          <em>Standards &amp; traceability:</em>
           How should countries coordinate certification, sustainability
           standards, verification, and tracking of biomass and bio-based
           products across borders?
         </li>
 
         <li>
-          <strong>Trade:</strong>
+          <em>Trade:</em>
           What changes to tariffs, subsidies, procurement rules, and trade
           agreements could support a global transition toward bio-based production?
         </li>
 
         <li>
-          <strong>Finance &amp; markets:</strong>
+          <em>Finance &amp; markets:</em>
           How can governments mobilize private capital, reshape commodity
           markets, and redirect investment toward bio-based industries while
           managing exposure to fossil-dependent assets?
         </li>
 
         <li>
-          <strong>Valuation:</strong>
+          <em>Valuation:</em>
           Should governments recognize alternative measures of economic value –
           including ecosystem services, natural capital, and other forms of
           non-market value – when making bioeconomy decisions?
         </li>
 
         <li>
-          <strong>Bioprospecting &amp; biodiversity:</strong>
+          <em>Bioprospecting &amp; biodiversity:</em>
           What role should genetic resources and biological discovery play in
           the bioeconomy? How should benefits from biological resources be shared?
         </li>
 
         <li>
-          <strong>Extraction vs. sustainability:</strong>
+          <em>Extraction vs. sustainability:</em>
           How do we expand the use of biological resources without simply
           creating a new system of resource extraction that undermines
           ecosystems, food security, or community rights?
         </li>
       </ul>
 
-      <p>
-        Regardless of which questions or areas you choose, ask yourself:
-        <strong>where will investments and activities in your bioeconomy happen?</strong>
-        And <strong>to where will the benefits flow?</strong>
-      </p>
+<p>
+  Regardless of which questions or areas you choose, ask yourself:
+</p>
 
-      <p>
-        And remember, where you can, to establish
-        <strong>SMART goals, timelines, responsibilities, and mechanisms for
-        monitoring progress.</strong>
-      </p>
+<ul>
+  <li>
+    Where will investments and activities in your bioeconomy happen?
+  </li>
+  <li>
+    To where will the benefits flow?
+  </li>
+</ul>
+
+<p>
+  And remember, where you can, to establish:
+</p>
+
+<ul>
+  <li>
+    SMART goals
+  </li>
+  <li>
+    Timelines
+  </li>
+  <li>
+    Responsibilities
+  </li>
+  <li>
+    Mechanisms for monitoring progress
+  </li>
+</ul>
     `
   }
 
@@ -1255,13 +1275,13 @@ document
         ];
 
       openModal(`
-        <h2>${c.title}</h2>
+        <div class="concept-modal">
 
-        <div class="subtitle">
-          ${c.subtitle}
+          <h2>${c.title}</h2>
+
+          ${c.body}
+
         </div>
-
-        ${c.body}
       `);
 
     });
@@ -1534,53 +1554,80 @@ function openTimeline() {
       Simulation milestones and deadlines
     </div>
 
-    <div class="treaty-document-list">
+    <div class="timeline-phases">
 
-      <div class="treaty-item">
-        <strong>Oct 26</strong>
-        <p>Submit Actor Memo Part 1.</p>
+      <div class="timeline-phase">
+
+        <div class="timeline-graphic">
+          <img src="assets/timeline/timeline-countries.png" alt="">
+        </div>
+
+        <div class="timeline-events">
+          <ul>
+            <li><strong>Oct 14</strong> — Actor assignments announced</li>
+            <li><strong>Oct 26</strong> — Submit Actor Memo Part 1</li>
+            <li><strong>Oct 28</strong> — Submit Actor Memo Part 2</li>
+            <li><strong>Oct 29</strong> — Elect negotiation chair</li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="treaty-item">
-        <strong>Oct 28</strong>
-        <p>Submit Actor Memo Part 2.</p>
+
+      <div class="timeline-phase">
+
+        <div class="timeline-graphic">
+          <img src="assets/timeline/timeline-rows.png" alt="">
+        </div>
+
+        <div class="timeline-events">
+          <ul>
+            <li>Split into first-draft committees</li>
+            <li><strong>Nov 5</strong> — Submit first draft of treaty text</li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="treaty-item">
-        <strong>Oct 29</strong>
-        <p>Vote on Negotiation Chair.</p>
+
+      <div class="timeline-phase">
+
+        <div class="timeline-graphic">
+          <img src="assets/timeline/timeline-cols.png" alt="">
+        </div>
+
+        <div class="timeline-events">
+          <ul>
+            <li>Split into second-draft committees</li>
+            <li><strong>Nov 17</strong> — Submit rough draft of treaty text</li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="treaty-item">
-        <strong>Nov 5</strong>
-        <p>Submit First Draft of Treaty Text.</p>
-      </div>
 
-      <div class="treaty-item">
-        <strong>Nov 17</strong>
-        <p>Submit Rough Draft of Treaty Text.</p>
-      </div>
+      <div class="timeline-phase">
 
-      <div class="treaty-item">
-        <strong>Nov 21</strong>
-        <p>Submit Draft for Amendments to Treaty Text.</p>
-      </div>
+        <div class="timeline-graphic">
+          <img src="assets/timeline/timeline-countries.png" alt="">
+        </div>
 
-      <div class="treaty-item">
-        <strong>Dec 3</strong>
-        <p>Final Vote on the Treaty.</p>
-      </div>
+        <div class="timeline-events">
+          <ul>
+            <li>Regroup into country delegations to draft amendments for proposal</li>
+            <li><strong>Nov 21</strong> — Submit draft for amendments to treaty text</li>
+            <li>Vote on whether to adopt amendments</li>
+            <li><strong>Dec 3</strong> — Final vote on the treaty</li>
+            <li><strong>Dec 9</strong> — Final paper due (reflections on simulation)</li>
+          </ul>
+        </div>
 
-      <div class="treaty-item">
-        <strong>Dec 9</strong>
-        <p>Final Paper Due.</p>
       </div>
 
     </div>
   `);
 
 }
-
 
 /* =========================================================
    RULES & NORMS
