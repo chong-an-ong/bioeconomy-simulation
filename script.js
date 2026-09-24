@@ -4,7 +4,7 @@ const delegations = {
       name: "Rajesh S. Gokhale",
       role: "Secretary, Department of Biotechnology",
       position: "National government lead negotiator",
-      background: "Add background, biography, and relevant national strategy information here.",
+      background: "Chemical biologist and biomedical researcher; previously a senior researcher at the National Institute of Immunology and Director of CSIR-Institute of Genomics and Integrative Biology.",
       photo: "assets/actors/rajesh-gokhale.jpg",
       links: []
     },
@@ -12,10 +12,11 @@ const delegations = {
       {
         name: "Ashish Gaikwad",
         role: "Managing Director, Praj Industries",
-        constituency: "Bio-based industrial manufacturing",
-        sectors: ["Chemicals"],
-        constituencies: [],
-        position: "Rapid commercialization of Chemicals, polymers, fuels and materials, with policies that make them competitive with fossil-based alternatives.",
+        constituency: "Industry",
+        sector: "Bio-based materials & chemicals",
+        sectors: ["Bio-based materials & chemicals", "Bioenergy & fuels"],
+        constituencies: ["Industry"],
+        position: "Rapid commercialization of bio-based chemicals, polymers, fuels and materials, with policies that make them competitive with fossil-based alternatives.",
         background: "Add background here.",
         photo: "assets/actors/ashish-gaikwad.jpg",
         links: []
@@ -23,10 +24,16 @@ const delegations = {
       {
         name: "Sunita Narain",
         role: "Director General, Centre for Science and Environment",
-        constituency: "Environment / public interest",
-        sectors: [],
+        constituency: "NGO",
+        sector: "Cross-cutting",
+        sectors: [
+          "Agriculture & food",
+          "Forestry & forest products",
+          "Bio-based materials & chemicals",
+          "Bioenergy & fuels"
+        ],
         constituencies: ["NGOs"],
-        position: "Strong environmental safeguards, resource limits, and a bioeconomy that does not undermine food security or ecosystems.",
+        position: "Environmental justice, equitable commons governance, resource limits, and a bioeconomy that does not undermine food security, livelihoods, or ecosystems.",
         background: "Add background here.",
         photo: "assets/actors/sunita-narain.jpg",
         links: []
@@ -34,9 +41,10 @@ const delegations = {
       {
         name: "Binod Anand",
         role: "National Vice-President, All India Kisan Coordination Committee; President, NAFPO",
-        constituency: "Farmers / agricultural producers",
-        sectors: ["Agriculture"],
-        constituencies: [],
+        constituency: "Farmers",
+        sector: "Agriculture & food",
+        sectors: ["Agriculture & food", "Bioenergy & fuels"],
+        constituencies: ["Farmers"],
         position: "Greater farmer ownership of value chains, higher farm incomes, and protection against biomass demand benefiting downstream industry at farmers’ expense.",
         background: "Add background here.",
         photo: "assets/actors/binod-anand.jpg",
@@ -50,7 +58,7 @@ const delegations = {
       name: "João Paulo Capobianco",
       role: "Minister of Environment and Climate Change",
       position: "National government lead negotiator",
-      background: "Add background here.",
+      background: "Biologist and longtime environmental advocate; founded and led several Brazilian environmental NGOs before serving as National Secretary for Biodiversity and Forests and Executive Secretary of the Environment Ministry.",
       photo: "assets/actors/joao-paulo-capobianco.jpg",
       links: []
     },
@@ -58,8 +66,9 @@ const delegations = {
       {
         name: "Sila Mesquita Apurinã",
         role: "President, IPDA; National Coordinator, Rede de Trabalho Amazônico",
-        constituency: "Indigenous peoples / community-controlled bioeconomy",
-        sectors: ["Agriculture", "Forestry / Timber"],
+        constituency: "Indigenous communities",
+        sector: "Forestry & forest products",
+        sectors: ["Forestry & forest products", "Agriculture & food"],
         constituencies: ["Indigenous"],
         position: "Community control over bioeconomy development, protection of traditional knowledge, and equitable benefit-sharing.",
         background: "Add background here.",
@@ -69,8 +78,9 @@ const delegations = {
       {
         name: "Angela Pinhati",
         role: "Sustainability Director, Natura",
-        constituency: "Bioindustry / commercialization",
-        sectors: ["Chemicals"],
+        constituency: "Industry",
+        sector: "Bio-based materials & chemicals",
+        sectors: ["Bio-based materials & chemicals", "Forestry & forest products"],
         constituencies: ["Industry"],
         position: "Scalable commercialization of biodiversity, investment in value-added processing, and stronger markets for sustainable Amazonian inputs.",
         background: "Add background here.",
@@ -80,9 +90,10 @@ const delegations = {
       {
         name: "Roberto Vilela",
         role: "Executive Director, Tabôa",
-        constituency: "Family farmers / inclusive bioeconomy finance",
-        sectors: ["Agriculture"],
-        constituencies: [],
+        constituency: "Farmers",
+        sector: "Agriculture & food",
+        sectors: ["Agriculture & food", "Forestry & forest products"],
+        constituencies: ["Farmers"],
         position: "Expand access to credit and technical assistance for smallholders, strengthen farmer participation in higher-value bioeconomy chains, and link rural incomes with sustainable land management.",
         background: "Add background here.",
         photo: "assets/actors/roberto-vilela.jpg",
@@ -96,27 +107,22 @@ const delegations = {
       name: "Dorothee Bär",
       role: "Federal Minister of Research, Technology and Space",
       position: "National government lead negotiator",
-      background: "Add background here.",
+      background: "Political scientist who entered politics through CSU student and party organizations; she has served in the Bundestag since 2002 and previously held senior roles in transport, digitalization, and the federal government.",
       photo: "assets/actors/dorothee-baer.jpg",
       links: []
     },
     actors: [
       {
-        name: "Joachim Rukwied",
-        role: "President, German Farmers’ Association",
-        constituency: "Farmers / agricultural producers",
-        sectors: ["Agriculture"],
-        constituencies: [],
-        position: "Protecting agricultural land and farm incomes while ensuring farmers benefit from growing biomass demand.",
-        background: "Add background here.",
-        photo: "assets/actors/joachim-rukwied.jpg",
-        links: []
-      },
-      {
         name: "Olaf Bandt",
         role: "Chair, BUND",
-        constituency: "Environment / conservation",
-        sectors: [],
+        constituency: "NGO",
+        sector: "Cross-cutting",
+        sectors: [
+          "Agriculture & food",
+          "Forestry & forest products",
+          "Bio-based materials & chemicals",
+          "Bioenergy & fuels"
+        ],
         constituencies: ["NGOs"],
         position: "Strict ecological limits on biomass use and prioritizing biodiversity, conservation, and genuinely sustainable feedstocks.",
         background: "Add background here.",
@@ -126,8 +132,9 @@ const delegations = {
       {
         name: "Michael Vassiliadis",
         role: "Chair, IG BCE",
-        constituency: "Industrial workers / labor",
-        sectors: ["Chemicals"],
+        constituency: "Workers",
+        sector: "Bio-based materials & chemicals",
+        sectors: ["Bio-based materials & chemicals", "Bioenergy & fuels"],
         constituencies: ["Labor"],
         position: "Protecting industrial jobs and wages while ensuring the bioeconomy supports a just transition for incumbent industries.",
         background: "Add background here.",
@@ -138,20 +145,23 @@ const delegations = {
   },
 
   "UAE": {
-    lead: {
-      name: "Sultan bin Ahmed Al Jaber",
-      role: "Minister of Industry and Advanced Technology",
-      position: "National government lead negotiator",
-      background: "Add background here.",
-      photo: "assets/actors/sultan-al-jaber.jpg",
-      links: []
-    },
+lead: {
+  name: "Sultan bin Ahmed Al Jaber",
+  role: "Minister of Industry and Advanced Technology",
+  position: "National government lead negotiator",
+  background: "Chemical engineer and business executive; founded and led Masdar before becoming CEO of the energy platform at Mubadala and later Group CEO of ADNOC.",
+  photo: "assets/actors/sultan-al-jaber.jpg",
+  sectors: ["Bioenergy & fuels"],
+  constituencies: [],
+  links: []
+},
     actors: [
       {
         name: "Lamis Al Hashimy",
         role: "Co-Founder, Palmade Biodegradable Products",
-        constituency: "Local bio-based manufacturing / entrepreneurship",
-        sectors: ["Chemicals"],
+        constituency: "Industry",
+        sector: "Bio-based materials & chemicals",
+        sectors: ["Bio-based materials & chemicals"],
         constituencies: ["Industry"],
         position: "Creating domestic markets and manufacturing capacity for bio-based materials using locally available biomass, while making them competitive with imported plastics.",
         background: "Add background here.",
@@ -166,7 +176,7 @@ const delegations = {
       name: "Maurice Ntossui Allogo",
       role: "Minister of Water and Forests, Environment and Climate",
       position: "National government lead negotiator",
-      background: "Add background here.",
+      background: "Career military officer before entering government; trained at Saint-Cyr and the Gabonese École d'État-Major, with further study at the U.S. Army War College.",
       photo: "assets/actors/maurice-ntossui-allogo.jpg",
       links: []
     },
@@ -174,9 +184,15 @@ const delegations = {
       {
         name: "Akim Daouda",
         role: "Founder & CEO, Mwaana; former CEO, FGIS",
-        constituency: "Nature-based finance / investment",
-        sectors: ["Forestry / Timber"],
-        constituencies: [],
+        constituency: "Finance / investment",
+        sector: "Cross-cutting",
+        sectors: [
+          "Agriculture & food",
+          "Forestry & forest products",
+          "Bio-based materials & chemicals",
+          "Bioenergy & fuels"
+        ],
+        constituencies: ["Finance / investment"],
         position: "Turn Gabon’s biodiversity and biological resources into investable, higher-value economic opportunities while ensuring Gabon captures more value.",
         background: "Add background here.",
         photo: "assets/actors/akim-daouda.jpg",
@@ -185,37 +201,38 @@ const delegations = {
     ]
   },
 
-
   "Indonesia": {
     lead: {
       name: "Rachmat Pambudy",
       role: "Minister of National Development Planning / Head of Bappenas",
       position: "National government lead negotiator",
-      background: "Add background here.",
+      background: "Agribusiness scholar and professor at IPB University; his academic and policy work has focused on agribusiness, farmer entrepreneurship, agricultural value chains, and food and agricultural policy.",
       photo: "assets/actors/rachmat-pambudy.jpg",
       links: []
     },
     actors: [
       {
-        name: "Rukka Sombolinggi",
-        role: "Secretary-General, AMAN",
-        constituency: "Indigenous peoples / customary territories",
-        sectors: ["Forestry / Timber", "Agriculture"],
+        name: "Aleta Baun",
+        role: "Indigenous leader and environmental activist",
+        constituency: "Indigenous communities",
+        sector: "Forestry & forest products",
+        sectors: ["Forestry & forest products", "Agriculture & food"],
         constituencies: ["Indigenous"],
-        position: "Channel more climate, biodiversity, and bioeconomy finance directly to Indigenous communities while protecting customary land rights and community control over biological resources.",
+        position: "Protect customary land and natural resources, strengthen Indigenous control over resource management, and protect forests, watersheds, and community livelihoods from extractive development.",
         background: "Add background here.",
-        photo: "assets/actors/rukka-sombolinggi.jpg",
+        photo: "assets/actors/aleta-baun.jpg",
         links: []
       },
       {
-        name: "Tirto Hutomo Yuandi",
-        role: "Founder, Timberlab; Director, PT Buana Triarta",
-        constituency: "Forestry / engineered-wood manufacturing",
-        sectors: ["Forestry / Timber"],
+        name: "Olivier Tichit / Desi Kusumadewi",
+        role: "Director of Sustainability, Musim Mas / IFFCO",
+        constituency: "Industry",
+        sector: "Agriculture & food",
+        sectors: ["Agriculture & food", "Bioenergy & fuels"],
         constituencies: ["Industry"],
-        position: "Move Indonesia toward higher-value timber and construction products while making sustainable forest management economically competitive.",
+        position: "Expand sustainable palm-oil production and supply chains while strengthening smallholder participation, sustainability standards, and the industry's role in renewable fuels.",
         background: "Add background here.",
-        photo: "assets/actors/tirto-yuandi.jpg",
+        photo: "assets/actors/olivier-tichit.jpg",
         links: []
       }
     ]
@@ -226,31 +243,33 @@ const delegations = {
       name: "Julie Collins",
       role: "Minister for Agriculture, Fisheries and Forestry",
       position: "National government lead negotiator",
-      background: "Add background here.",
+      background: "Worked in Tasmanian government departments and as a staffer for state and federal Labor politicians before becoming state secretary of the Australian Labor Party in Tasmania and entering Parliament.",
       photo: "assets/actors/julie-collins.jpg",
       links: []
     },
     actors: [
       {
-        name: "Giles Everest",
-        role: "CEO, Wesbeam",
-        constituency: "Engineered timber / forest products",
-        sectors: ["Forestry / Timber"],
-        constituencies: ["Industry"],
-        position: "Expand value-added wood manufacturing and engineered-wood construction while strengthening the competitiveness of domestic timber industries.",
+        name: "Joshua Gilbert",
+        role: "Indigenous agricultural and sustainability advocate",
+        constituency: "Indigenous communities",
+        sector: "Agriculture & food",
+        sectors: ["Agriculture & food", "Forestry & forest products"],
+        constituencies: ["Indigenous"],
+        position: "Strengthen Indigenous ownership and participation in agriculture and land-based industries while supporting sustainable land management, investment, and Indigenous economic development.",
         background: "Add background here.",
-        photo: "assets/actors/giles-everest.jpg",
+        photo: "assets/actors/joshua-gilbert.jpg",
         links: []
       },
       {
-        name: "Sharon Brindley",
-        role: "Founding Director, Jala Jala; Victorian Director, FNBBAA",
-        constituency: "First Nations-led bio-based products / commercialization",
-        sectors: ["Agriculture"],
-        constituencies: ["Indigenous"],
-        position: "Indigenous ownership of native biological resources and traditional knowledge, better market access, and mechanisms ensuring commercialization creates wealth for Indigenous communities.",
+        name: "Robert Spurway",
+        role: "Managing Director & CEO, GrainCorp",
+        constituency: "Industry",
+        sector: "Bioenergy & fuels",
+        sectors: ["Bioenergy & fuels", "Agriculture & food"],
+        constituencies: ["Industry"],
+        position: "Develop domestic renewable-fuels production using Australian agricultural feedstocks, including canola, while building competitive supply chains for sustainable aviation fuel and renewable diesel.",
         background: "Add background here.",
-        photo: "assets/actors/sharon-brindley.jpg",
+        photo: "assets/actors/robert-spurway.jpg",
         links: []
       }
     ]
@@ -261,7 +280,7 @@ const delegations = {
       name: "Sakari Puisto",
       role: "Minister of Economic Affairs",
       position: "National government lead negotiator",
-      background: "Add background here.",
+      background: "Physicist with a PhD from Cambridge; worked in the private sector and at universities, including several years in Hong Kong and Shenzhen, before entering Parliament.",
       photo: "assets/actors/sakari-puisto.jpg",
       links: []
     },
@@ -269,8 +288,9 @@ const delegations = {
       {
         name: "Jussi Vanhanen",
         role: "President & CEO, Metsä Group",
-        constituency: "Forestry / forest industry",
-        sectors: ["Forestry / Timber"],
+        constituency: "Industry",
+        sector: "Forestry & forest products",
+        sectors: ["Forestry & forest products", "Bio-based materials & chemicals"],
         constituencies: ["Industry"],
         position: "Sustainable utilization of Finland’s forests, expansion of higher-value wood and fiber products, and maintaining competitiveness of forest-based industries.",
         background: "Add background here.",
@@ -280,7 +300,6 @@ const delegations = {
     ]
   }
 };
-
 
 /* =========================================================
    COUNTRY FLAGS
@@ -641,31 +660,49 @@ function openCoalition(filterType, filterValue) {
 
   const matchingActors = [];
 
-  Object.entries(delegations).forEach(
-    ([country, delegation]) => {
+Object.entries(delegations).forEach(
+  ([country, delegation]) => {
 
-      delegation.actors.forEach(actor => {
+    // Check lead negotiator
+    const leadTags =
+      delegation.lead[
+        filterType === "sector"
+          ? "sectors"
+          : "constituencies"
+      ] || [];
 
-        const tags =
-          actor[
-            filterType === "sector"
-              ? "sectors"
-              : "constituencies"
-          ] || [];
+    if (leadTags.includes(filterValue)) {
 
-        if (tags.includes(filterValue)) {
-
-          matchingActors.push({
-            country,
-            actor
-          });
-
-        }
-
+      matchingActors.push({
+        country,
+        actor: delegation.lead
       });
 
     }
-  );
+
+    // Check subnational actors
+    delegation.actors.forEach(actor => {
+
+      const tags =
+        actor[
+          filterType === "sector"
+            ? "sectors"
+            : "constituencies"
+        ] || [];
+
+      if (tags.includes(filterValue)) {
+
+        matchingActors.push({
+          country,
+          actor
+        });
+
+      }
+
+    });
+
+  }
+);
 
 
   const actorCards =
@@ -838,26 +875,24 @@ const concepts = {
 
       <h3>What are the main sectors in a bioeconomy?</h3>
 
-      <ul>
-        <li>
-          <strong>Materials &amp; manufacturing:</strong> bioplastics, bio-based
-          chemicals, textiles, engineered wood
-        </li>
-        <li>
-          <strong>Energy &amp; fuels:</strong> biofuels, sustainable aviation fuels,
-          biogas
-        </li>
-        <li>
-          <strong>Agriculture &amp; forestry:</strong> regenerative agriculture,
-          agroforestry, sustainable forest management, and use of agricultural
-          and forestry residues
-        </li>
-        <li>
-          <strong>Food &amp; biotechnology:</strong> alternative proteins,
-          fermentation, industrial biotechnology, and new biological production
-          systems
-        </li>
-      </ul>
+<ul>
+  <li>
+    <strong>Agriculture:</strong> regenerative agriculture, agroforestry,
+    sustainable crop production, and agricultural residues
+  </li>
+  <li>
+    <strong>Forestry:</strong> sustainable forest management, timber,
+    engineered wood, and forestry residues
+  </li>
+  <li>
+    <strong>Materials &amp; manufacturing:</strong> bioplastics, bio-based
+    chemicals, textiles, and other bio-based products
+  </li>
+  <li>
+    <strong>Energy &amp; fuels:</strong> biofuels, sustainable aviation fuels,
+    biogas, and biomass energy
+  </li>
+</ul>
 
       <h3>What strategies are used to facilitate a bioeconomy transition?</h3>
 
