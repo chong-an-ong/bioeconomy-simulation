@@ -3,11 +3,26 @@ const delegations = {
     lead: {
       name: "Rajesh S. Gokhale",
       role: "Secretary, Department of Biotechnology",
-      position: "National government lead negotiator",
-      background: "Chemical biologist and biomedical researcher; previously a senior researcher at the National Institute of Immunology and Director of CSIR-Institute of Genomics and Integrative Biology.",
+      background: "Chemical biologist; former NII researcher and CSIR-IGIB director.",
       photo: "assets/actors/rajesh-gokhale.jpg",
-      links: []
+      sectors: [],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
     },
+
     actors: [
       {
         name: "Ashish Gaikwad",
@@ -16,64 +31,124 @@ const delegations = {
         sector: "Bio-based materials & chemicals",
         sectors: ["Bio-based materials & chemicals", "Bioenergy & fuels"],
         constituencies: ["Industry"],
-        position: "Rapid commercialization of bio-based chemicals, polymers, fuels and materials, with policies that make them competitive with fossil-based alternatives.",
-        background: "Add background here.",
         photo: "assets/actors/ashish-gaikwad.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       },
       {
         name: "Sunita Narain",
         role: "Director General, Centre for Science and Environment",
-        constituency: "NGO",
         sector: "Cross-cutting",
         sectors: [
           "Agriculture & food",
           "Forestry & forest products",
           "Bio-based materials & chemicals",
-          "Bioenergy & fuels"
+          "Bioenergy & fuels",
+          "Cross-cutting"
         ],
-        constituencies: ["NGOs"],
-        position: "Environmental justice, equitable commons governance, resource limits, and a bioeconomy that does not undermine food security, livelihoods, or ecosystems.",
-        background: "Add background here.",
+        constituencies: [],
         photo: "assets/actors/sunita-narain.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       },
       {
         name: "Binod Anand",
         role: "National Vice-President, All India Kisan Coordination Committee; President, NAFPO",
-        constituency: "Farmers",
+        constituency: "Farmers & workers",
         sector: "Agriculture & food",
         sectors: ["Agriculture & food", "Bioenergy & fuels"],
-        constituencies: ["Farmers"],
-        position: "Greater farmer ownership of value chains, higher farm incomes, and protection against biomass demand benefiting downstream industry at farmers’ expense.",
-        background: "Add background here.",
+        constituencies: ["Farmers & workers"],
         photo: "assets/actors/binod-anand.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   },
+
 
   "Brazil": {
     lead: {
       name: "João Paulo Capobianco",
       role: "Minister of Environment and Climate Change",
-      position: "National government lead negotiator",
-      background: "Biologist and longtime environmental advocate; founded and led several Brazilian environmental NGOs before serving as National Secretary for Biodiversity and Forests and Executive Secretary of the Environment Ministry.",
+      background: "Biologist and environmental advocate; former biodiversity and forests secretary.",
       photo: "assets/actors/joao-paulo-capobianco.jpg",
-      links: []
+      sectors: [],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
     },
+
     actors: [
       {
         name: "Sila Mesquita Apurinã",
         role: "President, IPDA; National Coordinator, Rede de Trabalho Amazônico",
-        constituency: "Indigenous communities",
+        constituency: "Indigenous peoples",
         sector: "Forestry & forest products",
         sectors: ["Forestry & forest products", "Agriculture & food"],
-        constituencies: ["Indigenous"],
-        position: "Community control over bioeconomy development, protection of traditional knowledge, and equitable benefit-sharing.",
-        background: "Add background here.",
+        constituencies: ["Indigenous peoples"],
         photo: "assets/actors/sila-mesquita-apurina.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       },
       {
         name: "Angela Pinhati",
@@ -82,79 +157,153 @@ const delegations = {
         sector: "Bio-based materials & chemicals",
         sectors: ["Bio-based materials & chemicals", "Forestry & forest products"],
         constituencies: ["Industry"],
-        position: "Scalable commercialization of biodiversity, investment in value-added processing, and stronger markets for sustainable Amazonian inputs.",
-        background: "Add background here.",
         photo: "assets/actors/angela-pinhati.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       },
       {
         name: "Roberto Vilela",
         role: "Executive Director, Tabôa",
-        constituency: "Farmers",
+        constituency: "Farmers & workers",
         sector: "Agriculture & food",
         sectors: ["Agriculture & food", "Forestry & forest products"],
-        constituencies: ["Farmers"],
-        position: "Expand access to credit and technical assistance for smallholders, strengthen farmer participation in higher-value bioeconomy chains, and link rural incomes with sustainable land management.",
-        background: "Add background here.",
+        constituencies: ["Farmers & workers"],
         photo: "assets/actors/roberto-vilela.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   },
+
 
   "Germany": {
     lead: {
       name: "Dorothee Bär",
       role: "Federal Minister of Research, Technology and Space",
-      position: "National government lead negotiator",
-      background: "Political scientist who entered politics through CSU student and party organizations; she has served in the Bundestag since 2002 and previously held senior roles in transport, digitalization, and the federal government.",
+      background: "Political scientist; longtime Bundestag member and former digitalization minister.",
       photo: "assets/actors/dorothee-baer.jpg",
-      links: []
+      sectors: [],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
     },
+
     actors: [
       {
         name: "Olaf Bandt",
         role: "Chair, BUND",
-        constituency: "NGO",
         sector: "Cross-cutting",
         sectors: [
           "Agriculture & food",
           "Forestry & forest products",
           "Bio-based materials & chemicals",
-          "Bioenergy & fuels"
+          "Bioenergy & fuels",
+          "Cross-cutting"
         ],
-        constituencies: ["NGOs"],
-        position: "Strict ecological limits on biomass use and prioritizing biodiversity, conservation, and genuinely sustainable feedstocks.",
-        background: "Add background here.",
+        constituencies: [],
         photo: "assets/actors/olaf-bandt.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       },
       {
         name: "Michael Vassiliadis",
         role: "Chair, IG BCE",
-        constituency: "Workers",
+        constituency: "Farmers & workers",
         sector: "Bio-based materials & chemicals",
         sectors: ["Bio-based materials & chemicals", "Bioenergy & fuels"],
-        constituencies: ["Labor"],
-        position: "Protecting industrial jobs and wages while ensuring the bioeconomy supports a just transition for incumbent industries.",
-        background: "Add background here.",
+        constituencies: ["Farmers & workers"],
         photo: "assets/actors/michael-vassiliadis.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   },
 
+
   "UAE": {
-lead: {
-  name: "Sultan bin Ahmed Al Jaber",
-  role: "Minister of Industry and Advanced Technology",
-  position: "National government lead negotiator",
-  background: "Chemical engineer and business executive; founded and led Masdar before becoming CEO of the energy platform at Mubadala and later Group CEO of ADNOC.",
-  photo: "assets/actors/sultan-al-jaber.jpg",
-  sectors: ["Bioenergy & fuels"],
-  constituencies: [],
-  links: []
-},
+    lead: {
+      name: "Sultan bin Ahmed Al Jaber",
+      role: "Minister of Industry and Advanced Technology",
+      background: "Chemical engineer; founded Masdar and later led ADNOC.",
+      photo: "assets/actors/sultan-al-jaber.jpg",
+      sectors: ["Bioenergy & fuels"],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
+    },
+
     actors: [
       {
         name: "Lamis Al Hashimy",
@@ -163,65 +312,130 @@ lead: {
         sector: "Bio-based materials & chemicals",
         sectors: ["Bio-based materials & chemicals"],
         constituencies: ["Industry"],
-        position: "Creating domestic markets and manufacturing capacity for bio-based materials using locally available biomass, while making them competitive with imported plastics.",
-        background: "Add background here.",
         photo: "assets/actors/lamis-al-hashimy.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   },
+
 
   "Gabon": {
     lead: {
       name: "Maurice Ntossui Allogo",
       role: "Minister of Water and Forests, Environment and Climate",
-      position: "National government lead negotiator",
-      background: "Career military officer before entering government; trained at Saint-Cyr and the Gabonese École d'État-Major, with further study at the U.S. Army War College.",
+      background: "Career military officer before entering government.",
       photo: "assets/actors/maurice-ntossui-allogo.jpg",
-      links: []
+      sectors: [],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
     },
+
     actors: [
       {
         name: "Akim Daouda",
         role: "Founder & CEO, Mwaana; former CEO, FGIS",
-        constituency: "Finance / investment",
         sector: "Cross-cutting",
         sectors: [
           "Agriculture & food",
           "Forestry & forest products",
           "Bio-based materials & chemicals",
-          "Bioenergy & fuels"
+          "Bioenergy & fuels",
+          "Cross-cutting"
         ],
-        constituencies: ["Finance / investment"],
-        position: "Turn Gabon’s biodiversity and biological resources into investable, higher-value economic opportunities while ensuring Gabon captures more value.",
-        background: "Add background here.",
+        constituencies: [],
         photo: "assets/actors/akim-daouda.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   },
+
 
   "Indonesia": {
     lead: {
       name: "Rachmat Pambudy",
       role: "Minister of National Development Planning / Head of Bappenas",
-      position: "National government lead negotiator",
-      background: "Agribusiness scholar and professor at IPB University; his academic and policy work has focused on agribusiness, farmer entrepreneurship, agricultural value chains, and food and agricultural policy.",
+      background: "Agribusiness scholar and IPB University professor.",
       photo: "assets/actors/rachmat-pambudy.jpg",
-      links: []
+      sectors: [],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
     },
+
     actors: [
       {
         name: "Aleta Baun",
         role: "Indigenous leader and environmental activist",
-        constituency: "Indigenous communities",
+        constituency: "Indigenous peoples",
         sector: "Forestry & forest products",
         sectors: ["Forestry & forest products", "Agriculture & food"],
-        constituencies: ["Indigenous"],
-        position: "Protect customary land and natural resources, strengthen Indigenous control over resource management, and protect forests, watersheds, and community livelihoods from extractive development.",
-        background: "Add background here.",
+        constituencies: ["Indigenous peoples"],
         photo: "assets/actors/aleta-baun.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       },
       {
         name: "Olivier Tichit / Desi Kusumadewi",
@@ -230,35 +444,73 @@ lead: {
         sector: "Agriculture & food",
         sectors: ["Agriculture & food", "Bioenergy & fuels"],
         constituencies: ["Industry"],
-        position: "Expand sustainable palm-oil production and supply chains while strengthening smallholder participation, sustainability standards, and the industry's role in renewable fuels.",
-        background: "Add background here.",
         photo: "assets/actors/olivier-tichit.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   },
+
 
   "Australia": {
     lead: {
       name: "Julie Collins",
       role: "Minister for Agriculture, Fisheries and Forestry",
-      position: "National government lead negotiator",
-      background: "Worked in Tasmanian government departments and as a staffer for state and federal Labor politicians before becoming state secretary of the Australian Labor Party in Tasmania and entering Parliament.",
+      background: "Former Tasmanian government staffer and Labor Party official.",
       photo: "assets/actors/julie-collins.jpg",
-      links: []
+      sectors: [],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
     },
+
     actors: [
       {
         name: "Joshua Gilbert",
         role: "Indigenous agricultural and sustainability advocate",
-        constituency: "Indigenous communities",
+        constituency: "Indigenous peoples",
         sector: "Agriculture & food",
         sectors: ["Agriculture & food", "Forestry & forest products"],
-        constituencies: ["Indigenous"],
-        position: "Strengthen Indigenous ownership and participation in agriculture and land-based industries while supporting sustainable land management, investment, and Indigenous economic development.",
-        background: "Add background here.",
+        constituencies: ["Indigenous peoples"],
         photo: "assets/actors/joshua-gilbert.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       },
       {
         name: "Robert Spurway",
@@ -267,23 +519,50 @@ lead: {
         sector: "Bioenergy & fuels",
         sectors: ["Bioenergy & fuels", "Agriculture & food"],
         constituencies: ["Industry"],
-        position: "Develop domestic renewable-fuels production using Australian agricultural feedstocks, including canola, while building competitive supply chains for sustainable aviation fuel and renewable diesel.",
-        background: "Add background here.",
         photo: "assets/actors/robert-spurway.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   },
+
 
   "Finland": {
     lead: {
       name: "Sakari Puisto",
       role: "Minister of Economic Affairs",
-      position: "National government lead negotiator",
-      background: "Physicist with a PhD from Cambridge; worked in the private sector and at universities, including several years in Hong Kong and Shenzhen, before entering Parliament.",
+      background: "Physicist; former private-sector and university researcher.",
       photo: "assets/actors/sakari-puisto.jpg",
-      links: []
+      sectors: [],
+      constituencies: [],
+      resources: [
+        {
+          title: "Resource title 1",
+          url: "https://example.com/resource-1"
+        },
+        {
+          title: "Resource title 2",
+          url: "https://example.com/resource-2"
+        },
+        {
+          title: "Resource title 3",
+          url: "https://example.com/resource-3"
+        }
+      ]
     },
+
     actors: [
       {
         name: "Jussi Vanhanen",
@@ -292,10 +571,21 @@ lead: {
         sector: "Forestry & forest products",
         sectors: ["Forestry & forest products", "Bio-based materials & chemicals"],
         constituencies: ["Industry"],
-        position: "Sustainable utilization of Finland’s forests, expansion of higher-value wood and fiber products, and maintaining competitiveness of forest-based industries.",
-        background: "Add background here.",
         photo: "assets/actors/jussi-vanhanen.jpg",
-        links: []
+        resources: [
+          {
+            title: "Resource title 1",
+            url: "https://example.com/resource-1"
+          },
+          {
+            title: "Resource title 2",
+            url: "https://example.com/resource-2"
+          },
+          {
+            title: "Resource title 3",
+            url: "https://example.com/resource-3"
+          }
+        ]
       }
     ]
   }
