@@ -45,52 +45,6 @@ const delegations = {
     ]
   },
 
-  "China": {
-    lead: {
-      name: "Xin Guobin",
-      role: "Vice Minister, Ministry of Industry and Information Technology",
-      position: "National government lead negotiator",
-      background: "Add background here.",
-      photo: "assets/actors/xin-guobin.jpg",
-      links: []
-    },
-    actors: [
-      {
-        name: "Yu Xuejun (余学军)",
-        role: "Chair, China Bio-Fermentation Industry Association",
-        constituency: "Industrial biomanufacturing",
-        sectors: ["Chemicals"],
-        constituencies: ["Industry"],
-        position: "Rapid industrial scaling, technological upgrading, and government support for competitive biomanufacturing.",
-        background: "Add background here.",
-        photo: "assets/actors/yu-xuejun.jpg",
-        links: []
-      },
-      {
-        name: "Zhu Xuexing (朱学星)",
-        role: "Founder/leader, Shuangfu Bamboo Professional Cooperative",
-        constituency: "Rural feedstock producers / cooperatives",
-        sectors: ["Agriculture", "Forestry / Timber"],
-        constituencies: [],
-        position: "Greater value capture for rural producers, stronger links between biomass producers and industry, and rural development.",
-        background: "Add background here.",
-        photo: "assets/actors/shen-genlian.png",
-        links: []
-      },
-      {
-        name: "Chen Xinwei (陈新伟)",
-        role: "President, China Chemical Fibers Association",
-        constituency: "Bio-based materials / textiles",
-        sectors: ["Fibers / Textiles"],
-        constituencies: ["Industry"],
-        position: "Accelerated commercialization of bio-based fibers, diversified feedstocks, and integration of bio-based materials into China’s manufacturing base.",
-        background: "Add background here.",
-        photo: "assets/actors/chen-xinwei.jpg",
-        links: []
-      }
-    ]
-  },
-
   "Brazil": {
     lead: {
       name: "João Paulo Capobianco",
@@ -207,30 +161,6 @@ const delegations = {
     ]
   },
 
-  "Panama": {
-    lead: {
-      name: "Eduardo Ortega-Barría",
-      role: "National Secretary of Science, Technology and Innovation",
-      position: "National government lead negotiator",
-      background: "Add background here.",
-      photo: "assets/actors/eduardo-ortega-barria.jpg",
-      links: []
-    },
-    actors: [
-      {
-        name: "Gloria Batista de Vega",
-        role: "Professor, University of Panama; Director of R&D, Gracilarias de Panamá",
-        constituency: "Marine biodiversity / community-based bioeconomy",
-        sectors: ["Marine"],
-        constituencies: [],
-        position: "Develop Panama’s marine biological resources into higher-value products while protecting coastal ecosystems and ensuring benefits reach local communities.",
-        background: "Add background here.",
-        photo: "assets/actors/gloria-batista.jpg",
-        links: []
-      }
-    ]
-  },
-
   "Gabon": {
     lead: {
       name: "Maurice Ntossui Allogo",
@@ -255,29 +185,6 @@ const delegations = {
     ]
   },
 
-  "France": {
-    lead: {
-      name: "Monique Barbut",
-      role: "Minister for Ecological Transition, Biodiversity, Climate and Nature Negotiations",
-      position: "National government lead negotiator",
-      background: "Add background here.",
-      photo: "assets/actors/monique-barbut.jpg",
-      links: []
-    },
-    actors: [
-      {
-        name: "Rémy Lucas",
-        role: "Founder, Algopack",
-        constituency: "Marine biomass / biomaterials",
-        sectors: ["Marine"],
-        constituencies: ["Industry"],
-        position: "Industrial use of algae as renewable feedstock for bioplastics and commercialization of bio-based materials.",
-        background: "Add background here.",
-        photo: "assets/actors/remy-lucas.jpg",
-        links: []
-      }
-    ]
-  },
 
   "Indonesia": {
     lead: {
@@ -371,30 +278,6 @@ const delegations = {
         links: []
       }
     ]
-  },
-
-  "Peru": {
-    lead: {
-      name: "Nelly Paredes del Castillo",
-      role: "Minister of Environment",
-      position: "National government lead negotiator",
-      background: "Add background here.",
-      photo: "assets/actors/nelly-paredes.jpg",
-      links: []
-    },
-    actors: [
-      {
-        name: "Inés Vizquerra",
-        role: "General Manager, Andes Textiles Perú S.A.C.; President, Industry Sector Committee of the International Alpaca Association",
-        constituency: "Natural fibers / textiles",
-        sectors: ["Fibers / Textiles"],
-        constituencies: ["Industry"],
-        position: "Strengthen Peru’s alpaca value chain, expand higher-value processing and sustainable textile production, and ensure producers and workers capture more value.",
-        background: "Add background here.",
-        photo: "assets/actors/ines-vizquerra.jpg",
-        links: []
-      }
-    ]
   }
 };
 
@@ -405,17 +288,13 @@ const delegations = {
 
 const countryFlags = {
   India: "🇮🇳",
-  China: "🇨🇳",
   Brazil: "🇧🇷",
   Germany: "🇩🇪",
   UAE: "🇦🇪",
-  Panama: "🇵🇦",
   Gabon: "🇬🇦",
-  France: "🇫🇷",
   Indonesia: "🇮🇩",
   Australia: "🇦🇺",
-  Finland: "🇫🇮",
-  Peru: "🇵🇪"
+  Finland: "🇫🇮"
 };
 
 
@@ -426,15 +305,11 @@ const countryFlags = {
 const countries = [
   "Australia",
   "Brazil",
-  "China",
   "Finland",
-  "France",
   "Gabon",
   "Germany",
   "India",
   "Indonesia",
-  "Panama",
-  "Peru",
   "UAE"
 ];
 
@@ -909,53 +784,53 @@ const concepts = {
 
       <ul>
         <li>
-          Because the <em>wealth, technology, and research capacity</em>
+          Because the <strong>wealth, technology, and research capacity</strong>
           needed to facilitate the bioeconomy transition are unequally distributed.
         </li>
         <li>
-          Because countries' <em>resource endowments</em> – like land,
+          Because countries' <strong>resource endowments</strong> – like land,
           forests, biodiversity, agricultural capacity, and other biological
           resources – are also unequally distributed.
         </li>
         <li>
-          Because <em>biological resources often cross national boundaries</em>,
+          Because <strong>biological resources often cross national boundaries</strong>,
           and one country's decisions about use of its biological resources can
           create consequences for its neighbors.
         </li>
         <li>
-          Because <em>supply chains cross borders</em>, and different rules
+          Because <strong>supply chains cross borders</strong>, and different rules
           for sustainability, certification, subsidies, and market access of the
           produced goods shape where production occurs and who can participate.
         </li>
         <li>
           Because the bioeconomy transition will have
-          <em>global environmental effects</em> – like on deforestation,
+          <strong>global environmental effects</strong> – like on deforestation,
           carbon emissions, biodiversity, food security, and land use – that
           affect all countries regardless of how they participate.
         </li>
       </ul>
 
       <p>
-        <em>International coordination</em> is therefore necessary to
+        <strong>International coordination</strong> is therefore necessary to
         map out the areas of interdependence, and negotiate the distribution of
         shared responsibilities and gains.
       </p>
     `
   },
 
-    bioeconomy: {
+  bioeconomy: {
     title: "Bioeconomy",
     body: `
       <h3>What is it?</h3>
 
       <ul>
         <li>
-          An economy that uses <em>renewable biological resources</em> –
+          An economy that uses <strong>renewable biological resources</strong> –
           like crops, forests, algae, microorganisms, and agricultural or forestry
           residues – to produce materials, chemicals, fuels, food, and other goods.
         </li>
         <li>
-          Think of it as opposed to our current <em>fossil-based model</em>,
+          Think of it as opposed to our current <strong>fossil-based model</strong>,
           where petroleum, natural gas, and coal provide the feedstocks and energy
           for most of our modern industries.
         </li>
@@ -965,20 +840,20 @@ const concepts = {
 
       <ul>
         <li>
-          <em>Materials &amp; manufacturing:</em> bioplastics, bio-based
+          <strong>Materials &amp; manufacturing:</strong> bioplastics, bio-based
           chemicals, textiles, engineered wood
         </li>
         <li>
-          <em>Energy &amp; fuels:</em> biofuels, sustainable aviation fuels,
+          <strong>Energy &amp; fuels:</strong> biofuels, sustainable aviation fuels,
           biogas
         </li>
         <li>
-          <em>Agriculture &amp; forestry:</em> regenerative agriculture,
+          <strong>Agriculture &amp; forestry:</strong> regenerative agriculture,
           agroforestry, sustainable forest management, and use of agricultural
           and forestry residues
         </li>
         <li>
-          <em>Food &amp; biotechnology:</em> alternative proteins,
+          <strong>Food &amp; biotechnology:</strong> alternative proteins,
           fermentation, industrial biotechnology, and new biological production
           systems
         </li>
@@ -988,29 +863,29 @@ const concepts = {
 
       <ul>
         <li>
-          Writing new <em>regulations and sustainability standards</em>;
+          Writing new <strong>regulations and sustainability standards</strong>;
         </li>
         <li>
-          Restructuring <em>subsidies, procurement, and public investment</em>;
+          Restructuring <strong>subsidies, procurement, and public investment</strong>;
         </li>
         <li>
           Establishing rules for
-          <em>carbon accounting, land use, and biomass sourcing</em>;
+          <strong>carbon accounting, land use, and biomass sourcing</strong>;
         </li>
         <li>
-          Negotiating new <em>trade rules and product standards</em>;
+          Negotiating new <strong>trade rules and product standards</strong>;
         </li>
         <li>
-          Building infrastructure and <em>supply chains</em> for
-          <em>bio-based production</em>;
+          Building infrastructure and <strong>supply chains</strong> for
+          <strong>bio-based production</strong>;
         </li>
         <li>
           Ensuring safeguards for
-          <em>food security, biodiversity, labor, and community land rights</em>;
+          <strong>food security, biodiversity, labor, and community land rights</strong>;
         </li>
         <li>
-          Deciding how the <em>costs and benefits</em> of the transition
-          are <em>distributed</em> across countries and industries.
+          Deciding how the <strong>costs and benefits</strong> of the transition
+          are <strong>distributed</strong> across countries and industries.
         </li>
       </ul>
 
@@ -1018,27 +893,27 @@ const concepts = {
 
       <ul>
         <li>
-          <em>Biomass-producing countries &amp; landholders</em> —
+          Biomass-producing countries &amp; landholders —
           farmers, forest owners, Indigenous and local communities.
         </li>
         <li>
-          <em>Bio-based industries</em> — agriculture, forestry,
+          Bio-based industries — agriculture, forestry,
           chemicals, materials, fuels, biotechnology, and manufacturing.
         </li>
         <li>
-          <em>Fossil-based incumbents</em> — oil, gas, petrochemicals,
+          Fossil-based incumbents — oil, gas, petrochemicals,
           and industries built around fossil feedstocks.
         </li>
         <li>
-          <em>Governments &amp; regulators</em> — setting industrial,
+          Governments &amp; regulators — setting industrial,
           environmental, agricultural, energy, and trade policy.
         </li>
         <li>
-          <em>Workers &amp; consumers</em> — affected by employment,
+          Workers &amp; consumers — affected by employment,
           prices, product standards, and changes in consumption.
         </li>
         <li>
-          <em>Environmental &amp; civil-society groups</em> — focused
+          Environmental &amp; civil-society groups — focused
           on biodiversity, climate, land rights, and the sustainability of
           biomass supply.
         </li>
@@ -1058,100 +933,99 @@ const concepts = {
 
       <ul>
         <li>
-          <em>Innovation &amp; lead markets:</em>
+          <strong>Innovation &amp; lead markets:</strong>
           How can governments scale up R&amp;D, demonstration projects,
           procurement, and demand for emerging bio-based technologies and materials?
         </li>
 
         <li>
-          <em>Supply chains &amp; sustainable biomass:</em>
+          <strong>Supply chains &amp; sustainable biomass:</strong>
           What feedstocks should be developed, where should they come from,
           and what would a bioeconomy-compatible supply chain look like?
         </li>
 
         <li>
-          <em>Targets &amp; timelines:</em>
+          <strong>Targets &amp; timelines:</strong>
           What percentage of materials, fuels, chemicals, or other products
           should come from biological resources – and by when?
         </li>
 
         <li>
-          <em>Standards &amp; traceability:</em>
+          <strong>Standards &amp; traceability:</strong>
           How should countries coordinate certification, sustainability
           standards, verification, and tracking of biomass and bio-based
           products across borders?
         </li>
 
         <li>
-          <em>Trade:</em>
+          <strong>Trade:</strong>
           What changes to tariffs, subsidies, procurement rules, and trade
           agreements could support a global transition toward bio-based production?
         </li>
 
         <li>
-          <em>Finance &amp; markets:</em>
+          <strong>Finance &amp; markets:</strong>
           How can governments mobilize private capital, reshape commodity
           markets, and redirect investment toward bio-based industries while
           managing exposure to fossil-dependent assets?
         </li>
 
         <li>
-          <em>Valuation:</em>
+          <strong>Valuation:</strong>
           Should governments recognize alternative measures of economic value –
           including ecosystem services, natural capital, and other forms of
           non-market value – when making bioeconomy decisions?
         </li>
 
         <li>
-          <em>Bioprospecting &amp; biodiversity:</em>
+          <strong>Bioprospecting &amp; biodiversity:</strong>
           What role should genetic resources and biological discovery play in
           the bioeconomy? How should benefits from biological resources be shared?
         </li>
 
         <li>
-          <em>Extraction vs. sustainability:</em>
+          <strong>Extraction vs. sustainability:</strong>
           How do we expand the use of biological resources without simply
           creating a new system of resource extraction that undermines
           ecosystems, food security, or community rights?
         </li>
       </ul>
 
-<p>
-  Regardless of which questions or areas you choose, ask yourself:
-</p>
+      <p>
+        Regardless of which questions or areas you choose, ask yourself:
+      </p>
 
-<ul>
-  <li>
-    Where will investments and activities in your bioeconomy happen?
-  </li>
-  <li>
-    To where will the benefits flow?
-  </li>
-</ul>
+      <ul>
+        <li>
+          Where will investments and activities in your bioeconomy happen?
+        </li>
+        <li>
+          To where will the benefits flow?
+        </li>
+      </ul>
 
-<p>
-  And remember, where you can, to establish:
-</p>
+      <p>
+        And remember, where you can, to establish:
+      </p>
 
-<ul>
-  <li>
-    SMART goals
-  </li>
-  <li>
-    Timelines
-  </li>
-  <li>
-    Responsibilities
-  </li>
-  <li>
-    Mechanisms for monitoring progress
-  </li>
-</ul>
+      <ul>
+        <li>
+          SMART goals
+        </li>
+        <li>
+          Timelines
+        </li>
+        <li>
+          Responsibilities
+        </li>
+        <li>
+          Mechanisms for monitoring progress
+        </li>
+      </ul>
     `
   }
 
 };
-
 
 /* =========================================================
    TREATY HUB
@@ -1806,18 +1680,14 @@ function attachCountryHandlers() {
     BR: "Brazil",
     DE: "Germany",
     AE: "UAE",
-    PA: "Panama",
     GA: "Gabon",
-    FI: "Finland",
-    PE: "Peru"
+    FI: "Finland"
 
   };
 
 
   const classCountryMap = {
 
-    China: "China",
-    France: "France",
     Indonesia: "Indonesia",
     Australia: "Australia"
 
