@@ -1396,7 +1396,7 @@ const treatyHub = {
   ],
 
 
-  "1st Draft Links": [
+  "1st draft links": [
     {
       title: "1st Draft: Committee Assignments",
       url: "https://example.com/first-draft-committee-assignments"
@@ -1420,7 +1420,7 @@ const treatyHub = {
   ],
 
 
-  "2nd Draft Links": [
+  "2nd draft links": [
     {
       title: "2nd Draft: Committee Assignments",
       url: "https://example.com/second-draft-committee-assignments"
@@ -1455,19 +1455,9 @@ const treatyHub = {
       url: "https://www.gov.br/mma/pt-br/composicao/sbc/dpeb/estrategia-nacional-de-bioeconomia"
     },
     {
-      country: "China",
-      title: "14th Five-Year Plan for Bioeconomy Development",
-      url: "https://www.ndrc.gov.cn/xxgk/zcfb/ghwb/202205/t20220510_1324595.html"
-    },
-    {
       country: "Finland",
       title: "Bioeconomy Strategy 2022–2035",
       url: "https://www.bioeconomy.fi/facts-and-contacts/the-finnish-bioeconomy-strategy/"
-    },
-    {
-      country: "France",
-      title: "National Bioeconomy Strategy / 2018–2020 Action Plan",
-      url: "https://agriculture.gouv.fr/bioeconomy-strategy-france-2018-2020-action-plan"
     },
     {
       country: "Germany",
@@ -1478,21 +1468,6 @@ const treatyHub = {
       country: "India",
       title: "Roadmap to a Leading Bioeconomy Powerhouse by 2035",
       url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2285858&lang=2&reg=48"
-    },
-
-    {
-      title: "STRATEGY IN DEVELOPMENT",
-      type: "section"
-    },
-    {
-      country: "Panama",
-      title: "National Bioeconomy Strategy (in development)",
-      url: "https://www.senacyt.gob.pa/en/la-senacyt-avanza-en-el-desarrollo-de-la-estrategia-nacional-de-bioeconomia-con-el-lanzamiento-de-la-cuenta-tematica-de-bioeconomia-del-pais/"
-    },
-    {
-      country: "Peru",
-      title: "Bioeconomy Roadmap (draft)",
-      url: "https://www.gob.pe/institucion/minam/normas-legales/8259661-d000192-2026-minam"
     },
 
     {
