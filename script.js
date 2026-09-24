@@ -1876,15 +1876,214 @@ function openRules() {
       Simulation rules and negotiation norms
     </div>
 
-    <iframe
-      class="rules-pdf"
-      src="assets/Treaty%20Norms%20and%20Rules.pdf"
-      title="Treaty Norms and Rules">
-    </iframe>
+    <div class="rules-content">
+
+      <h3>Simulation Norms</h3>
+
+      <ol>
+
+        <li>
+          Above all else, be respectful of classmates and other people
+          relevant in the negotiations.
+        </li>
+
+        <li>
+          Feel free to critique actors and countries, but do so respectfully
+          and base critiques in data and evidence.
+
+          <ol type="a">
+            <li>
+              Do have fun and be silly representing your actors, but do so
+              while maintaining respect for them as people. (They are real
+              people!)
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          Recognize that classmates may be portraying an actor—interests do
+          not align with their personal views. Do not assume that classmates
+          are sharing their own opinions, and do your best not to take these
+          negotiations personally.
+        </li>
+
+        <li>
+          If you feel like your actor might be deceitful, there is no
+          requirement to be honest with other actors.
+
+          <ol type="a">
+            <li>
+              Keep in mind respect (Norms 1 and 2) for your classmates,
+              different countries, and actors represented if you take
+              advantage of incomplete information.
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          Share space and time
+
+          <ol type="a">
+            <li>
+              Not only Lead Negotiators should be in the conversation/directing
+              the conversation.
+            </li>
+
+            <li>
+              Lead Negotiators should direct conversations in national
+              meetings, but should use this role to ensure all subnational
+              voices are heard.
+            </li>
+
+            <li>
+              All voices should be heard during committee meetings and
+              drafting.
+            </li>
+          </ol>
+        </li>
+
+      </ol>
+
+
+      <h3>Technical Details / Simulation Rules</h3>
+
+      <ol>
+
+        <li>
+          You can negotiate outside of class time (in fact, we encourage it!)
+        </li>
+
+        <li>
+          All votes require at least a simple majority (51%) to be approved.
+          This rule applies in both the international context and the domestic
+          context.
+
+          <ol type="a">
+            <li>
+              If an action/candidate/policy does not win at least 51%, a runoff
+              election between the two items/candidates with the most votes
+              will determine the outcome.
+            </li>
+
+            <li>
+              Similar runoff processes will be held for potential three-way
+              ties.
+            </li>
+
+            <li>
+              Exception: Committee appointments can be approved with a 50%
+              vote. Each actor must serve on a committee (i.e., you can’t
+              prevent someone from participating in drafting).
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          At the beginning of the simulation period, all participants will
+          elect a chair. This person will serve as the chair for full official
+          (i.e., in class) convenings and oversee voting in the international
+          context.
+        </li>
+
+        <li>
+          Role of the chair: The chair has the power to set the agenda, the
+          time limitations for discussions, end discussion sessions, and will
+          oversee votes.
+
+          <ol type="a">
+            <li>
+              The chair introduces each item to be voted on: they may determine
+              that not every item brought to their attention will be voted on,
+              and may introduce items to the agenda they are personally
+              interested in.
+            </li>
+
+            <li>
+              Agenda setting does not apply to committee appointments nor the
+              Final Treaty Vote. (There will be a committee and
+              committee-appointments for each major draft section, and the
+              Final Treaty Vote will proceed as outlined below.)
+            </li>
+
+            <li>
+              The Chair may vote in the Final Treaty Vote. The Chair also
+              determines the order in which Lead Negotiators vote.
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          Final Treaty Vote:
+
+          <ol type="a">
+            <li>
+              L1 Game: Lead negotiators will vote to approve or reject the final
+              draft of the treaty. Voting parties may also abstain from voting.
+            </li>
+
+            <li>
+              L2 Game:
+
+              <ol type="i">
+                <li>
+                  If the treaty is approved…
+
+                  <ol>
+                    <li>
+                      Countries who voted in favor of the treaty in L1 will
+                      have their subnational actors vote to ratify the treaty,
+                      or not. Each actor can vote to approve, reject, or
+                      abstain. Lead negotiators may not vote, except in the case
+                      of a tie.
+
+                      <ol type="a">
+                        <li>
+                          If the subnational vote approves the treaty, the
+                          country is a signatory to the treaty and participates
+                          fully.
+                        </li>
+
+                        <li>
+                          If the subnational vote rejects the treaty, the country
+                          is not a signatory and does not participate in the
+                          agreement.
+                        </li>
+                      </ol>
+                    </li>
+
+                    <li>
+                      Countries whose Lead Negotiators voted to reject the treaty
+                      do not vote in L2. Their country(ies) do(es) not
+                      participate in the agreement.
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  If the treaty is rejected…
+
+                  <ol>
+                    <li>
+                      The treaty fails. No country participates in the
+                      agreement.
+                    </li>
+
+                    <li>
+                      No vote is held in L2.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+
+      </ol>
+
+    </div>
   `);
 
 }
-
 
 /* =========================================================
    UTILITY BUTTON EVENTS

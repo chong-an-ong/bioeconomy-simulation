@@ -888,19 +888,68 @@ img {
 
 
 /* =========================================================
-   RULES PDF
+   RULES & NORMS
    ========================================================= */
 
-.rules-frame {
-  width: 100%;
+.rules-content {
+  margin-top: 20px;
 
-  height: 75vh;
+  font-size: 13px;
 
-  border: 1px solid var(--border);
-
-  background: var(--bg-deep);
+  line-height: 1.55;
 }
 
+.rules-content h3 {
+  margin: 24px 0 12px;
+
+  font-size: 15px;
+}
+
+.rules-content h3:first-child {
+  margin-top: 0;
+}
+
+.rules-content > ol {
+  margin: 0;
+
+  padding-left: 24px;
+}
+
+.rules-content > ol > li {
+  margin-bottom: 14px;
+
+  padding-left: 4px;
+}
+
+.rules-content ol ol {
+  margin-top: 7px;
+
+  padding-left: 24px;
+}
+
+.rules-content ol ol li {
+  margin-bottom: 7px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.rules-content ol ol ol {
+  margin-top: 7px;
+
+  padding-left: 24px;
+}
+
+.rules-content ol ol ol li {
+  margin-bottom: 6px;
+
+  font-size: 12px;
+}
+
+.rules-content li:last-child {
+  margin-bottom: 0;
+}
 
 /* =========================================================
    TIMELINE
