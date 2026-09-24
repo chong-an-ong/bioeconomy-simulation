@@ -1134,34 +1134,34 @@ const concepts = {
 
       <ul>
         <li>
-          Because the <strong>wealth, technology, and research capacity</strong>
+          Because the wealth, technology, and research capacity
           needed to facilitate the bioeconomy transition are unequally distributed.
         </li>
         <li>
-          Because countries' <strong>resource endowments</strong> – like land,
+          Because countries' resource endowments – like land,
           forests, biodiversity, agricultural capacity, and other biological
           resources – are also unequally distributed.
         </li>
         <li>
-          Because <strong>biological resources often cross national boundaries</strong>,
+          Because biological resources often cross national boundaries,
           and one country's decisions about use of its biological resources can
           create consequences for its neighbors.
         </li>
         <li>
-          Because <strong>supply chains cross borders</strong>, and different rules
+          Because supply chains cross borders, and different rules
           for sustainability, certification, subsidies, and market access of the
           produced goods shape where production occurs and who can participate.
         </li>
         <li>
           Because the bioeconomy transition will have
-          <strong>global environmental effects</strong> – like on deforestation,
+          global environmental effects – like on deforestation,
           carbon emissions, biodiversity, food security, and land use – that
           affect all countries regardless of how they participate.
         </li>
       </ul>
 
       <p>
-        <strong>International coordination</strong> is therefore necessary to
+        International coordination is therefore necessary to
         map out the areas of interdependence, and negotiate the distribution of
         shared responsibilities and gains.
       </p>
@@ -1190,50 +1190,53 @@ const concepts = {
 
 <ul>
   <li>
-    <strong>Agriculture:</strong> regenerative agriculture, agroforestry,
-    sustainable crop production, and agricultural residues
+    <strong>Agriculture &amp; food:</strong>
+    regenerative agriculture, agroforestry, sustainable crop production,
+    food systems, and agricultural residues
   </li>
+
   <li>
-    <strong>Forestry:</strong> sustainable forest management, timber,
-    engineered wood, and forestry residues
+    <strong>Forestry &amp; forest products:</strong>
+    sustainable forest management, timber, engineered wood, forest products,
+    and forestry residues
   </li>
+
   <li>
-    <strong>Materials &amp; manufacturing:</strong> bioplastics, bio-based
-    chemicals, textiles, and other bio-based products
+    <strong>Bio-based materials &amp; chemicals:</strong>
+    bioplastics, bio-based chemicals, textiles, biomaterials,
+    and other bio-based products
   </li>
+
   <li>
-    <strong>Energy &amp; fuels:</strong> biofuels, sustainable aviation fuels,
-    biogas, and biomass energy
+    <strong>Bioenergy &amp; fuels:</strong>
+    biofuels, sustainable aviation fuels, biogas, biomass energy,
+    and other bio-based fuels
   </li>
+
 </ul>
 
       <h3>What strategies are used to facilitate a bioeconomy transition?</h3>
 
       <ul>
         <li>
-          Writing new <strong>regulations and sustainability standards</strong>;
+          Writing new regulations and sustainability standards;
         </li>
         <li>
-          Restructuring <strong>subsidies, procurement, and public investment</strong>;
+          Restructuring subsidies, procurement, and public investment;
         </li>
         <li>
           Establishing rules for
-          <strong>carbon accounting, land use, and biomass sourcing</strong>;
+          carbon accounting, land use, and biomass sourcing;
         </li>
         <li>
-          Negotiating new <strong>trade rules and product standards</strong>;
+          Negotiating new trade rules and product standards;
         </li>
         <li>
-          Building infrastructure and <strong>supply chains</strong> for
-          <strong>bio-based production</strong>;
+          Building infrastructure and supply chains for
+          bio-based production;
         </li>
         <li>
-          Ensuring safeguards for
-          <strong>food security, biodiversity, labor, and community land rights</strong>;
-        </li>
-        <li>
-          Deciding how the <strong>costs and benefits</strong> of the transition
-          are <strong>distributed</strong> across countries and industries.
+          Ensuring safeguards for food security, biodiversity, labor, and community land rights.
         </li>
       </ul>
 
