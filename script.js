@@ -122,30 +122,30 @@ const delegations = {
       ]
     },
 
-    actors: [
+   actors: [
+  {
+    name: "Almir Narayamoga Suruí",
+    role: "Indigenous leader and environmental advocate",
+    constituency: "Indigenous peoples",
+    sector: "Forestry & forest products",
+    sectors: ["Forestry & forest products", "Agriculture & food"],
+    constituencies: ["Indigenous peoples"],
+    photo: "assets/actors/almir-narayamoga-surui.jpg",
+    resources: [
       {
-        name: "Sila Mesquita Apurinã",
-        role: "President, IPDA; National Coordinator, Rede de Trabalho Amazônico",
-        constituency: "Indigenous peoples",
-        sector: "Forestry & forest products",
-        sectors: ["Forestry & forest products", "Agriculture & food"],
-        constituencies: ["Indigenous peoples"],
-        photo: "assets/actors/sila-mesquita-apurina.jpg",
-        resources: [
-          {
-            title: "Resource title 1",
-            url: "https://example.com/resource-1"
-          },
-          {
-            title: "Resource title 2",
-            url: "https://example.com/resource-2"
-          },
-          {
-            title: "Resource title 3",
-            url: "https://example.com/resource-3"
-          }
-        ]
+        title: "Resource title 1",
+        url: "https://example.com/resource-1"
       },
+      {
+        title: "Resource title 2",
+        url: "https://example.com/resource-2"
+      },
+      {
+        title: "Resource title 3",
+        url: "https://example.com/resource-3"
+      }
+    ]
+  },
       {
         name: "Angela Pinhati",
         role: "Sustainability Director, Natura",
@@ -232,7 +232,7 @@ const delegations = {
         photo: "assets/actors/olaf-bandt.jpg",
         resources: [
           {
-            title: "Resource title 1",
+            title: "BUND's 2025 position paper on bioeconomy",
             url: "https://example.com/resource-1"
           },
           {
