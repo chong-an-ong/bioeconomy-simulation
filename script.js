@@ -645,31 +645,6 @@ function closeModal() {
 
 
 /* =========================================================
-   LINKS
-   ========================================================= */
-
-function linksHTML(links = []) {
-
-  if (!links.length) {
-    return "";
-  }
-
-  return `
-    <div class="links">
-      ${links.map(l => `
-        <a
-          href="${l.url}"
-          target="_blank"
-          rel="noopener">
-          ${l.label}
-        </a>
-      `).join("")}
-    </div>
-  `;
-}
-
-
-/* =========================================================
    COUNTRY SELECTION
    ========================================================= */
 
@@ -825,6 +800,29 @@ function createCountrySelector() {
 
 }
 
+/* =========================================================
+   RESOURCES
+   ========================================================= */
+
+function resourcesHTML(resources = []) {
+
+  if (!resources.length) {
+    return "";
+  }
+
+  return `
+    <div class="links">
+      ${resources.map(r => `
+        <a
+          href="${r.url}"
+          target="_blank"
+          rel="noopener">
+          ${r.title}
+        </a>
+      `).join("")}
+    </div>
+  `;
+}
 
 /* =========================================================
    DELEGATION MODAL
