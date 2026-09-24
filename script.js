@@ -811,19 +811,28 @@ function resourcesHTML(resources = []) {
   }
 
   return `
-    <div class="links">
-      ${resources.map(r => `
-        <a
-          href="${r.url}"
-          target="_blank"
-          rel="noopener">
-          ${r.title}
-        </a>
-      `).join("")}
+    <div class="actor-resources">
+
+      <h5>
+        Resources:
+      </h5>
+
+      <ul>
+        ${resources.map(r => `
+          <li>
+            <a
+              href="${r.url}"
+              target="_blank"
+              rel="noopener">
+              ${r.title}
+            </a>
+          </li>
+        `).join("")}
+      </ul>
+
     </div>
   `;
 }
-
 /* =========================================================
    DELEGATION MODAL
    ========================================================= */
@@ -844,6 +853,7 @@ function openDelegation(country) {
 
 
   const actors = d.actors.map(a => `
+
     <article class="actor">
 
       <div class="actor-photo">
@@ -852,29 +862,48 @@ function openDelegation(country) {
           : "Add photo"}
       </div>
 
-      <div>
+      <div class="actor-info">
 
-        <h4>${a.name}</h4>
+        <h4>
+          ${a.name}
+        </h4>
 
         <div class="role">
           ${a.role}
         </div>
 
-        ${a.constituency
-          ? `<p><strong>${a.constituency}</strong></p>`
-          : ""}
+
+        <div class="actor-tags">
+
+          ${(a.sectors || []).map(sector => `
+            <span class="actor-tag sector-tag">
+              ${sector}
+            </span>
+          `).join("")}
+
+          ${(a.constituencies || []).map(constituency => `
+            <span class="actor-tag constituency-tag">
+              ${constituency}
+            </span>
+          `).join("")}
+
+        </div>
+
 
         ${resourcesHTML(a.resources)}
 
       </div>
 
     </article>
+
   `).join("");
 
 
   openModal(`
 
-    <h2>${country}</h2>
+    <h2>
+      ${country}
+    </h2>
 
     <div class="subtitle">
       Delegation
@@ -894,7 +923,7 @@ function openDelegation(country) {
           : "Add photo"}
       </div>
 
-      <div>
+      <div class="actor-info">
 
         <h4>
           ${d.lead.name}
@@ -904,14 +933,33 @@ function openDelegation(country) {
           ${d.lead.role}
         </div>
 
+
         ${d.lead.background
           ? `
-            <p>
+            <p class="actor-background">
               <strong>Background:</strong>
               ${d.lead.background}
             </p>
           `
           : ""}
+
+
+        <div class="actor-tags">
+
+          ${(d.lead.sectors || []).map(sector => `
+            <span class="actor-tag sector-tag">
+              ${sector}
+            </span>
+          `).join("")}
+
+          ${(d.lead.constituencies || []).map(constituency => `
+            <span class="actor-tag constituency-tag">
+              ${constituency}
+            </span>
+          `).join("")}
+
+        </div>
+
 
         ${resourcesHTML(d.lead.resources)}
 
