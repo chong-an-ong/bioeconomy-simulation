@@ -1154,16 +1154,16 @@ h1 {
 }
 
 
-/* =========================================================
-   RULES & NORMS
-   ========================================================= */
+ /* =========================================================
+    RULES & NORMS
+    ========================================================= */
 
 .rules-content {
   margin-top: 22px;
 
   color: var(--text);
 
-  font-size: 13px;
+  font-size: 15px;
 
   line-height: 1.55;
 }
@@ -1189,9 +1189,9 @@ h1 {
 .rules-content ol ol li {
   margin-bottom: 7px;
 
-  color: var(--muted);
+  color: var(--text);
 
-  font-size: 12px;
+  font-size: 15px;
 
   line-height: 1.55;
 }
@@ -1205,13 +1205,12 @@ h1 {
 .rules-content ol ol ol li {
   margin-bottom: 6px;
 
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .rules-content li:last-child {
   margin-bottom: 0;
 }
-
 
 /* =========================================================
    TREATY SECTIONS
