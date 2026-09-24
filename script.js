@@ -1757,9 +1757,210 @@ document.addEventListener(
    ACTOR ASSIGNMENTS
    ========================================================= */
 
+const studentAssignments = [
+  { student: "Analee Josselyn", actor: "" },
+  { student: "Anna Atticks", actor: "" },
+  { student: "Brooke Monson", actor: "" },
+  { student: "Carolina Rocha Lima", actor: "" },
+  { student: "Eve Cooke", actor: "" },
+  { student: "Frances Jereb", actor: "" },
+  { student: "Godknows Maremera", actor: "" },
+  { student: "Grant Shen", actor: "" },
+  { student: "Gray Purcell", actor: "" },
+  { student: "Hannah Testa", actor: "" },
+  { student: "Hayley Scheir", actor: "" },
+  { student: "Kearstyn Cook", actor: "" },
+  { student: "Lauren Kim", actor: "" },
+  { student: "Leah Towery", actor: "" },
+  { student: "Lucy Krause", actor: "" },
+  { student: "Luke Schubert", actor: "" },
+  { student: "Mingze Zheng", actor: "" },
+  { student: "Miranda Wolfe", actor: "" },
+  { student: "Naimah Haman", actor: "" },
+  { student: "Natalie Wright", actor: "" },
+  { student: "Osman Raju", actor: "" },
+  { student: "Raphaella Heath", actor: "" },
+  { student: "Summer White", actor: "" }
+];
+
+
+const actorAssignments = [
+
+  /* India */
+
+  {
+    actor: "Rajesh S. Gokhale",
+    country: "India",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Ashish Gaikwad",
+    country: "India",
+    role: "Subnational Actor"
+  },
+  {
+    actor: "Sunita Narain",
+    country: "India",
+    role: "Subnational Actor"
+  },
+  {
+    actor: "Binod Anand",
+    country: "India",
+    role: "Subnational Actor"
+  },
+
+
+  /* Brazil */
+
+  {
+    actor: "João Paulo Capobianco",
+    country: "Brazil",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Almir Narayamoga Suruí",
+    country: "Brazil",
+    role: "Subnational Actor"
+  },
+  {
+    actor: "Angela Pinhati",
+    country: "Brazil",
+    role: "Subnational Actor"
+  },
+  {
+    actor: "Roberto Vilela",
+    country: "Brazil",
+    role: "Subnational Actor"
+  },
+
+
+  /* Germany */
+
+  {
+    actor: "Dorothee Bär",
+    country: "Germany",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Olaf Bandt",
+    country: "Germany",
+    role: "Subnational Actor"
+  },
+  {
+    actor: "Michael Vassiliadis",
+    country: "Germany",
+    role: "Subnational Actor"
+  },
+
+
+  /* Indonesia */
+
+  {
+    actor: "Rachmat Pambudy",
+    country: "Indonesia",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Aleta Baun",
+    country: "Indonesia",
+    role: "Subnational Actor"
+  },
+  {
+    actor: "Olivier Tichit / Desi Kusumadewi",
+    country: "Indonesia",
+    role: "Subnational Actor"
+  },
+
+
+  /* Australia */
+
+  {
+    actor: "Julie Collins",
+    country: "Australia",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Joshua Gilbert",
+    country: "Australia",
+    role: "Subnational Actor"
+  },
+  {
+    actor: "Robert Spurway",
+    country: "Australia",
+    role: "Subnational Actor"
+  },
+
+
+  /* UAE */
+
+  {
+    actor: "Sultan bin Ahmed Al Jaber",
+    country: "UAE",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Lamis Al Hashimy",
+    country: "UAE",
+    role: "Subnational Actor"
+  },
+
+
+  /* Gabon */
+
+  {
+    actor: "Maurice Ntossui Allogo",
+    country: "Gabon",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Akim Daouda",
+    country: "Gabon",
+    role: "Subnational Actor"
+  },
+
+
+  /* Finland */
+
+  {
+    actor: "Sakari Puisto",
+    country: "Finland",
+    role: "Lead Negotiator"
+  },
+  {
+    actor: "Jussi Vanhanen",
+    country: "Finland",
+    role: "Subnational Actor"
+  }
+
+];
+
+
 document
   .getElementById("actorAssignmentsBtn")
   .addEventListener("click", () => {
+
+    const joinedAssignments =
+      studentAssignments.map(studentAssignment => {
+
+        const actorAssignment =
+          actorAssignments.find(
+            assignment =>
+              assignment.actor === studentAssignment.actor
+          );
+
+        return {
+          student: studentAssignment.student,
+          actor: studentAssignment.actor,
+          country: actorAssignment
+            ? actorAssignment.country
+            : "",
+          role: actorAssignment
+            ? actorAssignment.role
+            : ""
+        };
+
+      });
+
 
     openModal(`
 
@@ -1786,19 +1987,42 @@ document
 
           <tbody>
 
-            <tr>
-              <td>[Student Name]</td>
-              <td>[Actor Full Name]</td>
-              <td>[Country]</td>
-              <td>Lead Negotiator</td>
-            </tr>
+            ${joinedAssignments.map(assignment => `
 
-            <tr>
-              <td>[Student Name]</td>
-              <td>[Actor Full Name]</td>
-              <td>[Country]</td>
-              <td>Subnational Actor</td>
-            </tr>
+              <tr>
+
+                <td>
+                  ${assignment.student}
+                </td>
+
+                <td>
+
+                  ${
+                    assignment.actor
+                      ? `
+                        <button
+                          type="button"
+                          class="actor-assignment-link"
+                          data-country="${assignment.country}">
+                          ${assignment.actor}
+                        </button>
+                      `
+                      : ""
+                  }
+
+                </td>
+
+                <td>
+                  ${assignment.country}
+                </td>
+
+                <td>
+                  ${assignment.role}
+                </td>
+
+              </tr>
+
+            `).join("")}
 
           </tbody>
 
@@ -1809,6 +2033,27 @@ document
     `);
 
   });
+
+
+/* =========================================================
+   ACTOR ASSIGNMENT → COUNTRY DELEGATION
+   ========================================================= */
+
+document.addEventListener("click", event => {
+
+  const button =
+    event.target.closest(".actor-assignment-link");
+
+  if (!button) return;
+
+  const country =
+    button.dataset.country;
+
+  closeModal();
+  selectCountry(country);
+  openDelegation(country);
+
+});
 
 /* =========================================================
    TIMELINE
