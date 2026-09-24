@@ -52,10 +52,6 @@ const delegations = {
         role: "Director General, Centre for Science and Environment",
         sector: "Cross-cutting",
         sectors: [
-          "Agriculture & food",
-          "Forestry & forest products",
-          "Bio-based materials & chemicals",
-          "Bioenergy & fuels",
           "Cross-cutting"
         ],
         constituencies: [],
@@ -230,10 +226,6 @@ const delegations = {
         role: "Chair, BUND",
         sector: "Cross-cutting",
         sectors: [
-          "Agriculture & food",
-          "Forestry & forest products",
-          "Bio-based materials & chemicals",
-          "Bioenergy & fuels",
           "Cross-cutting"
         ],
         constituencies: [],
@@ -362,10 +354,6 @@ const delegations = {
         role: "Founder & CEO, Mwaana; former CEO, FGIS",
         sector: "Cross-cutting",
         sectors: [
-          "Agriculture & food",
-          "Forestry & forest products",
-          "Bio-based materials & chemicals",
-          "Bioenergy & fuels",
           "Cross-cutting"
         ],
         constituencies: [],
