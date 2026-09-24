@@ -1378,10 +1378,6 @@ const concepts = {
 
 };
 
-/* =========================================================
-   TREATY HUB
-   ========================================================= */
-
 const treatyHub = {
 
   "Sample texts": [
@@ -1399,11 +1395,56 @@ const treatyHub = {
     }
   ],
 
-  "Round 1 texts": [],
 
-  "Round 2 texts": [],
+  "1st Draft Links": [
+    {
+      title: "1st Draft: Committee Assignments",
+      url: "https://example.com/first-draft-committee-assignments"
+    },
+    {
+      title: "1st Draft: Key Definitions & Objectives",
+      url: "https://example.com/first-draft-definitions-objectives"
+    },
+    {
+      title: "1st Draft: Obligations & Commitments",
+      url: "https://example.com/first-draft-obligations-commitments"
+    },
+    {
+      title: "1st Draft: Monitoring & Institutions",
+      url: "https://example.com/first-draft-monitoring-institutions"
+    },
+    {
+      title: "1st Draft: Disputes & Settlements",
+      url: "https://example.com/first-draft-disputes-settlements"
+    }
+  ],
 
-    "National bioeconomy strategies": [
+
+  "2nd Draft Links": [
+    {
+      title: "2nd Draft: Committee Assignments",
+      url: "https://example.com/second-draft-committee-assignments"
+    },
+    {
+      title: "2nd Draft: Key Definitions & Objectives",
+      url: "https://example.com/second-draft-definitions-objectives"
+    },
+    {
+      title: "2nd Draft: Obligations & Commitments",
+      url: "https://example.com/second-draft-obligations-commitments"
+    },
+    {
+      title: "2nd Draft: Monitoring & Institutions",
+      url: "https://example.com/second-draft-monitoring-institutions"
+    },
+    {
+      title: "2nd Draft: Disputes & Settlements",
+      url: "https://example.com/second-draft-disputes-settlements"
+    }
+  ],
+
+
+  "National bioeconomy strategies": [
     {
       title: "STRATEGY PUBLISHED",
       type: "section"
@@ -1478,11 +1519,9 @@ const treatyHub = {
       title: "Bioeconomy within broader green-growth policy",
       url: "https://gggi.org/report/gggi-uae-country-planning-framework-2023-2027/"
     }
-  ],
+  ]
 
 };
-
-
 
 /* =========================================================
    CONCEPT BUTTON EVENTS
@@ -1595,9 +1634,15 @@ function openTreatyCategory(category) {
         return `
           <div class="treaty-item">
 
-            <div class="treaty-country">
-              ${countryFlags[item.country] || ""} ${item.country}
-            </div>
+            ${
+              item.country
+                ? `
+                  <div class="treaty-country">
+                    ${countryFlags[item.country] || ""} ${item.country}
+                  </div>
+                `
+                : ""
+            }
 
             <a
               class="treaty-link"
@@ -1651,7 +1696,6 @@ function openTreatyCategory(category) {
   `);
 
 }
-
 
 /* ---------------------------------------------------------
    Treaty Hub button
