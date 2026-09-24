@@ -1758,29 +1758,36 @@ document.addEventListener(
    ========================================================= */
 
 const studentAssignments = [
-  { student: "Analee Josselyn", actor: "" },
-  { student: "Anna Atticks", actor: "" },
-  { student: "Brooke Monson", actor: "" },
-  { student: "Carolina Rocha Lima", actor: "" },
-  { student: "Eve Cooke", actor: "" },
-  { student: "Frances Jereb", actor: "" },
-  { student: "Godknows Maremera", actor: "" },
-  { student: "Grant Shen", actor: "" },
-  { student: "Gray Purcell", actor: "" },
-  { student: "Hannah Testa", actor: "" },
-  { student: "Hayley Scheir", actor: "" },
-  { student: "Kearstyn Cook", actor: "" },
-  { student: "Lauren Kim", actor: "" },
-  { student: "Leah Towery", actor: "" },
-  { student: "Lucy Krause", actor: "" },
-  { student: "Luke Schubert", actor: "" },
-  { student: "Mingze Zheng", actor: "" },
-  { student: "Miranda Wolfe", actor: "" },
-  { student: "Naimah Haman", actor: "" },
-  { student: "Natalie Wright", actor: "" },
-  { student: "Osman Raju", actor: "" },
-  { student: "Raphaella Heath", actor: "" },
-  { student: "Summer White", actor: "" }
+  { student: "Analee Josselyn", actor: "Rajesh S. Gokhale" },
+  { student: "Anna Atticks", actor: "Ashish Gaikwad" },
+  { student: "Brooke Monson", actor: "Sunita Narain" },
+  { student: "Carolina Rocha Lima", actor: "Binod Anand" },
+
+  { student: "Eve Cooke", actor: "João Paulo Capobianco" },
+  { student: "Frances Jereb", actor: "Almir Narayamoga Suruí" },
+  { student: "Godknows Maremera", actor: "Angela Pinhati" },
+  { student: "Grant Shen", actor: "Roberto Vilela" },
+
+  { student: "Gray Purcell", actor: "Dorothee Bär" },
+  { student: "Hannah Testa", actor: "Olaf Bandt" },
+  { student: "Hayley Scheir", actor: "Michael Vassiliadis" },
+
+  { student: "Kearstyn Cook", actor: "Rachmat Pambudy" },
+  { student: "Lauren Kim", actor: "Aleta Baun" },
+  { student: "Leah Towery", actor: "Olivier Tichit / Desi Kusumadewi" },
+
+  { student: "Lucy Krause", actor: "Julie Collins" },
+  { student: "Luke Schubert", actor: "Joshua Gilbert" },
+  { student: "Mingze Zheng", actor: "Robert Spurway" },
+
+  { student: "Miranda Wolfe", actor: "Sultan bin Ahmed Al Jaber" },
+  { student: "Naimah Haman", actor: "Lamis Al Hashimy" },
+
+  { student: "Natalie Wright", actor: "Maurice Ntossui Allogo" },
+  { student: "Osman Raju", actor: "Akim Daouda" },
+
+  { student: "Raphaella Heath", actor: "Sakari Puisto" },
+  { student: "Summer White", actor: "Jussi Vanhanen" }
 ];
 
 
