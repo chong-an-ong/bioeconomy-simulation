@@ -409,7 +409,7 @@ const delegations = {
         sector: "Forestry & forest products",
         sectors: ["Forestry & forest products", "Agriculture & food"],
         constituencies: ["Indigenous peoples"],
-        photo: "assets/actors/aleta-baun.jpg",
+        photo: "assets/actors/aleta-baun.JPG",
         resources: [
           {
             title: "Resource title 1",
