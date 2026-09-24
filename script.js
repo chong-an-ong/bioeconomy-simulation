@@ -861,21 +861,29 @@ function openDelegation(country) {
         </div>
 
 
-        <div class="actor-tags">
+<div class="actor-tags">
 
-          ${(a.sectors || []).map(sector => `
-            <span class="actor-tag sector-tag">
-              ${sector}
-            </span>
-          `).join("")}
+  ${(a.sectors || []).map(sector => `
+    <button
+      type="button"
+      class="actor-tag sector-tag actor-tag-link"
+      data-filter-type="sector"
+      data-filter-value="${sector}">
+      ${sector}
+    </button>
+  `).join("")}
 
-          ${(a.constituencies || []).map(constituency => `
-            <span class="actor-tag constituency-tag">
-              ${constituency}
-            </span>
-          `).join("")}
+  ${(a.constituencies || []).map(constituency => `
+    <button
+      type="button"
+      class="actor-tag constituency-tag actor-tag-link"
+      data-filter-type="constituency"
+      data-filter-value="${constituency}">
+      ${constituency}
+    </button>
+  `).join("")}
 
-        </div>
+</div>
 
 
         ${resourcesHTML(a.resources)}
@@ -1113,6 +1121,21 @@ document.addEventListener(
 
     openDelegation(country);
 
+  }
+);
+
+document.addEventListener(
+  "click",
+  event => {
+    const tag = event.target.closest(".actor-tag-link");
+
+    if (!tag) return;
+
+    const filterType = tag.dataset.filterType;
+    const filterValue = tag.dataset.filterValue;
+
+    closeModal();
+    openCoalition(filterType, filterValue);
   }
 );
 

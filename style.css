@@ -713,6 +713,16 @@ h1 {
   background: rgba(255,255,255,.14);
 }
 
+.actor-tag-link {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.actor-tag-link:hover {
+  opacity: 1;
+}
+
 
 /* =========================================================
    ACTOR RESOURCES
