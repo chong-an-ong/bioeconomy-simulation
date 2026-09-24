@@ -705,6 +705,13 @@ h1 {
   opacity: 0.75;
 }
 
+.actor-tag-link {
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
 .sector-tag {
   background: rgba(255,255,255,.08);
 }
