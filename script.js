@@ -866,17 +866,7 @@ function openDelegation(country) {
           ? `<p><strong>${a.constituency}</strong></p>`
           : ""}
 
-        <p>
-          <strong>Position:</strong>
-          ${a.position}
-        </p>
-
-        <p>
-          <strong>Background:</strong>
-          ${a.background}
-        </p>
-
-        ${linksHTML(a.links)}
+        ${resourcesHTML(a.resources)}
 
       </div>
 
@@ -916,16 +906,16 @@ function openDelegation(country) {
           ${d.lead.role}
         </div>
 
-        <p>
-          ${d.lead.background}
-        </p>
+        ${d.lead.background
+          ? `
+            <p>
+              <strong>Background:</strong>
+              ${d.lead.background}
+            </p>
+          `
+          : ""}
 
-        <p>
-          <strong>Position:</strong>
-          ${d.lead.position}
-        </p>
-
-        ${linksHTML(d.lead.links)}
+        ${resourcesHTML(d.lead.resources)}
 
       </div>
 
@@ -940,7 +930,6 @@ function openDelegation(country) {
 
   `);
 }
-
 
 /* =========================================================
    COALITION MODAL
