@@ -130,7 +130,7 @@ const delegations = {
     sector: "Forestry & forest products",
     sectors: ["Forestry & forest products", "Agriculture & food"],
     constituencies: ["Indigenous peoples"],
-    photo: "assets/actors/almir-narayamoga-surui.jpg",
+    photo: "assets/actors/almir-narayamoga-surui.png",
     resources: [
       {
         title: "Resource title 1",
@@ -484,7 +484,7 @@ const delegations = {
         sector: "Agriculture & food",
         sectors: ["Agriculture & food", "Forestry & forest products"],
         constituencies: ["Indigenous peoples"],
-        photo: "assets/actors/joshua-gilbert.jpg",
+        photo: "assets/actors/joshua-gilbert.png",
         resources: [
           {
             title: "Resource title 1",
