@@ -73,7 +73,7 @@ const delegations = {
       },
       {
         name: "Binod Anand",
-        role: "National Vice-President, All India Kisan Coordination Committee; President, NAFPO",
+        role: "National Vice-President, All India Kisan Coordination Committee (AIKCC); President, NAFPO",
         constituency: "Farmers & workers",
         sector: "Agriculture & food",
         sectors: ["Agriculture & food", "Bioenergy & fuels"],
@@ -81,16 +81,16 @@ const delegations = {
         photo: "assets/actors/binod-anand.jpg",
         resources: [
           {
-            title: "Resource title 1",
-            url: "https://example.com/resource-1"
+            title: "Personal bio",
+            url: "https://wcoopef.com/lg-binod-anand/"
           },
           {
-            title: "Resource title 2",
-            url: "https://example.com/resource-2"
+            title: "Press release on meeting between AIKCC leaders and Agriculture Ministry on Ethanol",
+            url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2294576&lang=1&reg=3"
           },
           {
-            title: "Resource title 3",
-            url: "https://example.com/resource-3"
+            title: "Q&A with Binod Anand: Sustainable development and innovation",
+            url: "https://thebrownandwhite.com/2024/09/26/qa-with-binod-anand-sustainable-development-and-innovation/"
           }
         ]
       }
@@ -233,15 +233,15 @@ const delegations = {
         resources: [
           {
             title: "BUND's 2025 position paper on bioeconomy",
-            url: "https://example.com/resource-1"
+            url: "https://www.bund.net/service/publikationen/detail/publication/biooekonomie/"
           },
           {
-            title: "Resource title 2",
-            url: "https://example.com/resource-2"
+            title: "How can economic sectors be transformed sustainably? Lessons from the Future Commission on Agriculture (German-language interview; use a translation tool)",
+            url: "https://www.ioew.de/fileadmin/user_upload/DOKUMENTE/Publikationen/2025/Zukunftsgerecht_IOEW-2025_barrierefrei.pdf"
           },
           {
-            title: "Resource title 3",
-            url: "https://example.com/resource-3"
+            title: "The transformation will ultimately be expensive (German-language interview; use a translation tool)",
+            url: "https://www.agrarzeitung.de/nachrichten/politik/interview-mit-olaf-brand-bund-ein-umbau-wird-am-ende-teuer-werden-89322"
           }
         ]
       },
@@ -255,16 +255,16 @@ const delegations = {
         photo: "assets/actors/michael-vassiliadis.jpg",
         resources: [
           {
-            title: "Resource title 1",
-            url: "https://example.com/resource-1"
+            title: "In Trilogue: What the German Chemical Industry Aims to Set in Motion",
+            url: "https://www.chemiehoch3.de/fileadmin/user_upload/Home/Presse/Publikationen/chemiehoch3-publikationen-branchenbericht2013-en.pdf"
           },
           {
-            title: "Resource title 2",
-            url: "https://example.com/resource-2"
+            title: "Video statement on IG BCE's role in sustainable development",
+            url: "https://www.linkedin.com/feed/update/urn:li:activity:6760955446619590656/"
           },
           {
-            title: "Resource title 3",
-            url: "https://example.com/resource-3"
+            title: "IG BCE Statement on EU Commission's Clean Industrial Deal",
+            url: "https://igbce.de/igbce/-we-welcome-the-action-plan--249908#/"
           }
         ]
       }
@@ -387,16 +387,16 @@ const delegations = {
       constituencies: [],
       resources: [
         {
-          title: "Resource title 1",
-          url: "https://example.com/resource-1"
+          title: "Biodiversity key to Indonesia's long-term economic growth: Bappenas",
+          url: "https://en.antaranews.com/news/423503/biodiversity-key-to-indonesias-long-term-economic-growth-bappenas"
         },
         {
-          title: "Resource title 2",
-          url: "https://example.com/resource-2"
+          title: "Bappenas Pushes Palm Oil–Cattle Integration to Drive Food Security and Circular Economy",
+          url: "https://www.palmoilmagazine.com/hot-news/2026/04/12/bappenas-pushes-palm-oil-cattle-integration-to-drive-food-security-and-circular-economy/"
         },
         {
-          title: "Resource title 3",
-          url: "https://example.com/resource-3"
+          title: "Bioeconomy and ecosystem protection mutually reinforcing: Bappenas",
+          url: "https://en.antaranews.com/news/374361/bioeconomy-and-ecosystem-protection-mutually-reinforcing-bappenas"
         }
       ]
     },
@@ -412,35 +412,39 @@ const delegations = {
         photo: "assets/actors/aleta-baun.JPG",
         resources: [
           {
-            title: "Resource title 1",
-            url: "https://example.com/resource-1"
+            title: "2013 Goldman Environmental Prize profile (with video)",
+            url: "https://www.goldmanprize.org/recipient/aleta-baun/"
           },
           {
-            title: "Resource title 2",
-            url: "https://example.com/resource-2"
+            title: "Inside Indonesia profile",
+            url: "https://www.insideindonesia.org/editions/edition-163-jan-mar-2026/aleta-baun"
           },
           {
-            title: "Resource title 3",
-            url: "https://example.com/resource-3"
+            title: "One Earth proile",
+            url: "https://www.oneearth.org/environmental-hero-aleta-baun/"
+          },
+          {
+            title: "Indonesian environmentalist who diced with death hopes to inspire more women",
+            url: "https://www.reuters.com/article/world/indonesian-environmentalist-who-diced-with-death-hopes-to-inspire-more-women-idUSKBN16L14I/"
           }
         ]
       },
       {
-        name: "Olivier Tichit / Desi Kusumadewi",
-        role: "Director of Sustainability, Musim Mas / IFFCO",
+        name: "Desi Kusumadewi",
+        role: "Head of Climate Change and Bioeconomy, GAR",
         constituency: "Industry",
         sector: "Agriculture & food",
         sectors: ["Agriculture & food", "Bioenergy & fuels"],
         constituencies: ["Industry"],
-        photo: "assets/actors/olivier-tichit.jpg",
+        photo: "assets/actors/desi-kusumadewi.jpg",
         resources: [
           {
-            title: "Resource title 1",
-            url: "https://example.com/resource-1"
+            title: "Behind the numbers: Deuxiemi Natallia Kusumadewi – Charting a course to net zero",
+            url: "https://www.golden-agri.com/news-stories/stories/thought-leader/behind-the-numbers-deuxiemi-natallia-kusumadewi-charting-a-course-to-net-zero/"
           },
           {
-            title: "Resource title 2",
-            url: "https://example.com/resource-2"
+            title: "Video feature in her previous role at IFCO",
+            url: "https://www.youtube.com/watch?v=Ijst1hZ3PCM"
           },
           {
             title: "Resource title 3",
@@ -1772,7 +1776,7 @@ const studentAssignments = [
 
   { student: "Kearstyn Cook", actor: "Rachmat Pambudy" },
   { student: "Lauren Kim", actor: "Aleta Baun" },
-  { student: "Leah Towery", actor: "Olivier Tichit / Desi Kusumadewi" },
+  { student: "Leah Towery", actor: "Desi Kusumadewi" },
 
   { student: "Lucy Krause", actor: "Julie Collins" },
   { student: "Luke Schubert", actor: "Joshua Gilbert" },
@@ -1871,7 +1875,7 @@ const actorAssignments = [
     role: "Subnational Actor"
   },
   {
-    actor: "Olivier Tichit / Desi Kusumadewi",
+    actor: "Desi Kusumadewi",
     country: "Indonesia",
     role: "Subnational Actor"
   },
