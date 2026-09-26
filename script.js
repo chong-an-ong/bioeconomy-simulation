@@ -198,26 +198,25 @@ const delegations = {
 
   "Germany": {
     lead: {
-      name: "Dorothee Bär",
-      role: "Federal Minister of Research, Technology and Space",
-      background: "Political scientist; longtime Bundestag member and former digitalization minister.",
-      photo: "assets/actors/dorothee-baer.jpg",
+      name: "Katherina Reiche",
+      role: "Federal Minister of Economic Affairs & Energy",
+      background: "Chemist; former Bundestag member and energy-sector executive",
+      photo: "assets/actors/katherina-reiche.jpg",
       sectors: [],
       constituencies: [],
       resources: [
         {
-          title: "Resource title 1",
-          url: "https://example.com/resource-1"
+          title: "Support programme 'Industrial Bioeconomy' (German-language material; use a translation tool)",
+          url: "https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Dossier/industrielle-biooekonomie.html?"
         },
         {
-          title: "Resource title 2",
-          url: "https://example.com/resource-2"
-        },
+          title: "Industrial Bioeconomy – Growth and Innovation for Germany (German-language material; use a translation tool)",
+          url: "https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Dossier/industrielle-biooekonomie-wachstum-und-innovation.html"
+        }   ,
         {
-          title: "Resource title 3",
-          url: "https://example.com/resource-3"
-        }
-      ]
+          title: "Interactive value chain (German-language material; use a translation tool)",
+          url: "https://www.bundeswirtschaftsministerium.de/Navigation/DE/industrielle-biooekonomie/wertschoepfungskette.html?"
+        }      ]
     },
 
     actors: [
@@ -445,10 +444,6 @@ const delegations = {
           {
             title: "Video feature in her previous role at IFCO",
             url: "https://www.youtube.com/watch?v=Ijst1hZ3PCM"
-          },
-          {
-            title: "Resource title 3",
-            url: "https://example.com/resource-3"
           }
         ]
       }
@@ -1410,15 +1405,26 @@ const treatyHub = {
   "Sample texts": [
     {
       title: "Last year's final treaty",
-      url: "#"
+      url: "assets/env-821-treaty-2025.pdf"
     },
     {
       title: "Paris Accords text",
-      url: "#"
+      url: "https://unfccc.int/files/essential_background/convention/application/pdf/english_paris_agreement.pdf"
     },
+
+    {
+      title: "Kyoto Protocol text",
+      url: "https://unfccc.int/resource/docs/convkp/kpeng.pdf"
+    },
+
+    {
+      title: "Vienna Convention & Montreal Protocol texts (ozone protection)",
+      url: "https://ozone.unep.org/treaties/vienna-convention/vienna-convention-protection-ozone-layer"
+    },
+
     {
       title: "Kunming-Montreal Global Biodiversity Framework text",
-      url: "#"
+      url: "https://www.cbd.int/article/cop15-final-text-kunming-montreal-gbf-221222"
     }
   ],
 
@@ -1489,7 +1495,7 @@ const treatyHub = {
     {
       country: "Germany",
       title: "National Bioeconomy Strategy",
-      url: "https://www.bundesregierung.de/breg-en/service/archive/biooekonomie-1712668"
+      url: "https://www.ptj.de/lw_resource/datapool/systemfiles/agent/ptjpublications/D4D3A930ABB81F29E0537E695E86FACA/live/document/BMBF_Bioeconomy-Strategy_en_accesdible_n.pdf"
     },
     {
       country: "India",
@@ -1498,28 +1504,49 @@ const treatyHub = {
     },
 
     {
-      title: "NO STRATEGY IDENTIFIED",
+      title: "STRATEGY IN PROGRESS",
+      type: "section"
+    },
+
+    {
+      country: "Indonesia",
+      title: "Indonesia's National Productivity Masterplan (see section: Paving a Strategic Path toward a Regenerative and Future-Ready Bioeconomy)",
+      url: "https://komens.bappenas.go.id/public/storage/files/Dt.01.04_Master_Plan_Produktivitas_Nasional_2025.pdf"
+    },
+
+    {
+      title: "NO OFFICIAL 'BIOECONOMY' STRATEGY IDENTIFIED",
       type: "section"
     },
     {
       country: "Australia",
-      title: "Research on Australia's bioeconomy",
-      url: "https://biooekonomie.de/en/topics/in-depth-reports-worldwide"
+      title: "QUT Report outlining blueprint to grow Australia's bioeconomy",
+      url: "https://www.qut.edu.au/news?id=200410"
+    },    {
+      country: "Australia",
+      title: "National Bioenergy Feedstock Strategy",
+      url: "https://www.agriculture.gov.au/agriculture-land/farm-food-drought/climatechange/bioenergy-feedstocks"
     },
     {
       country: "Gabon",
-      title: "Research on developing a national bioeconomy framework",
-      url: "https://www.circulareconomyalliance.com/gabon"
+      title: "Outlook document produced by Circular Bioeconomy Alliance for Sustainable Forest Bioeconomy in 5 African countries, including Gabon",
+      url: "https://circularbioeconomyalliance.org/outlook-for-sustainable-forest-bioeconomy-in-gabon-kenya-nigeria-south-africa-and-tanzania/"
     },
     {
-      country: "Indonesia",
-      title: "Policy gaps and the case for a national bioeconomy roadmap",
-      url: "https://komens.bappenas.go.id/public/storage/files/Dt.01.04_Master_Plan_Produktivitas_Nasional_2025.pdf"
+      country: "Gabon",
+      title: "AGADEV - Who are we? (French-language website; use a translation tool)",
+      url: "https://agadev-gabon.com/qui-sommes-nous"
     },
+    {
+      country: "Gabon",
+      title: "Gabon Sovereign Carbon Initiative",
+      url: "https://gabon-carbon-solutions.com/en/"
+    },
+
     {
       country: "UAE",
-      title: "Bioeconomy within broader green-growth policy",
-      url: "https://gggi.org/report/gggi-uae-country-planning-framework-2023-2027/"
+      title: "National Policy on Biofuels",
+      url: "https://uaelegislation.gov.ae/en/policy/details/the-national-policy-on-biofuels"
     }
   ]
 
@@ -1616,7 +1643,7 @@ function openTreatyCategory(category) {
   const itemsHTML =
   items.length
 
-    ? items.map(item => {
+    ? items.map((item, index) => {
 
         /* Subsection heading */
 
@@ -1631,13 +1658,24 @@ function openTreatyCategory(category) {
         }
 
 
-        /* Country + document */
+        /* Country heading only if different from previous item */
+
+        const previousItem =
+          items[index - 1];
+
+        const showCountry =
+          item.country &&
+          (
+            !previousItem ||
+            previousItem.country !== item.country
+          );
+
 
         return `
           <div class="treaty-item">
 
             ${
-              item.country
+              showCountry
                 ? `
                   <div class="treaty-country">
                     ${countryFlags[item.country] || ""} ${item.country}
@@ -1698,7 +1736,6 @@ function openTreatyCategory(category) {
   `);
 
 }
-
 /* ---------------------------------------------------------
    Treaty Hub button
    --------------------------------------------------------- */
@@ -1770,7 +1807,7 @@ const studentAssignments = [
   { student: "Godknows Maremera", actor: "Angela Pinhati" },
   { student: "Grant Shen", actor: "Roberto Vilela" },
 
-  { student: "Gray Purcell", actor: "Dorothee Bär" },
+  { student: "Gray Purcell", actor: "Katherina Reiche" },
   { student: "Hannah Testa", actor: "Olaf Bandt" },
   { student: "Hayley Scheir", actor: "Michael Vassiliadis" },
 
@@ -1846,7 +1883,7 @@ const actorAssignments = [
   /* Germany */
 
   {
-    actor: "Dorothee Bär",
+    actor: "Katherina Reiche",
     country: "Germany",
     role: "Lead Negotiator"
   },
