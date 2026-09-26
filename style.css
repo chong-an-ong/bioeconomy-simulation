@@ -1343,3 +1343,15 @@ h1 {
 .actor-assignment-link:hover {
   opacity: .75;
 }
+
+.video-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.video-grid iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}

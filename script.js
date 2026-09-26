@@ -1262,7 +1262,7 @@ const concepts = {
         </li>
       </ul>
 
-      <h3>Who are the stakeholders?</h3>
+      <h3>Who are the actors in a bioeconomy transition?</h3>
 
       <ul>
         <li>
@@ -1291,6 +1291,35 @@ const concepts = {
           biomass supply.
         </li>
       </ul>
+	      <h3>Video resources</h3>
+
+      <div class="video-grid">
+
+        <iframe
+          src="https://www.youtube.com/embed/DukP2Rbw46Q"
+          title="Bioeconomy video 1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+        <iframe
+          src="https://www.youtube.com/embed/sTatfbueiik"
+          title="Bioeconomy video 2"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+        <iframe
+          src="https://www.youtube.com/embed/_mA-AtHMEyk"
+          title="Bioeconomy video 3"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
     `
   },
 
