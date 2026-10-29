@@ -2735,13 +2735,13 @@ function openTimeline() {
                   <td>
                     Case study: Kyoto Protocol<br>
                     <span class="timeline-note">
-                      Initial meetings with countries/coalitions; think about treaty "wishlists"
+                      Initial meetings with countries/coalitions; think about treaty "wishlists"; chair election #1
                     </span>
                   </td>
                   <td>
                     Lecture: flexibility in agreements<br>
                     <span class="timeline-note">
-                      1-hr in-class simulation time; split into 1st draft committees
+                      1-hr in-class simulation time; elect chair; split into 1st draft committees
                     </span>
                   </td>
                   <td>Nov 3 (Tue): <br>Actor Memo #2</td>
@@ -2803,7 +2803,7 @@ function openTimeline() {
                   <td>
                     Lecture: collective action revisited<br>
                     <span class="timeline-note">
-                      1-hr in-class simulation; continue 2nd draft work
+                      Chair election #2; 1-hr in-class simulation; continue 2nd draft work
                     </span>
                   </td>
                   <td>Nov 20 (Fri): <br>2nd draft</td>
